@@ -1,0 +1,83 @@
+{
+  "notes": [
+    {
+      "title": "Complete my ninja training",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
+      "category": "work",
+      "id": 2
+    },
+    {
+      "title": "mniam mniam",
+      "details": "jedzonko to sens żyćka",
+      "category": "reminders",
+      "id": 5
+    },
+    {
+      "title": "The Beatles",
+      "details": "The Beatles – brytyjski rockowy zespół muzyczny z Liverpoolu, działający w latach 1960–1970. Przez większość tego okresu w jego skład wchodzili John Lennon, Paul McCartney, George Harrison i Ringo Starr. Beatlesi wywodzą się z zespołu The Quarrymen, w którym występowali Lennon, McCartney i Harrison. ",
+      "category": "work",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "maja@o2.pl",
+      "nick": "blues.girl",
+      "description": "Hi. My name is Maja. I like blues and country music.",
+      "password": "password"
+    },
+    {
+      "id": 2,
+      "email": "anastasia@o2.pl",
+      "nick": "flower",
+      "description": "Hi. I'm Anastasia. I love rock music.",
+      "password": "password"
+    },
+    {
+      "id": 3,
+      "email": "max@o2.pl",
+      "nick": "stitch",
+      "description": "Hello. I'm Max and I love Elvis Presley.",
+      "password": "password"
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "userId": 3,
+      "name": "Elvis Is Back!",
+      "songs": [
+        "Make Me Know It",
+        "Fever",
+        "The Girl of My Best Friend",
+        "I Will Be Home Again",
+        "Dirty, Dirty Feeling"
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Innuendo",
+      "songs": [
+        "Innuendo",
+        "I'm Going Slightly Mad",
+        "Headlong",
+        "I Can't Live With You",
+        "Don't Try So Hard"
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    }
+  ]
+}
