@@ -71,15 +71,11 @@ export default function Layout({ children }) {
         },
         {
             text: 'Wyszukaj',
-            path: '/create'
+            path: '/wyszukaj'
         },
         {
             text: 'Profil',
-            path: '/create'
-        },
-        {
-            text: 'Wyloguj',
-            path: '/create'
+            path: '/profil'
         }
     ]
     return (
@@ -108,11 +104,6 @@ export default function Layout({ children }) {
                 anchor='right'
                 classes={{ paper: classes.drawerPaper }}
             >
-                <div>
-                    <Typography variant='h5' className={classes.title}>
-                        
-                    </Typography>
-                </div>
                 {/* list / links */}
                 <List className = {classes.menu}>
                     {menuItems.map(item => (

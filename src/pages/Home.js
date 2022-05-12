@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Paper, Typography } from '@material-ui/core'
-import NoteCard from '../components/NoteCard'
 import Masonry from 'react-masonry-css'
 import { Button } from "@material-ui/core";
 
