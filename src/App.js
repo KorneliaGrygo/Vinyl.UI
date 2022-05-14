@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Create from './pages/Create'
-import {createMuiTheme, ThemeProvider} from '@material-ui/core'
+import {ThemeProvider} from '@material-ui/core'
 import {grey} from '@material-ui/core/colors'
 import Layout from './components/Layout'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#fefefe'
