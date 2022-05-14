@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Search from './pages/Search'
 import {ThemeProvider, createTheme} from '@material-ui/core'
 import {grey} from '@material-ui/core/colors'
 import Layout from './components/Layout'
@@ -42,7 +41,7 @@ function App() {
               <Signup />
             </Route>
             <Route path="/wyszukaj">
-              <Create />
+              <Search />
             </Route>
           </Switch>
         </Layout>
