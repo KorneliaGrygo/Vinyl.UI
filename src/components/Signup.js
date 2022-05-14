@@ -19,27 +19,27 @@ const Signup = () => {
                     <Avatar style={avatarStyle}>
                         <AddCircleOutlineOutlinedIcon />
                     </Avatar>
-                    <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
+                    <h2 style={headerStyle}>Zarejestruj się</h2>
+                    <Typography variant='caption' gutterBottom></Typography>
                 </Grid>
                 <form>
-                    <TextField fullWidth label='Name' placeholder="Enter your name" />
-                    <TextField fullWidth label='Email' placeholder="Enter your email" />
+                    <TextField fullWidth label='Nazwa użytkownika' placeholder="Podaj nazwę uzytkownika" />
+                    <TextField fullWidth label='Email' placeholder="Podaj email" />
                     <FormControl component="fieldset" style={marginTop}>
-                        <FormLabel component="legend">Gender</FormLabel>
+                        <FormLabel component="legend">Płeć</FormLabel>
                         <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
+                            <FormControlLabel value="kobieta" control={<Radio />} label="Kobieta" />
+                            <FormControlLabel value="mężczyzna" control={<Radio />} label="Mężczyzna" />
                         </RadioGroup>
                     </FormControl>
-                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-                    <TextField fullWidth label='Password' placeholder="Enter your password"/>
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
+                    <TextField fullWidth label='Numer telefonu' placeholder="Podaj numer telefonu" />
+                    <TextField fullWidth label='Hasło' placeholder="Podaj hasło"/>
+                    <TextField fullWidth label='Powtórz hasło' placeholder="Powtórz hasło"/>
                     <FormControlLabel
                         control={<Checkbox name="checkedA" />}
-                        label="I accept the terms and conditions."
+                        label="Akceptuje warunki korzystania z aplikacji."
                     />
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+                    <Button type='submit' variant='contained' color='primary'>Zarejestruj się</Button>
                 </form>
             </Paper>
         </Grid>

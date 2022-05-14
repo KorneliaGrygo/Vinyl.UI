@@ -1,29 +1,11 @@
 {
-  "notes": [
-    {
-      "title": "Complete my ninja training",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
-      "category": "work",
-      "id": 2
-    },
-    {
-      "title": "mniam mniam",
-      "details": "jedzonko to sens żyćka",
-      "category": "reminders",
-      "id": 5
-    },
-    {
-      "title": "The Beatles",
-      "details": "The Beatles – brytyjski rockowy zespół muzyczny z Liverpoolu, działający w latach 1960–1970. Przez większość tego okresu w jego skład wchodzili John Lennon, Paul McCartney, George Harrison i Ringo Starr. Beatlesi wywodzą się z zespołu The Quarrymen, w którym występowali Lennon, McCartney i Harrison. ",
-      "category": "work",
-      "id": 7
-    }
-  ],
   "users": [
     {
       "id": 1,
       "email": "maja@o2.pl",
       "nick": "blues.girl",
+      "gender": "kobieta",
+      "phone": "123456789",
       "description": "Hi. My name is Maja. I like blues and country music.",
       "password": "password"
     },
@@ -31,6 +13,8 @@
       "id": 2,
       "email": "anastasia@o2.pl",
       "nick": "flower",
+      "gender":"kobieta",
+      "phone":"456789123",
       "description": "Hi. I'm Anastasia. I love rock music.",
       "password": "password"
     },
@@ -38,6 +22,8 @@
       "id": 3,
       "email": "max@o2.pl",
       "nick": "stitch",
+      "gender": "mężczyzna",
+      "phone":"789123456",
       "description": "Hello. I'm Max and I love Elvis Presley.",
       "password": "password"
     }
