@@ -6,7 +6,7 @@ import {grey} from '@material-ui/core/colors'
 import Layout from './components/Layout'
 import Login from './components/Login'
 import Signup from './components/Signup'
-
+import Search from './pages/Search'
 const theme = createTheme({
   palette: {
     primary: {
@@ -40,6 +40,9 @@ function App() {
             </Route>
             <Route path="/signup">
               <Signup />
+            </Route>
+            <Route path="/wyszukaj">
+              <Create />
             </Route>
           </Switch>
         </Layout>

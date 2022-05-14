@@ -1,42 +1,113 @@
-import React from 'react'
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-const Login=()=>{
+import { makeStyles } from '@material-ui/styles';
+import { useHistory } from 'react-router-dom'
+import {useState, useEffect} from 'react'
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'8px 0'}
-    return(
+const useStyles = makeStyles((theme) => {
+    return {
+        inputFields: {
+            marginTop: theme.spacing(1),
+            marginBottom: theme.spacing(3)
+        },
+        accept: {
+            marginTop: theme.spacing(1)
+        },
+        paperStyle: {
+            padding: "20px",
+            height: '650px',
+            width: "280px",
+            margin: "20px auto"
+        },
+        avatarStyle:{
+             backgroundColor: '#1bbd7e' 
+            }
+    }
+})
+
+
+const Login = () => {
+    const btnstyle = { margin: '8px 0' }
+    const classes = useStyles();
+    const history = useHistory();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [disabled, setDisabled] = useState(true);
+
+    useEffect(() => {
+      if(email && password){
+          setDisabled(false)
+      }else{
+          setDisabled(true)
+      }
+    }, [email, password])
+    
+    const handleSingIn = (e) =>{
+        e.preventDefault();
+        
+
+    }
+
+    return (
         <Grid>
-            <Paper elevation={10} style={paperStyle}>
+            <Paper elevation={10} className={classes.paperStyle}>
                 <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Sign In</h2>
+                    <Avatar className={classes.avatarStyle}><LockOutlinedIcon /></Avatar>
+                    <h2>Zaloguj się </h2>
                 </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required/>
-                <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
+                <form onSubmit={()=>console.log("działa")}>
+                    <TextField
+                        label='Email'
+                        placeholder='Wprowadź Email'
+                        fullWidth
+                        required
+                        variant="outlined"
+                        className={classes.inputFields}
+                        color="secondary"
+                        value={email}
+                        onChange={(e) =>setEmail(e.target.value)}
                     />
-                    }
-                    label="Remember me"
-                 />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                     <Link to="#" >
-                        Forgot password ?
-                </Link>
-                </Typography>
-                <Typography > Do you have an account ?
-                     <Link to="#" >
-                        Sign Up 
-                </Link>
-                </Typography>
+                    <TextField
+                        label='Hasło'
+                        placeholder='Wprowadź hasło'
+                        type='password'
+                        fullWidth
+                        required
+                        color="secondary"
+                        variant="outlined"
+                        value={password}
+                        onChange={(e) =>setPassword(e.target.value)}
+
+                    />
+                    <div
+                        className={classes.accept}
+                    >
+                        <FormControlLabel
+                            control={<Checkbox
+                                name="checkedA"
+                            />}
+                            label="Pamiętaj mnie"
+                        />
+                    </div>
+                    <Button
+                        type='submit'
+                        color='secondary'
+                        variant='outlined'
+                        size='large'
+                        style={btnstyle}
+                        fullWidth
+                        disabled={disabled}
+                    >Zaloguj się
+                    </Button>
+                </form>
+                <Button
+                    onClick={() => history.push("/signup")}
+                >
+                    Nie masz konta? Załóż je tutaj !
+
+                </Button>
             </Paper>
         </Grid>
     )
