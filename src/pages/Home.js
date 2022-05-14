@@ -32,6 +32,7 @@ export default function Home() {
           Nie czekaj, dołącz już dziś! 
         </Typography>
       </div>
+
       <div style={{ textAlign: "center", marginTop:"150px" }}>
         <Button variant="outlined" size="medium">
           Zaloguj się
@@ -42,6 +43,7 @@ export default function Home() {
           Zarejestruj się
         </Button>
       </div>
+
     </div>
   )
 }

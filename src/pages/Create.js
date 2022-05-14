@@ -13,12 +13,18 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import { useHistory } from 'react-router-dom'
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
   field: {
     marginTop: 20,
     marginBottom: 20,
-    display: 'block'
+    display: 'block',
+    textAlign: "center"
+  },
+  radio: {
+    textAlign: "center"
+
   }
 })
 
@@ -29,7 +35,7 @@ export default function Create() {
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
-  const [category, setCategory] = useState('todos')
+  const [category, setCategory] = useState('album')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -44,9 +50,9 @@ export default function Create() {
     }
     if (title && details) {
       fetch('http://localhost:8000/notes', {
-      method: 'POST',
-      headers: {"Content-type": "application/json"},
-      body: JSON.stringify({title, details, category})
+        method: 'POST',
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ title, details, category })
       }).then(() => history.push('/'))
     }
   }
@@ -55,7 +61,7 @@ export default function Create() {
     <Container>
 
       <Typography className={classes.title} variant="h6" component="h2" gutterBottom color="textSecondary" align="center" >
-        Create a new Note
+        Wyszukaj album lub profil
       </Typography>
 
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -63,45 +69,33 @@ export default function Create() {
         <TextField
           onChange={(e) => setTitle(e.target.value)}
           className={classes.field}
-          label="Note Title"
+          color="secondary"
+          label="Wyszukaj"
           variant='outlined'
-          color='secondary'
           fullWidth
           required
           error={titleError}
         />
-        <TextField
-          onChange={(e) => setDetails(e.target.value)}
-          className={classes.field}
-          label="Details"
-          variant='outlined'
-          color='secondary'
-          multiline
-          rows={4}
-          fullWidth
-          required
-          error={detailsError}
-        />
 
         <FormControl className={classes.field}>
-          <FormLabel>Note Category</FormLabel>
-          <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
-            <FormControlLabel value="money" control={<Radio />} label="Karolina" />
-            <FormControlLabel value="todos" control={<Radio />} label="Kaja" />
-            <FormControlLabel value="reminders" control={<Radio />} label="Kornelia" />
-            <FormControlLabel value="work" control={<Radio />} label="Rebelka" />
+          <FormLabel>Wyszukaj: </FormLabel>
+          <RadioGroup
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <div className={classes.radio}>
+              <FormControlLabel value="album" control={<Radio />} label="Album" />
+              <FormControlLabel value="profil" control={<Radio />} label="Profil" />
+            </div>
           </RadioGroup>
         </FormControl>
         <br />
-        <Button type="submit" color="secondary" variant="contained"
-          //onClick={() => console.log('ty kliknęłaś mnie')}
-          startIcon={<SendIcon />}
-          endIcon={<KeyboardArrowRightIcon />}>
-          walcz!
+        <div></div>
+        <Button variant="outlined" size="medium" style={{textAlign: "center"}}
+          startIcon={<SearchIcon />}>
+          Wyszukaj
         </Button>
       </form>
-
-
     </Container>
   )
 }
