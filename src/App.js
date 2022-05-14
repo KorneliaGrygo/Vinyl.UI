@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Create from './pages/Create'
-import {ThemeProvider} from '@material-ui/core'
+import {ThemeProvider, createTheme} from '@material-ui/core'
 import {grey} from '@material-ui/core/colors'
 import Layout from './components/Layout'
 import Login from './components/Login'
