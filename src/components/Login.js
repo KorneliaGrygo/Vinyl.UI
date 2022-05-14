@@ -1,10 +1,12 @@
-import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/styles';
-import { useHistory } from 'react-router-dom'
-import {useState, useEffect} from 'react'
+import { useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import useAxios from '../hooks/useAxios';
+import useAuthContext from '../hooks/useAuthContext';
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -21,9 +23,9 @@ const useStyles = makeStyles((theme) => {
             width: "280px",
             margin: "20px auto"
         },
-        avatarStyle:{
-             backgroundColor: '#1bbd7e' 
-            }
+        avatarStyle: {
+            backgroundColor: '#1bbd7e'
+        }
     }
 })
 
@@ -35,19 +37,32 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [disabled, setDisabled] = useState(true);
+    const { handleGetUser } = useAxios();
+    const [error, setError] = useState("")
+    const { dispatch } = useAuthContext();
+
 
     useEffect(() => {
-      if(email && password){
-          setDisabled(false)
-      }else{
-          setDisabled(true)
-      }
+        if (email && password) {
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
     }, [email, password])
-    
-    const handleSingIn = (e) =>{
-        e.preventDefault();
-        
 
+
+
+    const handleSingIn = async (e) => {
+        debugger;
+        setError("");
+        e.preventDefault();
+        const user = await handleGetUser(email, password);
+        if (!user) {
+            setError("Podano zły email lub hasło")
+        } else {
+            dispatch({ type: "LOGIN", payload: user })
+            history.push("/")
+        }
     }
 
     return (
@@ -57,7 +72,7 @@ const Login = () => {
                     <Avatar className={classes.avatarStyle}><LockOutlinedIcon /></Avatar>
                     <h2>Zaloguj się </h2>
                 </Grid>
-                <form onSubmit={()=>console.log("działa")}>
+                <form >
                     <TextField
                         label='Email'
                         placeholder='Wprowadź Email'
@@ -67,7 +82,7 @@ const Login = () => {
                         className={classes.inputFields}
                         color="secondary"
                         value={email}
-                        onChange={(e) =>setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextField
                         label='Hasło'
@@ -78,7 +93,7 @@ const Login = () => {
                         color="secondary"
                         variant="outlined"
                         value={password}
-                        onChange={(e) =>setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
 
                     />
                     <div
@@ -99,6 +114,7 @@ const Login = () => {
                         style={btnstyle}
                         fullWidth
                         disabled={disabled}
+                        onClick={handleSingIn}
                     >Zaloguj się
                     </Button>
                 </form>
@@ -108,6 +124,13 @@ const Login = () => {
                     Nie masz konta? Załóż je tutaj !
 
                 </Button>
+                {error &&
+                    <Typography
+                        color="error"
+                        variant='body1'
+                    >
+                        {error}
+                    </Typography>}
             </Paper>
         </Grid>
     )

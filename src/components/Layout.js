@@ -13,7 +13,9 @@ import Divider from '@material-ui/core/Divider'
 import { makeStyles } from "@material-ui/styles";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
-import useAuthContext  from "../hooks/useAuthContext";
+import useAuthContext from "../hooks/useAuthContext";
+import { useEffect } from "react";
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => {
@@ -54,6 +56,10 @@ const useStyles = makeStyles((theme) => {
         menuButton: {
             height: theme.spacing(10),
             fontSize: "1.5em"
+        },
+        logout: {
+            marginTop: theme.spacing(1),
+            paddingBottom: theme.spacing(2)
         }
     }
 })
@@ -62,8 +68,7 @@ export default function Layout({ children }) {
     const classes = useStyles()
     const history = useHistory()
     const location = useLocation()
-    debugger;
-    const { user } = useAuthContext()
+    const { user, dispatch } = useAuthContext()
 
     const menuItems = [
         {
@@ -79,6 +84,10 @@ export default function Layout({ children }) {
             path: '/profil'
         }
     ]
+    useEffect(() => {
+        console.log(user);
+    }, [user])
+
     return (
         <div className={classes.root}>
             <AppBar
@@ -91,11 +100,11 @@ export default function Layout({ children }) {
                     </Typography>
                     {user && (
                         <>
-                        <Typography className={classes.userBar}>
-                        Kornelia
-                    </Typography>
-                    <Avatar src="/flower.jpg" className={classes.avatar} />
-                    </>
+                            <Typography className={classes.userBar}>
+                                Witaj {user.nick} !
+                            </Typography>
+                            <Avatar src="/flower.jpg" className={classes.avatar} />
+                        </>
                     )}
                 </Toolbar>
                 <Divider />
@@ -127,6 +136,27 @@ export default function Layout({ children }) {
                             />
                         </>
                     ))}
+                    {user &&
+                        <>
+                            <ListItem
+                                button
+                                onClick={() => {
+                                    dispatch({ type: "LOGOUT" })
+                                    history.push("/")
+                                }}
+                                className={classes.logout}
+                            >
+                                <ListItemIcon>
+                                    {<PowerSettingsNewIcon />}
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Wyloguj się"
+                                />
+                            </ListItem>
+                            <Divider />
+
+                        </>
+                    }
                 </List>
 
             </Drawer>

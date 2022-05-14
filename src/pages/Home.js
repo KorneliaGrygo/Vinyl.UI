@@ -3,10 +3,12 @@ import { Container, Paper, Typography } from '@material-ui/core'
 import Masonry from 'react-masonry-css'
 import { Button } from "@material-ui/core";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import useAuthContext from '../hooks/useAuthContext';
 
 export default function Home() {
   const [notes, setNotes] = useState([])
   const history = useHistory();
+  const {user} = useAuthContext();
   return (
     <div style={{
       width: `Calc(100% - 240px)`
@@ -33,7 +35,7 @@ export default function Home() {
           Nie czekaj, dołącz już dziś!
         </Typography>
       </div>
-
+        {!user && 
       <div style={{ textAlign: "center", marginTop: "150px" }}>
         <Button
           variant="outlined"
@@ -53,6 +55,7 @@ export default function Home() {
           Zarejestruj się
         </Button>
       </div>
+      }
 
     </div>
   )

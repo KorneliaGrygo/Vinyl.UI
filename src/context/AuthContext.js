@@ -3,9 +3,12 @@ import { useHistory } from "react-router-dom";
 
 
 let user = {
-    nickName:"",
-    email:"",
-    description:""
+    id: null,
+    email: null,
+    nick: null,
+    gender: null,
+    phone: null,
+    description: null,
 }
 
 export const AuthContext = createContext();
@@ -14,17 +17,21 @@ export const authReducer = (state, action) =>{
 
     switch (action.type) {
         case "LOGIN":
-
-            
-            break;
-    
+            debugger;
+            localStorage.setItem("user", JSON.stringify(action.payload));
+            return {...state, user:action.payload}
+        case "LOGOUT":{
+            localStorage.clear();
+            return {...state, user: null}
+        }
         default:
             break;
     }
 }
 export function AuthContextProvider({children}) {
+    debugger;
     const [state, dispatch] = useReducer(authReducer, {
-        user: user === null ? JSON.parse(localStorage.getItem("user")) ?? null : null 
+        user : user.id === null ? JSON.parse(localStorage.getItem("user")) : user 
     })
   return (
 
