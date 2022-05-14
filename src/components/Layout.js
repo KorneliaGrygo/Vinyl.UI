@@ -84,9 +84,6 @@ export default function Layout({ children }) {
             path: '/profil'
         }
     ]
-    useEffect(() => {
-        console.log(user);
-    }, [user])
 
     return (
         <div className={classes.root}>

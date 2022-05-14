@@ -4,9 +4,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory } from 'react-router-dom';
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios';
 import useAuthContext from '../hooks/useAuthContext';
+=======
+import {useState, useEffect} from 'react';
+>>>>>>> kornelia
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -31,7 +35,7 @@ const useStyles = makeStyles((theme) => {
 
 
 const Login = () => {
-    const btnstyle = { margin: '8px 0' }
+    const btnstyle = { margin: '8px 0' };
     const classes = useStyles();
     const history = useHistory();
     const [email, setEmail] = useState("");
@@ -49,6 +53,7 @@ const Login = () => {
             setDisabled(true)
         }
     }, [email, password])
+<<<<<<< HEAD
 
 
 
@@ -63,6 +68,11 @@ const Login = () => {
             dispatch({ type: "LOGIN", payload: user })
             history.push("/")
         }
+=======
+    
+    const handleSingIn = (e) =>{
+        e.preventDefault();
+>>>>>>> kornelia
     }
 
     return (
@@ -70,12 +80,12 @@ const Login = () => {
             <Paper elevation={10} className={classes.paperStyle}>
                 <Grid align='center'>
                     <Avatar className={classes.avatarStyle}><LockOutlinedIcon /></Avatar>
-                    <h2>Zaloguj się </h2>
+                    <h2>Zaloguj się</h2>
                 </Grid>
                 <form >
                     <TextField
                         label='Email'
-                        placeholder='Wprowadź Email'
+                        placeholder='Podaj email'
                         fullWidth
                         required
                         variant="outlined"
@@ -86,7 +96,7 @@ const Login = () => {
                     />
                     <TextField
                         label='Hasło'
-                        placeholder='Wprowadź hasło'
+                        placeholder='Podaj hasło'
                         type='password'
                         fullWidth
                         required
@@ -120,9 +130,7 @@ const Login = () => {
                 </form>
                 <Button
                     onClick={() => history.push("/signup")}
-                >
-                    Nie masz konta? Załóż je tutaj !
-
+                >Nie masz konta? Załóż je tutaj!
                 </Button>
                 {error &&
                     <Typography
