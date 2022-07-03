@@ -1,18 +1,19 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Create from './pages/Create'
-import {createMuiTheme, ThemeProvider} from '@material-ui/core'
-import {grey} from '@material-ui/core/colors'
+import { ThemeProvider, createTheme } from '@material-ui/core'
+import { grey } from '@material-ui/core/colors'
 import Layout from './components/Layout'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Search from './pages/Search'
+import useAuthContext from './hooks/useAuthContext'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#fefefe'
     },
-    secondary: grey 
+    secondary: grey
   },
   typography: {
     fontFamily: 'Quicksand',
@@ -24,6 +25,7 @@ const theme = createMuiTheme({
 })
 
 function App() {
+  const { user } = useAuthContext();
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -32,14 +34,27 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/create">
-              <Create />
+            <Route path="/search">
+              <Search />
             </Route>
             <Route path="/login">
-              <Login />
+              {!user &&
+                <Login />
+              }
+              {user &&
+                <Home />
+              }
             </Route>
             <Route path="/signup">
-              <Signup />
+              {!user &&
+                <Signup />
+              }
+              {user &&
+                <Home />
+              }
+            </Route>
+            <Route path="/wyszukaj">
+              <Search />
             </Route>
           </Switch>
         </Layout>

@@ -1,21 +1,21 @@
-import { makeStyles } from "@material-ui/styles";
-import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { format } from 'date-fns'
 import Avatar from "@material-ui/core/Avatar";
 import AlbumIcon from '@material-ui/icons/Album';
 import Divider from '@material-ui/core/Divider'
 
+import { makeStyles } from "@material-ui/styles";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
+import useAuthContext from "../hooks/useAuthContext";
+import { useEffect } from "react";
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => {
@@ -53,9 +53,13 @@ const useStyles = makeStyles((theme) => {
         userBar: {
             marginRight: theme.spacing(1),
         },
-        menuButton:{
+        menuButton: {
             height: theme.spacing(10),
-            fontSize:"1.5em"
+            fontSize: "1.5em"
+        },
+        logout: {
+            marginTop: theme.spacing(1),
+            paddingBottom: theme.spacing(2)
         }
     }
 })
@@ -64,6 +68,8 @@ export default function Layout({ children }) {
     const classes = useStyles()
     const history = useHistory()
     const location = useLocation()
+    const { user, dispatch } = useAuthContext()
+
     const menuItems = [
         {
             text: 'Strona Główna',
@@ -78,9 +84,9 @@ export default function Layout({ children }) {
             path: '/profil'
         }
     ]
+
     return (
         <div className={classes.root}>
-            {/* app bar */}
             <AppBar
                 className={classes.appbar}
                 elevation={0}
@@ -89,12 +95,16 @@ export default function Layout({ children }) {
                     <Typography className={classes.date}>
                         <AlbumIcon /> Vinyl.pl
                     </Typography>
-                    <Typography className={classes.userBar}>
-                        Kornelia
-                    </Typography>
-                    <Avatar src="/flower.jpg" className={classes.avatar} />
+                    {user && (
+                        <>
+                            <Typography className={classes.userBar}>
+                                Witaj {user.nick} !
+                            </Typography>
+                            <Avatar src="/flower.jpg" className={classes.avatar} />
+                        </>
+                    )}
                 </Toolbar>
-                    <Divider/>
+                <Divider />
             </AppBar>
 
             {/* side drawer */}
@@ -105,7 +115,7 @@ export default function Layout({ children }) {
                 classes={{ paper: classes.drawerPaper }}
             >
                 {/* list / links */}
-                <List className = {classes.menu}>
+                <List className={classes.menu}>
                     {menuItems.map(item => (
                         <>
                             <ListItem
@@ -116,13 +126,34 @@ export default function Layout({ children }) {
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText
-                                primary={item.text} />
+                                    primary={item.text} />
                             </ListItem>
                             <Divider
                                 variant="fullWidth"
                             />
                         </>
                     ))}
+                    {user &&
+                        <>
+                            <ListItem
+                                button
+                                onClick={() => {
+                                    dispatch({ type: "LOGOUT" })
+                                    history.push("/")
+                                }}
+                                className={classes.logout}
+                            >
+                                <ListItemIcon>
+                                    {<PowerSettingsNewIcon />}
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Wyloguj się"
+                                />
+                            </ListItem>
+                            <Divider />
+
+                        </>
+                    }
                 </List>
 
             </Drawer>

@@ -1,29 +1,11 @@
 {
-  "notes": [
-    {
-      "title": "Complete my ninja training",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
-      "category": "work",
-      "id": 2
-    },
-    {
-      "title": "mniam mniam",
-      "details": "jedzonko to sens żyćka",
-      "category": "reminders",
-      "id": 5
-    },
-    {
-      "title": "The Beatles",
-      "details": "The Beatles – brytyjski rockowy zespół muzyczny z Liverpoolu, działający w latach 1960–1970. Przez większość tego okresu w jego skład wchodzili John Lennon, Paul McCartney, George Harrison i Ringo Starr. Beatlesi wywodzą się z zespołu The Quarrymen, w którym występowali Lennon, McCartney i Harrison. ",
-      "category": "work",
-      "id": 7
-    }
-  ],
   "users": [
     {
       "id": 1,
       "email": "maja@o2.pl",
       "nick": "blues.girl",
+      "gender": "kobieta",
+      "phone": "123456789",
       "description": "Hi. My name is Maja. I like blues and country music.",
       "password": "password"
     },
@@ -31,6 +13,8 @@
       "id": 2,
       "email": "anastasia@o2.pl",
       "nick": "flower",
+      "gender": "kobieta",
+      "phone": "456789123",
       "description": "Hi. I'm Anastasia. I love rock music.",
       "password": "password"
     },
@@ -38,14 +22,24 @@
       "id": 3,
       "email": "max@o2.pl",
       "nick": "stitch",
+      "gender": "mężczyzna",
+      "phone": "789123456",
       "description": "Hello. I'm Max and I love Elvis Presley.",
       "password": "password"
+    },
+    {
+      "email": "danusia@wp.pl",
+      "nick": "Danusia",
+      "gender": "kobieta",
+      "phone": "123123123",
+      "password": "123123",
+      "description": "",
+      "id": 4
     }
   ],
   "albums": [
     {
       "id": 1,
-      "userId": 3,
       "name": "Elvis Is Back!",
       "songs": [
         "Make Me Know It",
@@ -53,11 +47,13 @@
         "The Girl of My Best Friend",
         "I Will Be Home Again",
         "Dirty, Dirty Feeling"
-      ]
+      ],
+      "releaseDate":"8 kwietnia, 1960r.",
+      "avatarUrl":"https://upload.wikimedia.org/wikipedia/en/6/64/Elvis_is_Back%21.jpg",
+      "desc":"Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957.Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957."
     },
     {
       "id": 2,
-      "userId": 2,
       "name": "Innuendo",
       "songs": [
         "Innuendo",
@@ -65,11 +61,66 @@
         "Headlong",
         "I Can't Live With You",
         "Don't Try So Hard"
-      ]
+      ],
+      "desc":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur hic voluptates est? Nemo aspernatur itaque neque aperiam eveniet velit excepturi et nobis debitis libero. Harum ullam ad labore. Error!, "
     },
     {
       "id": 3,
-      "userId": 1,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 8,
       "name": "Queen Of The Blues",
       "songs": [
         "Evil",
@@ -79,5 +130,6 @@
         "Flamin' Mamie"
       ]
     }
+    
   ]
 }
