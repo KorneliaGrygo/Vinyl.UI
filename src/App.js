@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Search from './pages/Search'
 import useAuthContext from './hooks/useAuthContext'
+import Profile from './pages/Profile'
 
 const theme = createTheme({
   palette: {
@@ -34,9 +35,6 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/search">
-              <Search />
-            </Route>
             <Route path="/login">
               {!user &&
                 <Login />
@@ -55,6 +53,9 @@ function App() {
             </Route>
             <Route path="/wyszukaj">
               <Search />
+            </Route>
+            <Route path="/profil">
+              <Profile />
             </Route>
           </Switch>
         </Layout>

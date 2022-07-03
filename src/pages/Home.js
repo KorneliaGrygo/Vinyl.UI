@@ -26,7 +26,6 @@ export default function Home() {
         <Typography variant='h5' style={{
           textAlign: "center",
           wordWrap: "break-word",
-
         }}>
           Vinyl.pl jest to portal społecznościowy zrzeszający fanów płyt winylowych. <br />
           <br />
