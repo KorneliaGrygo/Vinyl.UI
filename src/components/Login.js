@@ -4,13 +4,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory } from 'react-router-dom';
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios';
 import useAuthContext from '../hooks/useAuthContext';
-=======
-import {useState, useEffect} from 'react';
->>>>>>> kornelia
+
 
 const useStyles = makeStyles((theme) => {
     return {
