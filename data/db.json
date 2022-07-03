@@ -40,7 +40,6 @@
   "albums": [
     {
       "id": 1,
-      "userId": 3,
       "name": "Elvis Is Back!",
       "songs": [
         "Make Me Know It",
@@ -48,11 +47,13 @@
         "The Girl of My Best Friend",
         "I Will Be Home Again",
         "Dirty, Dirty Feeling"
-      ]
+      ],
+      "releaseDate":"8 kwietnia, 1960r.",
+      "avatarUrl":"https://upload.wikimedia.org/wikipedia/en/6/64/Elvis_is_Back%21.jpg",
+      "desc":"Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957.Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957."
     },
     {
       "id": 2,
-      "userId": 2,
       "name": "Innuendo",
       "songs": [
         "Innuendo",
@@ -60,11 +61,66 @@
         "Headlong",
         "I Can't Live With You",
         "Don't Try So Hard"
-      ]
+      ],
+      "desc":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur hic voluptates est? Nemo aspernatur itaque neque aperiam eveniet velit excepturi et nobis debitis libero. Harum ullam ad labore. Error!, "
     },
     {
       "id": 3,
-      "userId": 1,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Queen Of The Blues",
+      "songs": [
+        "Evil",
+        "Beer Bottle Boogie",
+        "I Cried Like a Baby",
+        "I Can Love You",
+        "Flamin' Mamie"
+      ]
+    },
+    {
+      "id": 8,
       "name": "Queen Of The Blues",
       "songs": [
         "Evil",
@@ -74,5 +130,6 @@
         "Flamin' Mamie"
       ]
     }
+    
   ]
 }

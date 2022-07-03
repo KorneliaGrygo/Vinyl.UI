@@ -17,7 +17,6 @@ export const authReducer = (state, action) =>{
 
     switch (action.type) {
         case "LOGIN":
-            debugger;
             localStorage.setItem("user", JSON.stringify(action.payload));
             return {...state, user:action.payload}
         case "LOGOUT":{
@@ -29,7 +28,6 @@ export const authReducer = (state, action) =>{
     }
 }
 export function AuthContextProvider({children}) {
-    debugger;
     const [state, dispatch] = useReducer(authReducer, {
         user : user.id === null ? JSON.parse(localStorage.getItem("user")) : user 
     })

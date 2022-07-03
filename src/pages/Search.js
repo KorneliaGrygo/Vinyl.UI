@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
@@ -14,6 +14,9 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import { useHistory } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
+import { handleSearchResults } from '../hooks/useAxios';
+import Divider from '@material-ui/core/Divider'
+import Albums from '../components/Albums'
 
 const useStyles = makeStyles({
   field: {
@@ -24,38 +27,34 @@ const useStyles = makeStyles({
   },
   radio: {
     textAlign: "center"
-
   }
 })
 
 export default function Search() {
   const classes = useStyles()
   const history = useHistory()
-  const [title, setTitle] = useState('')
+  const [phrase, setPhrase] = useState('')
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
-  const [category, setCategory] = useState('album')
+  const [category, setCategory] = useState('albums');
+  const [searchResult, setSearchResult] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setTitleError(false)
-    setDetailsError(false)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = await handleSearchResults(category, phrase);
+    console.log(data);
 
-    if (title == '') {
-      setTitleError(true)
-    }
-    if (details == '') {
-      setDetailsError(true)
-    }
-    if (title && details) {
-      fetch('http://localhost:8000/notes', {
-        method: 'POST',
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ title, details, category })
-      }).then(() => history.push('/'))
+    if(data.length){
+        setSearchResult(data);
     }
   }
+
+  useEffect(() => {
+
+    // console.log(phrase + category);
+
+  }, [phrase, category])
 
   return (
     <Container>
@@ -67,7 +66,7 @@ export default function Search() {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
 
         <TextField
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setPhrase(e.target.value)}
           className={classes.field}
           color="secondary"
           label="Wyszukaj"
@@ -75,27 +74,53 @@ export default function Search() {
           fullWidth
           required
           error={titleError}
+          placeholder="Co chcesz wyszukać?"
         />
 
         <FormControl className={classes.field}>
-          <FormLabel>Wyszukaj: </FormLabel>
+          <FormLabel> Wybierz jedną z opcji: </FormLabel>
           <RadioGroup
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
             <div className={classes.radio}>
-              <FormControlLabel value="album" control={<Radio />} label="Album" />
-              <FormControlLabel value="profil" control={<Radio />} label="Profil" />
+              <FormControlLabel value="albums" control={<Radio />} label="Album" />
+              <FormControlLabel value="users" control={<Radio />} label="Profil" />
             </div>
           </RadioGroup>
         </FormControl>
         <br />
         <div></div>
-        <Button variant="outlined" size="medium" style={{textAlign: "center"}}
-          startIcon={<SearchIcon />}>
-          Wyszukaj
-        </Button>
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: '-20px'
+          }}>
+          <Button
+            variant="outlined"
+            size="large"
+            style={{ textAlign: "center" }}
+            startIcon={<SearchIcon />}
+            type="submit"
+          >
+            Wyszukaj
+          </Button>
+        </div>
       </form>
+      <br />
+      <Divider fullWidth/>
+      <div style={{
+        marginTop:"10px"
+      }}>
+          { searchResult && category === "albums" && (
+            <>
+            <Albums albums={searchResult}>
+
+            </Albums>
+            </>
+          )}
+
+      </div>
     </Container>
   )
 }

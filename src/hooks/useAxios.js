@@ -18,14 +18,21 @@ export const handleRegisterUser = async (user) => {
     return response.status; //201 to jest gitówka mordo, stworzylo sie
 }
 export const handleGetEmail = async (email) =>{
-    debugger;
     const response = await axiosInstance.get(`users?email=${email}`);
     return response.data.length;
 }
 export const handleGetNick = async (nick) =>{
-    debugger;
     const response = await axiosInstance.get(`users?nick=${nick}`);
     return response.data.length;
+}
+export const handleSearchResults = async (type, phrase) => {
+    if(type === "albums"){
+        const response = await axiosInstance.get(`${type}?name_like=${phrase}`)
+        return response.data;
+    }else{
+        const response = await axiosInstance.get(`${type}?nick_like=${phrase}`)
+        return response.data;
+    }
 }
 
 export default function useAxios() {
