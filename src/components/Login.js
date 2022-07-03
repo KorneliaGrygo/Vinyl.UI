@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios';
 import useAuthContext from '../hooks/useAuthContext';
 
-
 const useStyles = makeStyles((theme) => {
     return {
         inputFields: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => {
 
 
 const Login = () => {
-    const btnstyle = { margin: '8px 0' };
+    const btnstyle = { margin: '8px 0' }
     const classes = useStyles();
     const history = useHistory();
     const [email, setEmail] = useState("");
@@ -50,12 +49,10 @@ const Login = () => {
             setDisabled(true)
         }
     }, [email, password])
-<<<<<<< HEAD
 
 
 
     const handleSingIn = async (e) => {
-        debugger;
         setError("");
         e.preventDefault();
         const user = await handleGetUser(email, password);
@@ -65,11 +62,6 @@ const Login = () => {
             dispatch({ type: "LOGIN", payload: user })
             history.push("/")
         }
-=======
-    
-    const handleSingIn = (e) =>{
-        e.preventDefault();
->>>>>>> kornelia
     }
 
     return (
@@ -77,12 +69,12 @@ const Login = () => {
             <Paper elevation={10} className={classes.paperStyle}>
                 <Grid align='center'>
                     <Avatar className={classes.avatarStyle}><LockOutlinedIcon /></Avatar>
-                    <h2>Zaloguj się</h2>
+                    <h2>Zaloguj się </h2>
                 </Grid>
                 <form >
                     <TextField
                         label='Email'
-                        placeholder='Podaj email'
+                        placeholder='Wprowadź Email'
                         fullWidth
                         required
                         variant="outlined"
@@ -93,7 +85,7 @@ const Login = () => {
                     />
                     <TextField
                         label='Hasło'
-                        placeholder='Podaj hasło'
+                        placeholder='Wprowadź hasło'
                         type='password'
                         fullWidth
                         required
@@ -127,7 +119,9 @@ const Login = () => {
                 </form>
                 <Button
                     onClick={() => history.push("/signup")}
-                >Nie masz konta? Załóż je tutaj!
+                >
+                    Nie masz konta? Załóż je tutaj !
+
                 </Button>
                 {error &&
                     <Typography
