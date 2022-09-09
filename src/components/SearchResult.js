@@ -3,6 +3,9 @@ import { makeStyles, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import AlbumIcon from '@material-ui/icons/Album';
+import { useEffect } from "react";
+
+
 const dz = 240;
 
 const useStyles = makeStyles({
@@ -10,9 +13,6 @@ const useStyles = makeStyles({
         width: "150px",
         height: "150px",
         border: "2px solid black",
-        '&:hover': {
-            cursor: "pointer"
-        }
     },
     albumsDiv: {
         display: "grid",
@@ -26,27 +26,39 @@ const useStyles = makeStyles({
         gridTemplateColumns: "1fr 1fr",
         marginTop: "10px",
         border: "1px solid black",
+        padding:'8px',
 
     },
     albumInfo: {
         marginLeft: '-120px',
         marginTop: "5px",
-        height: "250px",
+        height: "270px",
         maxHeight: "500px"
+    },
+    profilInfo: {
+        marginLeft: '-120px',
+        marginTop: "5px",
+        height: "200px",
+        maxHeight: "500px"
+    },
+    buttonDetails: {
+        marginLeft:'28px',
+        marginTop:'18px'
     }
 })
 
-export default function SearchResult({ data, category }) {
-    debugger;
+export default function SearchResult({ data, category, handleSubmit }) {
     const classes = useStyles();
     const history = useHistory();
+
     return (
         <>
-            {category === "albums" && (
+            {category === "albums" && data[0].hasOwnProperty("songs") && (
                 <div className={classes.albumsDiv}>
                     {data && data.map(album => (
                         <div key={album.id} className={classes.gridChildElement}>
                             <div className={classes.details}>
+                                <div>
                                 <Avatar
                                     src={album.avatarUrl ?? "/album.png"}
                                     variant="square"
@@ -55,8 +67,16 @@ export default function SearchResult({ data, category }) {
                                         marginLeft: "5px",
                                         marginTop: "5px"
                                     }}
-                                    onClick={() => history.push(`/albums/details/${album.id}`)}
+                                    disabled
                                 />
+                                <Button
+                                    className={classes.buttonDetails}
+                                    variant='outlined'
+                                    onClick={() => history.push(`/albums/details/${album.id}`)}
+                                >
+                                    Szczegóły
+                                </Button>
+                                </div>
                                 <div className={classes.albumInfo}>
                                     <Typography
                                     >
@@ -76,7 +96,7 @@ export default function SearchResult({ data, category }) {
                     ))}
                 </div>
             )}
-            {category === "users" && (
+            {category === "users" && data[0].hasOwnProperty("nick") && (
                 <div className={classes.albumsDiv}>
                 {data && data.map(user => (
                     <div key={user.id} className={classes.gridChildElement}>
@@ -89,21 +109,28 @@ export default function SearchResult({ data, category }) {
                                     marginLeft: "5px",
                                     marginTop: "5px"
                                 }}
-                                onClick={() => history.push(`/profil/${user.id}`)}
                             />
-                            <div className={classes.albumInfo}>
-                                <Typography
-                                >
+                            <div className={classes.profilInfo}>
+                                <Typography>
                                     <strong> Nazwa użytkownika: </strong> {user.nick}
                                 </Typography>
-                                <Typography
-                                >
+                                <Typography>
                                     <strong> Płeć: </strong> {user.gender}
                                 </Typography>
-                                <Typography
-                                >
+                                <Typography>
+                                    <strong> Telefon: </strong> {`+48 ${user.phone}`}
+                                </Typography>
+                                <Typography>
                                     <strong> Opis: </strong>  {`${user.description ?? "Brak Opisu.."}`}
                                 </Typography>
+                                <br></br>
+                                <Button
+                                    color="secondary"
+                                    variant="outlined"
+                                    onClick={() => history.push(`/profil/${user.id}`)}
+                                >
+                                    Zobacz profil
+                                </Button>
                             </div>
                         </div>
                     </div>

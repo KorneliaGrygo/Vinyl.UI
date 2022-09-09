@@ -38,7 +38,7 @@
       "gender": "kobieta",
       "phone": "123123123",
       "password": "123123",
-      "description": "",
+      "description": null,
       "id": 4,
       "avatar":""
 

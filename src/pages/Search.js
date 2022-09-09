@@ -46,8 +46,6 @@ export default function Search() {
         setSearchResult(data);
     }
   }
-
-
   return (
     <Container>
 
@@ -73,7 +71,7 @@ export default function Search() {
           <FormLabel> Wybierz jedną z opcji: </FormLabel>
           <RadioGroup
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => setCategory(e.target.value) }
           >
             <div className={classes.radio}>
               <FormControlLabel value="albums" control={<Radio />} label="Album" />
@@ -105,11 +103,7 @@ export default function Search() {
         marginTop:"10px"
       }}>
           { searchResult && (
-            <>
-            <SearchResult data={searchResult} category = {category}>
-
-            </SearchResult>
-            </>
+            <SearchResult data={searchResult} category={category}/>
           )}
       </div>
     </Container>
