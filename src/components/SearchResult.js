@@ -6,8 +6,6 @@ import AlbumIcon from '@material-ui/icons/Album';
 import { useEffect } from "react";
 
 
-const dz = 240;
-
 const useStyles = makeStyles({
     avatar: {
         width: "150px",

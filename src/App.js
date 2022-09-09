@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import Search from './pages/Search'
 import useAuthContext from './hooks/useAuthContext'
 import Profile from './pages/Profile'
+import AlbumDetails from './components/AlbumDetails'
 
 const theme = createTheme({
   palette: {
@@ -56,6 +57,9 @@ function App() {
             </Route>
             <Route path="/profil">
               <Profile />
+            </Route>
+            <Route path='/albums/details/:albumId'>
+              <AlbumDetails/>
             </Route>
           </Switch>
         </Layout>

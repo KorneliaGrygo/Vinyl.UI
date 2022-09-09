@@ -39,9 +39,23 @@ export const handleSearchResults = async (type, phrase) => {
 }
 
 export const handleGetUser = async (email, password) =>{
-    debugger;
     const response = await axiosInstance.get(`users?email=${email}&password=${password}`);
     return response.data[0];
+}
+
+export const handleGetAlbumById = async (albumId) =>{
+    const response = await axiosInstance.get(`albums/${albumId}`)
+    return response.data;
+}
+export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) =>{
+    debugger;
+    const response = await axiosInstance.get(`usersAlbums?albumId=${albumId}&userId=${userId}`);
+    return response.data.length !== 0;
+}
+export const handleGetAlbumsCommentsSection = async (albumid) => {
+    const response  = await axiosInstance.get(`albumComments?albumdId=${albumid}`);
+    return response.data;
+
 }
 
 export default function useAxios() {

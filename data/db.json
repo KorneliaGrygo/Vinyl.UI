@@ -69,7 +69,8 @@
         "I Can't Live With You",
         "Don't Try So Hard"
       ],
-      "desc":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur hic voluptates est? Nemo aspernatur itaque neque aperiam eveniet velit excepturi et nobis debitis libero. Harum ullam ad labore. Error!, "
+      "desc":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur hic voluptates est? Nemo aspernatur itaque neque aperiam eveniet velit excepturi et nobis debitis libero. Harum ullam ad labore. Error!, ",
+      "releaseDate":"8 kwietnia, 1970r."
     },
     {
       "id": 3,
@@ -138,5 +139,22 @@
       ]
     }
     
+  ],
+  "usersAlbums":[
+    {
+      "id":1,
+      "albumdId":1,
+      "userId":1
+    }
+  ],
+  "albumComments":[
+    {
+      "id":1,
+      "albumId":1,
+      "userId":1,
+      "nickName":"blues.girl",
+      "comment":"Mój fav album Elvisa"
+    }
   ]
+
 }
