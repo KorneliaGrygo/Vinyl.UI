@@ -16,7 +16,7 @@ import { useHistory } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 import { handleSearchResults } from '../hooks/useAxios';
 import Divider from '@material-ui/core/Divider'
-import Albums from '../components/Albums'
+import SearchResult from '../components/SearchResult'
 
 const useStyles = makeStyles({
   field: {
@@ -32,7 +32,6 @@ const useStyles = makeStyles({
 
 export default function Search() {
   const classes = useStyles()
-  const history = useHistory()
   const [phrase, setPhrase] = useState('')
   const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
@@ -43,18 +42,11 @@ export default function Search() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await handleSearchResults(category, phrase);
-    console.log(data);
-
     if(data.length){
         setSearchResult(data);
     }
   }
 
-  useEffect(() => {
-
-    // console.log(phrase + category);
-
-  }, [phrase, category])
 
   return (
     <Container>
@@ -112,14 +104,13 @@ export default function Search() {
       <div style={{
         marginTop:"10px"
       }}>
-          { searchResult && category === "albums" && (
+          { searchResult && (
             <>
-            <Albums albums={searchResult}>
+            <SearchResult data={searchResult} category = {category}>
 
-            </Albums>
+            </SearchResult>
             </>
           )}
-
       </div>
     </Container>
   )

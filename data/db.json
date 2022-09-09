@@ -7,7 +7,8 @@
       "gender": "kobieta",
       "phone": "123456789",
       "description": "Hi. My name is Maja. I like blues and country music.",
-      "password": "password"
+      "password": "password",
+      "avatar":""
     },
     {
       "id": 2,
@@ -16,7 +17,9 @@
       "gender": "kobieta",
       "phone": "456789123",
       "description": "Hi. I'm Anastasia. I love rock music.",
-      "password": "password"
+      "password": "password",
+      "avatar":""
+
     },
     {
       "id": 3,
@@ -25,7 +28,9 @@
       "gender": "mężczyzna",
       "phone": "789123456",
       "description": "Hello. I'm Max and I love Elvis Presley.",
-      "password": "password"
+      "password": "password",
+      "avatar":""
+
     },
     {
       "email": "danusia@wp.pl",
@@ -34,7 +39,9 @@
       "phone": "123123123",
       "password": "123123",
       "description": "",
-      "id": 4
+      "id": 4,
+      "avatar":""
+
     }
   ],
   "albums": [

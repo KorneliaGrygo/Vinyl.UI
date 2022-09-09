@@ -17,14 +17,17 @@ export const handleRegisterUser = async (user) => {
     })
     return response.status; //201 to jest gitówka mordo, stworzylo sie
 }
+
 export const handleGetEmail = async (email) =>{
     const response = await axiosInstance.get(`users?email=${email}`);
     return response.data.length;
 }
+
 export const handleGetNick = async (nick) =>{
     const response = await axiosInstance.get(`users?nick=${nick}`);
     return response.data.length;
 }
+
 export const handleSearchResults = async (type, phrase) => {
     if(type === "albums"){
         const response = await axiosInstance.get(`${type}?name_like=${phrase}`)
@@ -35,17 +38,12 @@ export const handleSearchResults = async (type, phrase) => {
     }
 }
 
+export const handleGetUser = async (email, password) =>{
+    debugger;
+    const response = await axiosInstance.get(`users?email=${email}&password=${password}`);
+    return response.data[0];
+}
+
 export default function useAxios() {
-    const axiosInstance = axios.create({
-        baseURL
-    });
-
-    const handleGetUser = async (email, password) =>{
-        const response = await axiosInstance.get(`users?email=${email}&password=${password}`);
-        return response.data[0];
-    }
-    //const user = { email, password, }
-    //handleRegisterUser(user)
-
-  return {axiosInstance, handleGetUser};
+  return null;
 }
