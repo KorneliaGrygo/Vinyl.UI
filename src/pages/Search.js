@@ -23,10 +23,20 @@ const useStyles = makeStyles({
     marginTop: 20,
     marginBottom: 20,
     display: 'block',
-    textAlign: "center"
+    textAlign: "center",
+    width:"88%"
   },
   radio: {
-    textAlign: "center"
+    textAlign: "center",
+    marginLeft:'15px'
+  },
+  title:{
+    marginTop:'10px'
+  },
+  searchButton:{
+    textAlign:'center',
+    marginRight:'150px',
+    marginTop:'-10px'
   }
 })
 
@@ -89,6 +99,7 @@ export default function Search() {
           <Button
             variant="outlined"
             size="large"
+            className={classes.searchButton}
             style={{ textAlign: "center" }}
             startIcon={<SearchIcon />}
             type="submit"

@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     albumsDiv: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
+        maxWidth:'1100px'
     },
     gridChildElement: {
         margin: "5px",
@@ -28,13 +29,13 @@ const useStyles = makeStyles({
 
     },
     albumInfo: {
-        marginLeft: '-120px',
+        marginLeft: '-90px',
         marginTop: "5px",
         height: "270px",
         maxHeight: "500px"
     },
     profilInfo: {
-        marginLeft: '-120px',
+        marginLeft: '-90px',
         marginTop: "5px",
         height: "200px",
         maxHeight: "500px"
@@ -45,7 +46,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default function SearchResult({ data, category, handleSubmit }) {
+export default function SearchResult({ data, category }) {
     const classes = useStyles();
     const history = useHistory();
 
@@ -86,7 +87,7 @@ export default function SearchResult({ data, category, handleSubmit }) {
                                     </Typography>
                                     <Typography
                                     >
-                                        <strong> O Albumie: </strong>  {`${album.desc?.slice(0, 425) ?? "Brak opisu"} ${album.desc?.length > 425 ? "..." : ""}`}
+                                        <strong> O Albumie: </strong>  {`${album.desc?.slice(0, 300) ?? "Brak opisu"} ${album.desc?.length > 425 ? "..." : ""}`}
                                     </Typography>
                                 </div>
                             </div>

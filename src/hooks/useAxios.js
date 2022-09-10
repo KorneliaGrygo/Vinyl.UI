@@ -48,14 +48,22 @@ export const handleGetAlbumById = async (albumId) =>{
     return response.data;
 }
 export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) =>{
-    debugger;
     const response = await axiosInstance.get(`usersAlbums?albumId=${albumId}&userId=${userId}`);
     return response.data.length !== 0;
 }
 export const handleGetAlbumsCommentsSection = async (albumid) => {
     const response  = await axiosInstance.get(`albumComments?albumdId=${albumid}`);
     return response.data;
+}
+export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comment) =>{
+    const response = await axiosInstance.post('albumComments',{
+        albumId,
+        userId,
+        nickName,
+        comment
+    })
 
+    return response.status;
 }
 
 export default function useAxios() {

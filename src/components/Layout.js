@@ -9,12 +9,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Avatar from "@material-ui/core/Avatar";
 import AlbumIcon from '@material-ui/icons/Album';
 import Divider from '@material-ui/core/Divider'
-
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import PersonIcon from '@material-ui/icons/Person';
 import { makeStyles } from "@material-ui/styles";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import useAuthContext from "../hooks/useAuthContext";
-import { useEffect } from "react";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 const drawerWidth = 240
 
@@ -40,17 +41,23 @@ const useStyles = makeStyles((theme) => {
             padding: theme.spacing(2)
         },
         appbar: {
-            width: "100%"
+            width: "100%",
+            height:"88px"
         },
         toolbar: theme.mixins.toolbar,
         date: {
+            marginTop:'22px',
             flexGrow: 1,
+            fontSize:'24px'
         },
         avatar: {
             marginRight: theme.spacing(30),
-            display: 'inline-block'
+            display: 'inline-block',
+            marginTop:"21px"
         },
         userBar: {
+            marginTop:'22px',
+            fontSize:'24px',
             marginRight: theme.spacing(1),
         },
         menuButton: {
@@ -60,6 +67,9 @@ const useStyles = makeStyles((theme) => {
         logout: {
             marginTop: theme.spacing(1),
             paddingBottom: theme.spacing(2)
+        },
+        iconStyle:{
+            
         }
     }
 })
@@ -73,15 +83,18 @@ export default function Layout({ children }) {
     const menuItems = [
         {
             text: 'Strona Główna',
-            path: '/'
+            path: '/',
+            icon: <HomeIcon/>
         },
         {
             text: 'Wyszukaj',
-            path: '/wyszukaj'
+            path: '/wyszukaj',
+            icon: <SearchIcon/>
         },
         {
             text: 'Profil',
-            path: '/profil'
+            path: '/profil',
+            icon: <PersonIcon/>
         }
     ]
 
@@ -89,23 +102,27 @@ export default function Layout({ children }) {
         <div className={classes.root}>
             <AppBar
                 className={classes.appbar}
-                elevation={0}
+                elevation={1}
+                
             >
                 <Toolbar>
                     <Typography className={classes.date}>
-                        <AlbumIcon /> Vinyl.pl
+                        <AlbumIcon 
+                            className={classes.iconStyle}
+                        /> Vinyl.pl
                     </Typography>
                     {user && (
                         <>
                             <Typography className={classes.userBar}>
                                 Witaj {user.nick} !
                             </Typography>
-                            <Avatar src="/flower.jpg" className={classes.avatar} />
+                            
+                            <Avatar  src="/flower.jpg" className={classes.avatar} />
                         </>
                     )}
                 </Toolbar>
-                <Divider />
             </AppBar>
+                <Divider />
 
             {/* side drawer */}
             <Drawer
