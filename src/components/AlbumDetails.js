@@ -3,14 +3,61 @@ import { useRef } from 'react';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
 import useAuthContext from '../hooks/useAuthContext';
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
 import {
     handleGetAlbumById,
     handleCheckIfUserAddedAlbumToFavorites,
     handleGetAlbumsCommentsSection,
     handleAddNewComentToAlbum
 } from '../hooks/useAxios';
+import { makeStyles } from "@material-ui/styles";
+
+
+
+const useStyles = makeStyles(theme => {
+    return {
+        albumWrapper:{
+            border: '1px solid',
+            borderColor:"lightgray",
+            borderRadius:'5px',
+            height:"300px",
+            width:'84%',
+            marginTop:'10px',
+            grid:'flex',
+        },
+        songsList:{
+            border: '1px solid',
+            borderColor:"lightgray",
+            borderRadius:'5px',
+            height:"300px",
+            width:'84%',
+            marginTop:'10px',
+        },
+        avatarBox:{
+            marginLeft:'40px',
+            marginTop:'30px',
+            border:'1px solid',
+            maxWidth:'150px',
+            maxHeight:"150px"
+        },
+        avatar:{
+            width:'150px',
+            height:'150px',
+            textAlign:'center'
+        },
+        albumInfo:{
+            fontSize:'24px',
+            marginLeft:'200px',
+            marginTop:"-100px",
+            width:'100%'
+        }
+    }
+    
+})
 
 export default function AlbumDetails() {
+    const classes = useStyles();
 
     const { albumId } = useParams();
     const { user } = useAuthContext();
@@ -66,8 +113,36 @@ export default function AlbumDetails() {
     },[refresh])
 
     return (
-        <div>
         
+        <div>
+            {album && (
+                <>
+                
+            <div className={classes.albumWrapper}>
+                <div className={classes.avatarBox}>
+                    <Avatar 
+                    className={classes.avatar}
+                    src={album.avatarUrl ?? '/album.png'}
+                    variant='square'
+                    />
+                     <div className={classes.albumInfo}>
+                    <Typography
+
+                    >
+                        Nazwa Albumu
+                    </Typography>
+                </div>
+                </div>
+           
+            </div>
+            <div className={classes.songsList}>
+
+            </div>
+            <div className={classes.commentSection}>
+
+            </div>
+
+            </> )}
 
         </div>
     )
