@@ -28,6 +28,7 @@ const theme = createTheme({
 
 function App() {
   const { user } = useAuthContext();
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -55,7 +56,8 @@ function App() {
             <Route path="/wyszukaj">
               <Search />
             </Route>
-            <Route path="/profil">
+            
+            <Route path="/profil/:userId">
               <Profile />
             </Route>
             <Route path='/albums/details/:albumId'>

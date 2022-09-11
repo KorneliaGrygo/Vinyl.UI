@@ -93,7 +93,7 @@ export default function Layout({ children }) {
         },
         {
             text: 'Profil',
-            path: '/profil',
+            path: user?.id ? `/profil/${user.id}` : '/login', 
             icon: <PersonIcon/>
         }
     ]

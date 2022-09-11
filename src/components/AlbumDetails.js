@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
 import useAuthContext from '../hooks/useAuthContext';
 import Avatar from "@material-ui/core/Avatar";
+import Divider from '@material-ui/core/Divider';
 import Typography from "@material-ui/core/Typography";
 import {
     handleGetAlbumById,
@@ -12,6 +13,7 @@ import {
     handleAddNewComentToAlbum
 } from '../hooks/useAxios';
 import { makeStyles } from "@material-ui/styles";
+import SongList from './SongList';
 
 
 
@@ -38,19 +40,19 @@ const useStyles = makeStyles(theme => {
             marginLeft:'40px',
             marginTop:'30px',
             border:'1px solid',
-            maxWidth:'150px',
-            maxHeight:"150px"
+            maxWidth:'250px',
+            maxHeight:"250px"
         },
         avatar:{
-            width:'150px',
-            height:'150px',
+            width:'250px',
+            height:'250px',
             textAlign:'center'
         },
         albumInfo:{
             fontSize:'24px',
-            marginLeft:'200px',
-            marginTop:"-100px",
-            width:'100%'
+            marginLeft:'280px',
+            marginTop:"-260px",
+            width:'800px'
         }
     }
     
@@ -77,21 +79,25 @@ export default function AlbumDetails() {
                 setRefhresh(prev => !prev);
             }
         }
+        
     }
 
     useEffect(() => {
         const controller = abortController.current;
         //looks bad but its nessecary since we re using json server.. 
+
+
         const fetchAlbum = async () => {
             let album = await handleGetAlbumById(albumId);
             let isFavorite = await handleCheckIfUserAddedAlbumToFavorites(user?.id ?? 0, albumId);
             setAlbum(album);
             setIsFavorite(isFavorite);
         }
-        fetchAlbum()
-            .catch(err => {
-                console.log(err.message);
-            })
+
+        fetchAlbum();
+
+
+
 
         return () => {
             controller.abort();
@@ -106,7 +112,6 @@ export default function AlbumDetails() {
             setComments(comments);
         }
         fetchComments();
-
         return () =>{
             controller.abort();
         }
@@ -125,18 +130,27 @@ export default function AlbumDetails() {
                     src={album.avatarUrl ?? '/album.png'}
                     variant='square'
                     />
+                    
                      <div className={classes.albumInfo}>
+                    <Typography 
+                        style={{fontSize:32}}
+                    >
+                       <strong> Nazwa Albumu: </strong>  {album.name}
+                    </Typography>
                     <Typography
 
                     >
-                        Nazwa Albumu
+                         <strong> Data wydania: </strong> {album.releaseDate}
+                    </Typography>
+                    <Typography>
+                        <strong>O albumie: </strong> {album.desc}
                     </Typography>
                 </div>
                 </div>
            
             </div>
             <div className={classes.songsList}>
-
+                <SongList  songs={album.songs} />
             </div>
             <div className={classes.commentSection}>
 

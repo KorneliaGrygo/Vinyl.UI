@@ -139,7 +139,12 @@
   "usersAlbums": [
     {
       "id": 1,
-      "albumdId": 1,
+      "albumId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "albumId": 2,
       "userId": 1
     }
   ],
