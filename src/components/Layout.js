@@ -46,14 +46,16 @@ const useStyles = makeStyles((theme) => {
         },
         toolbar: theme.mixins.toolbar,
         date: {
-            marginTop:'22px',
+            marginTop:'10px',
             flexGrow: 1,
             fontSize:'24px'
         },
         avatar: {
             marginRight: theme.spacing(30),
             display: 'inline-block',
-            marginTop:"21px"
+            marginTop:"21px",
+            height: "60px",
+            width: "60px"
         },
         userBar: {
             marginTop:'22px',
@@ -69,7 +71,8 @@ const useStyles = makeStyles((theme) => {
             paddingBottom: theme.spacing(2)
         },
         iconStyle:{
-            
+            width:'60px',
+            height:'60px'
         }
     }
 })
@@ -109,7 +112,8 @@ export default function Layout({ children }) {
                     <Typography className={classes.date}>
                         <AlbumIcon 
                             className={classes.iconStyle}
-                        /> Vinyl.pl
+                        />
+                         Vinyl.pl
                     </Typography>
                     {user && (
                         <>
@@ -117,7 +121,7 @@ export default function Layout({ children }) {
                                 Witaj {user.nick} !
                             </Typography>
                             
-                            <Avatar  src="/flower.jpg" className={classes.avatar} />
+                            <Avatar  src={ user.avatar ?? "/flower.jpg"} className={classes.avatar} />
                         </>
                     )}
                 </Toolbar>

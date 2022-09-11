@@ -52,15 +52,19 @@ export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) =>
     return response.data;;
 }
 export const handleGetAlbumsCommentsSection = async (albumid) => {
-    const response  = await axiosInstance.get(`albumComments?albumId=${albumid}`);
+    const response  = await axiosInstance.get(`albumComments?albumId=${albumid}&_sort=date&_order=desc`);
     return response.data;
 }
-export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comment) =>{
+export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comment, avatar) =>{
+
+    let date = new Date().toUTCString();
     const response = await axiosInstance.post('albumComments',{
         albumId,
         userId,
         nickName,
-        comment
+        comment,
+        avatar,
+        date
     })
 
     return response.status;
@@ -75,6 +79,7 @@ export const handleAddToFavorites = async (albumId, userId) =>{
     return response.status;
 }
 export const handleDeleteFromFavorites = async (userAlbumId) =>{
+    
     const response = await axiosInstance.delete(`/usersAlbums/${userAlbumId}`);
     return response.status;
 }

@@ -8,7 +8,7 @@
       "phone": "123456789",
       "description": "Hi. My name is Maja. I like blues and country music.",
       "password": "password",
-      "avatar": ""
+      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "phone": "456789123",
       "description": "Hi. I'm Anastasia. I love rock music.",
       "password": "password",
-      "avatar": ""
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360"
     },
     {
       "id": 3,
@@ -170,11 +170,49 @@
   ],
   "albumComments": [
     {
-      "id": 1,
-      "albumId": 1,
+      "albumId": "1",
       "userId": 1,
       "nickName": "blues.girl",
-      "comment": "Mój fav album Elvisa"
+      "comment": "Według mnie jest to najlepszy album Evlisa",
+      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png",
+      "date": "Sun, 11 Sep 2022 18:21:14 GMT",
+      "id": 1
+    },
+    {
+      "albumId": "1",
+      "userId": 2,
+      "nickName": "flower",
+      "comment": "Chuja się tam znasz typiaro",
+      "avatar": "",
+      "date": "Sun, 11 Sep 2022 18:24:08 GMT",
+      "id": 2
+    },
+    {
+      "albumId": "1",
+      "userId": 2,
+      "nickName": "flower",
+      "comment": "xD",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
+      "date": "Sun, 11 Sep 2022 18:28:01 GMT",
+      "id": 3
+    },
+    {
+      "albumId": "1",
+      "userId": 2,
+      "nickName": "flower",
+      "comment": "HAHAHAHA",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
+      "date": "Sun, 11 Sep 2022 18:29:16 GMT",
+      "id": 4
+    },
+    {
+      "albumId": "1",
+      "userId": 2,
+      "nickName": "flower",
+      "comment": "xDDDDD",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
+      "date": "Sun, 11 Sep 2022 18:29:19 GMT",
+      "id": 5
     }
   ]
 }
