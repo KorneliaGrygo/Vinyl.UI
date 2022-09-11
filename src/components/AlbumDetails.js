@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => {
             border: '1px solid',
             borderColor: "lightgray",
             borderRadius: '5px',
-            height: "220px",
+            height: "180px",
             maxHeight: "1000px",
             width: wd,
             marginTop: '10px',
@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => {
         songsWrapper: {
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
-            padding: " 10px",
+            padding: " 5px",
         },
         commentTitle: {
             marginLeft: '20px',

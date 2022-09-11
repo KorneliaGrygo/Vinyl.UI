@@ -45,6 +45,7 @@
     {
       "id": 1,
       "name": "Elvis Is Back!",
+      "band": "Elvis Presley",
       "songs": [
         {
           "id": 1,
@@ -79,6 +80,7 @@
     {
       "id": 2,
       "name": "Innuendo",
+      "band": "Queen",
       "songs": [
         "Innuendo",
         "I'm Going Slightly Mad",
@@ -91,6 +93,7 @@
     },
     {
       "id": 3,
+      "band": "Elvis Presley",
       "name": "Queen Of The Blues",
       "songs": [
         "Evil",
@@ -102,50 +105,6 @@
     },
     {
       "id": 4,
-      "name": "Queen Of The Blues",
-      "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Queen Of The Blues",
-      "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Queen Of The Blues",
-      "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Queen Of The Blues",
-      "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
-    },
-    {
-      "id": 8,
       "name": "Queen Of The Blues",
       "songs": [
         "Evil",
@@ -166,6 +125,11 @@
       "albumId": "1",
       "userId": 1,
       "id": 3
+    },
+    {
+      "albumId": "1",
+      "userId": 2,
+      "id": 4
     }
   ],
   "albumComments": [

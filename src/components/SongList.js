@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => {
     },
     songLenght: {
       marginLeft: '15px',
-      marginTop: '1px',
+      marginTop: '-10px',
       color:'gray'
     }
   }
@@ -22,7 +22,7 @@ export default function SongList({ songs }) {
   return (
     <>
       {songs && songs.map(song => (
-        <div className={classes.songStyle}>
+        <div className={classes.songStyle} key={song.id}>
 
           <Typography
             variant='subtitle1'

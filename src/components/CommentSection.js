@@ -45,7 +45,7 @@ export default function CommentSection(props) {
   return (
     <>
         {props.comments && props.comments.map(comment => (
-            <div className={classes.wrapper}>
+            <div className={classes.wrapper} key={comment.id}>
                 <div className={classes.userDetails}>
                     <Avatar
                         variant='square'
