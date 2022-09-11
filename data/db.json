@@ -46,11 +46,31 @@
       "id": 1,
       "name": "Elvis Is Back!",
       "songs": [
-        "Make Me Know It",
-        "Fever",
-        "The Girl of My Best Friend",
-        "I Will Be Home Again",
-        "Dirty, Dirty Feeling"
+        {
+          "id": 1,
+          "name": "Make Me Know It",
+          "length": "2:08"
+        },
+        {
+          "id": 2,
+          "name": "Fever",
+          "length": "3:35"
+        },
+        {
+          "id": 3,
+          "name": "The Girl of My Best Friend",
+          "length": "2:24"
+        },
+        {
+          "id": 4,
+          "name": "I Will Be Home Again",
+          "length": "2:36"
+        },
+        {
+          "id": 5,
+          "name": "Dirty, Dirty Feeling",
+          "length": "1:35"
+        }
       ],
       "releaseDate": "8 kwietnia, 1960r.",
       "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/6/64/Elvis_is_Back%21.jpg",
@@ -138,14 +158,14 @@
   ],
   "usersAlbums": [
     {
-      "id": 1,
-      "albumId": 1,
-      "userId": 1
-    },
-    {
       "id": 2,
       "albumId": 2,
       "userId": 1
+    },
+    {
+      "albumId": "1",
+      "userId": 1,
+      "id": 3
     }
   ],
   "albumComments": [

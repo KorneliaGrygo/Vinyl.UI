@@ -49,7 +49,7 @@ export const handleGetAlbumById = async (albumId) =>{
 }
 export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) =>{
     const response = await axiosInstance.get(`usersAlbums?albumId=${albumId}&userId=${userId}`);
-    return response.data.length > 0;
+    return response.data;;
 }
 export const handleGetAlbumsCommentsSection = async (albumid) => {
     const response  = await axiosInstance.get(`albumComments?albumId=${albumid}`);
@@ -63,6 +63,19 @@ export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comme
         comment
     })
 
+    return response.status;
+}
+
+export const handleAddToFavorites = async (albumId, userId) =>{
+
+    const response = await axiosInstance.post("/usersAlbums",{
+        albumId,
+        userId
+    })
+    return response.status;
+}
+export const handleDeleteFromFavorites = async (userAlbumId) =>{
+    const response = await axiosInstance.delete(`/usersAlbums/${userAlbumId}`);
     return response.status;
 }
 
