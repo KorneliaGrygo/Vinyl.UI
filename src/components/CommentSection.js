@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const useStyles = makeStyles(theme =>{
     return {
         wrapper:{
-            marginLeft:"20px",
+            marginLeft:"5px",
             padding:'5px',
             marginTop:'12px',
             border:'1px solid lightgray',

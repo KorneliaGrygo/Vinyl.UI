@@ -52,7 +52,7 @@ export default function SearchResult({ data, category }) {
 
     return (
         <>
-            {category === "albums" && data[0].hasOwnProperty("songs") && (
+            {(category === "albums" || category === "band") && data[0]?.hasOwnProperty("songs") && (
                 <div className={classes.albumsDiv}>
                     {data && data.map(album => (
                         <div key={album.id} className={classes.gridChildElement}>
@@ -78,6 +78,12 @@ export default function SearchResult({ data, category }) {
                                 </div>
                                 <div className={classes.albumInfo}>
                                     <Typography
+                                    variant="h6"
+                                    >
+                                        <strong> Wykonawca: </strong> {album.band}
+                                    </Typography>
+                                    <Typography
+                                    variant="h6"
                                     >
                                         <strong> Nazwa Albumu: </strong> {album.name}
                                     </Typography>
@@ -87,7 +93,7 @@ export default function SearchResult({ data, category }) {
                                     </Typography>
                                     <Typography
                                     >
-                                        <strong> O Albumie: </strong>  {`${album.desc?.slice(0, 300) ?? "Brak opisu"} ${album.desc?.length > 425 ? "..." : ""}`}
+                                        <strong> O Albumie: </strong>  {`${album.desc?.slice(0, 250) ?? "Brak opisu"} ${album.desc?.length > 250 ? "..." : ""}`}
                                     </Typography>
                                 </div>
                             </div>
@@ -95,7 +101,7 @@ export default function SearchResult({ data, category }) {
                     ))}
                 </div>
             )}
-            {category === "users" && data[0].hasOwnProperty("nick") && (
+            {category === "users" && data[0]?.hasOwnProperty("nick") && (
                 <div className={classes.albumsDiv}>
                 {data && data.map(user => (
                     <div key={user.id} className={classes.gridChildElement}>

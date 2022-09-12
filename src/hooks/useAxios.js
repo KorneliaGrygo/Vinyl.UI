@@ -29,12 +29,20 @@ export const handleGetNick = async (nick) =>{
 }
 
 export const handleSearchResults = async (type, phrase) => {
-    if(type === "albums"){
-        const response = await axiosInstance.get(`${type}?name_like=${phrase}`)
-        return response.data;
-    }else{
-        const response = await axiosInstance.get(`${type}?nick_like=${phrase}`)
-        return response.data;
+    debugger;
+    let response;
+    switch (type) {
+        case "albums":
+            response = await axiosInstance.get(`${type}?name_like=${phrase}`)     
+            return response.data;   
+        case "users":
+            response = await axiosInstance.get(`${type}?nick_like=${phrase}`)
+            return response.data
+        case 'band':
+            response = await axiosInstance.get(`albums?band_like=${phrase}`)
+            return response.data
+        default:
+            return null;
     }
 }
 
@@ -72,7 +80,7 @@ export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comme
 
 export const handleAddToFavorites = async (albumId, userId) =>{
 
-    const response = await axiosInstance.post("/usersAlbums",{
+    const response = await axiosInstance.post("usersAlbums",{
         albumId,
         userId
     })
@@ -80,9 +88,16 @@ export const handleAddToFavorites = async (albumId, userId) =>{
 }
 export const handleDeleteFromFavorites = async (userAlbumId) =>{
     
-    const response = await axiosInstance.delete(`/usersAlbums/${userAlbumId}`);
+    const response = await axiosInstance.delete(`usersAlbums/${userAlbumId}`);
     return response.status;
 }
+export const handleGetBandsAlbums = async (bandName, mainId) =>{
+    const response = await axiosInstance.get(`albums?band=${bandName}`);
+    return response.data;
+}
+
+
+
 
 export default function useAxios() {
   return null;

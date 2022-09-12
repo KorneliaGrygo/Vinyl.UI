@@ -50,7 +50,7 @@
         {
           "id": 1,
           "name": "Make Me Know It",
-          "length": "2:08"
+          "length": "2:02"
         },
         {
           "id": 2,
@@ -71,9 +71,44 @@
           "id": 5,
           "name": "Dirty, Dirty Feeling",
           "length": "1:35"
+        },
+        {
+          "id": 6,
+          "name": "The Thrill of Your Love",
+          "length": "3:02"
+        },
+        {
+          "id": 7,
+          "name": "Soldier Boy",
+          "length": "3:07"
+        },
+        {
+          "id": 8,
+          "name": "Such A Night",
+          "length": "3:56"
+        },
+        {
+          "id": 9,
+          "name": "It Feels So Right",
+          "length": "2:12"
+        },
+        {
+          "id": 10,
+          "name": "Girl Next Door Went A Walking",
+          "length": "2:16"
+        },
+        {
+          "id": 11,
+          "name": "Like a Baby",
+          "length": "2:41"
+        },
+        {
+          "id": 12,
+          "name": "Reconsider Baby",
+          "length": "3:41"
         }
       ],
-      "releaseDate": "8 kwietnia, 1960r.",
+      "releaseDate": "08/04/1960",
       "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/6/64/Elvis_is_Back%21.jpg",
       "desc": "Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957.Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957."
     },
@@ -82,37 +117,187 @@
       "name": "Innuendo",
       "band": "Queen",
       "songs": [
-        "Innuendo",
-        "I'm Going Slightly Mad",
-        "Headlong",
-        "I Can't Live With You",
-        "Don't Try So Hard"
+        {
+          "id": 1,
+          "name": "Innuendo",
+          "length": "6:31"
+        },
+        {
+          "id": 2,
+          "name": "I'm Going Slightly Mad",
+          "length": "4:22"
+        },
+        {
+          "id": 3,
+          "name": "Headlong",
+          "length": "4:38"
+        },
+        {
+          "id": 4,
+          "name": "I Can't Live With You",
+          "length": "4:34"
+        },
+        {
+          "id": 5,
+          "name": "Don't Try So Hard",
+          "length": "3:39"
+        },
+        {
+          "id": 6,
+          "name": "Ride The Wild Wind",
+          "length": "4:42"
+        },
+        {
+          "id": 7,
+          "name": "All God's People",
+          "length": "4:21"
+        },
+        {
+          "id": 8,
+          "name": "These Are The Days Of Our Lives",
+          "length": "4:15"
+        },
+        {
+          "id": 9,
+          "name": "Delilah",
+          "length": "3:34"
+        },
+        {
+          "id": 10,
+          "name": "The Hitman",
+          "length": "4:56"
+        },
+        {
+          "id": 11,
+          "name": "Bijou",
+          "length": "3:36"
+        },
+        {
+          "id": 12,
+          "name": "The Show Must Go On",
+          "length": "4:32"
+        }
       ],
-      "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur hic voluptates est? Nemo aspernatur itaque neque aperiam eveniet velit excepturi et nobis debitis libero. Harum ullam ad labore. Error!, ",
-      "releaseDate": "8 kwietnia, 1970r."
+      "desc": "Innuendo był pierwszym albumem Queen, który ukazał się (tylko w Ameryce) nakładem wytwórni Hollywood Records, będącej oddziałem Walt Disney Productions. Wytwórnia zapłaciła za prawa do amerykańskich płyt zespołu 10 milionów dolarów. Album dotarł na szczyty list przebojów, gdzie utrzymywał się przez dwa tygodnie. Recenzje reprezentowały dość szeroką gamę odczuć: od pełnych zachwytu (w magazynie „Q”), po określające album „skrzyżowaniem Led Zeppelin z Kennethem Williamsem”.",
+      "releaseDate": "04/02/1991"
     },
     {
       "id": 3,
-      "band": "Elvis Presley",
+      "band": "Koko Taylor",
       "name": "Queen Of The Blues",
       "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
+        {
+          "id": 1,
+          "name": "Evil",
+          "length": "4:32"
+        },
+        {
+          "id": 2,
+          "name": "Beer Bottle Boogie",
+          "length": "4:32"
+        },
+        {
+          "id": 3,
+          "name": "I Cried Like a Baby",
+          "length": "4:32"
+        },
+        {
+          "id": 4,
+          "name": "I Can Love You Like a Woman",
+          "length": "4:32"
+        },
+        {
+          "id": 5,
+          "name": "Flamin' Mamie",
+          "length": "4:32"
+        },
+        {
+          "id": 6,
+          "name": "Something Inside Me",
+          "length": "4:32"
+        },
+        {
+          "id": 7,
+          "name": "The Hunter",
+          "length": "4:32"
+        },
+        {
+          "id": 8,
+          "name": "Queen Bee",
+          "length": "4:32"
+        },
+        {
+          "id": 9,
+          "name": "I Don't Care No More",
+          "length": "4:32"
+        },
+        {
+          "id": 10,
+          "name": "Come to Mama",
+          "length": "4:32"
+        }
+      ],
+      "desc": "Queen of the Blues to album amerykańskiej wokalistki bluesowej Koko Taylor , wydany w 1985 roku. Album został nominowany do nagrody Grammy w kategorii „Najlepsze tradycyjne nagranie bluesowe”.",
+      "releaseDate": "13/06/1985"
     },
     {
       "id": 4,
-      "name": "Queen Of The Blues",
+      "band": "Elvis Presley",
+      "name": "A Date with Elvis",
       "songs": [
-        "Evil",
-        "Beer Bottle Boogie",
-        "I Cried Like a Baby",
-        "I Can Love You",
-        "Flamin' Mamie"
-      ]
+        {
+          "id": 1,
+          "name": "Blue Moon of Kentucky",
+          "length": "2:05"
+        },
+        {
+          "id": 2,
+          "name": "Young And Beautiful",
+          "length": "2:06"
+        },
+        {
+          "id": 3,
+          "name": "(You're So Square) Baby I Don't Care",
+          "length": "1:53"
+        },
+        {
+          "id": 4,
+          "name": "Milkcow Blues Boogie",
+          "length": "2:39"
+        },
+        {
+          "id": 5,
+          "name": "Baby Let's Play House",
+          "length": "2:18"
+        },
+        {
+          "id": 6,
+          "name": "Good Rockin' Tonight",
+          "length": "2:14"
+        },
+        {
+          "id": 7,
+          "name": "Is It So Strange",
+          "length": "2:31"
+        },
+        {
+          "id": 8,
+          "name": "We're Gonna Move",
+          "length": "2:32"
+        },
+        {
+          "id": 9,
+          "name": "I Want To Be Free",
+          "length": "2:15"
+        },
+        {
+          "id": 10,
+          "name": "I Forgot to Remember to Forget",
+          "length": "2:30"
+        }
+      ],
+      "releaseDate": "07/24/1959",
+      "desc": "A Date with Elvis – kompilacyjny album Elvisa Presleya wydany przez wytwórnię RCA Victor Records w lipcu 1959 roku. Płyta zawiera publikowane wcześniej utwory zarejestrowane podczas różnych sesji. Na liście najlepszych albumów magazynu Billboard 200 została sklasyfikowana na 32 miejscu."
     }
   ],
   "usersAlbums": [
@@ -177,6 +362,15 @@
       "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
       "date": "Sun, 11 Sep 2022 18:29:19 GMT",
       "id": 5
+    },
+    {
+      "albumId": "3",
+      "userId": 2,
+      "nickName": "flower",
+      "comment": "ELO",
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
+      "date": "Mon, 12 Sep 2022 20:17:37 GMT",
+      "id": 6
     }
   ]
 }

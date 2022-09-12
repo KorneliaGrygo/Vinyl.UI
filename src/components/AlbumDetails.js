@@ -12,13 +12,15 @@ import {
     handleGetAlbumsCommentsSection,
     handleAddNewComentToAlbum,
     handleAddToFavorites,
-    handleDeleteFromFavorites
+    handleDeleteFromFavorites,
+    handleGetBandsAlbums
 } from '../hooks/useAxios';
 import { makeStyles } from "@material-ui/styles";
 import SongList from './SongList';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import CommentSection from './CommentSection';
+import RecommendedAlbums from './RecommendedAlbums';
 const wd = "84%"
 
 const useStyles = makeStyles(theme => {
@@ -78,9 +80,10 @@ const useStyles = makeStyles(theme => {
             borderColor: "lightgray",
             borderRadius: '5px',
             height: "350px",
-            maxHeight: "450px",
             overflowY: 'auto',
-            padding: '3px'
+            padding: '3px',
+            gridColumnStart: "1",
+            gridColumnEnd: "3"
         },
         favorite: {
             marginLeft: "930px",
@@ -89,7 +92,12 @@ const useStyles = makeStyles(theme => {
         addComment: {
             width: "55%",
             marginTop: '10px'
+        },
+        secondSection: {
+            display: 'grid',
+            gridTemplateColumns: "1 2/3"
         }
+
     }
 
 })
@@ -100,13 +108,14 @@ export default function AlbumDetails() {
     const { user } = useAuthContext();
 
     const [album, setAlbum] = useState(null);
+    const [bandsAlbums, setBandsAlbums] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
     const [comments, setComments] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [refresh, setRefhresh] = useState(false);
     const [refreshFavorite, setRefreshFavorite] = useState(false);
     const [error, setError] = useState("");
-
+    const pobraneCos = "xxdxd";
     const abortController = useRef(new AbortController());
 
     const handleAddNewComment = async (e) => {
@@ -132,7 +141,14 @@ export default function AlbumDetails() {
         const controller = abortController.current;
         const fetchAlbum = async () => {
             let album = await handleGetAlbumById(albumId);
-            setAlbum(album);
+            debugger;
+            if(album){
+                setAlbum(album);
+                const bandsAl = await handleGetBandsAlbums(album.band);
+                if(bandsAl){
+                    setBandsAlbums(bandsAl);
+                }
+            }
         }
         fetchAlbum();
         return () => {
@@ -150,13 +166,17 @@ export default function AlbumDetails() {
         return () => {
             controller.abort();
         }
-    }, [refresh])
+    }, [refresh, albumId])
     useEffect(() => {
         const controller = abortController.current;
 
         const fetchIsFavorite = async () => {
             let isFavorite = await handleCheckIfUserAddedAlbumToFavorites(user?.id ?? 0, albumId);
-            setIsFavorite(isFavorite[0] ?? false);
+            if(isFavorite){
+                setIsFavorite(isFavorite[0]);
+            }else{
+                setIsFavorite(false);
+            }
         }
         fetchIsFavorite();
 
@@ -164,7 +184,7 @@ export default function AlbumDetails() {
             controller.abort();
         }
 
-    }, [refreshFavorite])
+    }, [refreshFavorite, albumId])
     return (
 
         <div>
@@ -207,16 +227,20 @@ export default function AlbumDetails() {
                             <SongList songs={album.songs} />
                         </div>
                     </div>
-                    <Typography className={classes.commentTitle}
-                        variant='h4'
-                    >
-                        Komentarze:
-                    </Typography>
-                    <div className={classes.commentSection}>
-                        <CommentSection comments={comments} />
+                    <div className={classes.secondSection}>
+                        <Typography className={classes.commentTitle}
+                            variant='h4'
+                        >
+                            Komentarze:
+                        </Typography>
+                        <div className={classes.commentSection} >
+                            <CommentSection comments={comments} />
+                        </div>
+                        <RecommendedAlbums bandsAlbums={bandsAlbums?.filter(album => album.id != albumId)}/>
                     </div>
-
-                    <form className={classes.addComment} noValidate autoComplete="off" onSubmit={handleAddNewComment} >
+               
+                </>)}
+                <form className={classes.addComment} noValidate autoComplete="off" onSubmit={handleAddNewComment} >
                         <TextField
                             fullWidth
                             variant='outlined'
@@ -237,8 +261,6 @@ export default function AlbumDetails() {
                                 {error}
                             </Typography>}
                     </form>
-
-                </>)}
 
         </div>
     )

@@ -43,19 +43,23 @@ const useStyles = makeStyles({
 export default function Search() {
   const classes = useStyles()
   const [phrase, setPhrase] = useState('')
-  const [details, setDetails] = useState('')
   const [titleError, setTitleError] = useState(false)
-  const [detailsError, setDetailsError] = useState(false)
   const [category, setCategory] = useState('albums');
   const [searchResult, setSearchResult] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await handleSearchResults(category, phrase);
-    if(data.length){
         setSearchResult(data);
-    }
   }
+    useEffect(() => {
+        const fetchData = async () =>{
+          const data = await handleSearchResults(category, phrase);
+          setSearchResult(data);
+        }
+        fetchData();
+    },[category])
+
   return (
     <Container>
 
@@ -67,6 +71,7 @@ export default function Search() {
 
         <TextField
           onChange={(e) => setPhrase(e.target.value)}
+          value={phrase}
           className={classes.field}
           color="secondary"
           label="Wyszukaj"
@@ -81,9 +86,13 @@ export default function Search() {
           <FormLabel> Wybierz jedną z opcji: </FormLabel>
           <RadioGroup
             value={category}
-            onChange={(e) => setCategory(e.target.value) }
+            onChange={(e) =>{
+               setCategory(e.target.value) 
+               setPhrase('')
+            }}
           >
             <div className={classes.radio}>
+              <FormControlLabel value="band" control={<Radio />} label="Wykonawca" />
               <FormControlLabel value="albums" control={<Radio />} label="Album" />
               <FormControlLabel value="users" control={<Radio />} label="Profil" />
             </div>
