@@ -9,6 +9,7 @@ let user = {
     gender: null,
     phone: null,
     description: null,
+    role:null
 }
 
 export const AuthContext = createContext();

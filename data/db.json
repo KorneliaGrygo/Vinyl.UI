@@ -2,13 +2,14 @@
   "users": [
     {
       "id": 1,
-      "email": "maja@o2.pl",
+      "email": "maja@email.com",
       "nick": "blues.girl",
       "gender": "kobieta",
       "phone": "123456789",
       "description": "Hi. My name is Maja. I like blues and country music.",
       "password": "password",
-      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png"
+      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png",
+      "role": "user"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "phone": "456789123",
       "description": "Hi. I'm Anastasia. I love rock music.",
       "password": "password",
-      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360"
+      "avatar": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BG/en/99/EP8802-CUSA02901_00-AV00000000000013/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=360&h=360",
+      "role": "user"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "phone": "789123456",
       "description": "Hello. I'm Max and I love Elvis Presley.",
       "password": "password",
-      "avatar": ""
+      "avatar": "",
+      "role": "user"
     },
     {
       "id": 4,
@@ -38,7 +41,18 @@
       "phone": "321321321",
       "description": "Hello. I'm Kornelia. I love animals and good music.",
       "password": "password",
-      "avatar": ""
+      "avatar": "",
+      "role": "user"
+    },
+    {
+      "id": 5,
+      "email": "admin@email.com",
+      "nick": "admin",
+      "gender": "kobieta",
+      "phone": "123123123",
+      "password": "password",
+      "description": "administrator",
+      "role": "admin"
     }
   ],
   "albums": [
@@ -750,11 +764,6 @@
       "userId": 1
     },
     {
-      "id": 4,
-      "albumId": "1",
-      "userId": 2
-    },
-    {
       "albumId": "1",
       "userId": 3,
       "id": 5
@@ -768,27 +777,14 @@
       "albumId": "11",
       "userId": 4,
       "id": 7
-    }
-  ],
-  "albumComments": [
-    {
-      "albumId": "1",
-      "userId": 1,
-      "nickName": "blues.girl",
-      "comment": "Według mnie jest to najlepszy album Evlisa",
-      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png",
-      "date": "Sun, 11 Sep 2022 18:21:14 GMT",
-      "id": 1
     },
     {
       "albumId": "1",
       "userId": 2,
-      "nickName": "flower",
-      "comment": "Chuja się tam znasz typiaro",
-      "avatar": "",
-      "date": "Sun, 11 Sep 2022 18:24:08 GMT",
-      "id": 2
-    },
+      "id": 8
+    }
+  ],
+  "albumComments": [
     {
       "albumId": "1",
       "userId": 2,

@@ -13,7 +13,8 @@ import {
     handleAddNewComentToAlbum,
     handleAddToFavorites,
     handleDeleteFromFavorites,
-    handleGetBandsAlbums
+    handleGetBandsAlbums,
+    handleDeleteInvalidComment
 } from '../hooks/useAxios';
 import { makeStyles } from "@material-ui/styles";
 import SongList from './SongList';
@@ -62,7 +63,8 @@ const useStyles = makeStyles(theme => {
             fontSize: '24px',
             marginLeft: '280px',
             marginTop: "-260px",
-            width: '800px'
+            width: '800px',
+            textAlign:'justify'
         },
         songsWrapper: {
             display: "grid",
@@ -86,8 +88,9 @@ const useStyles = makeStyles(theme => {
             gridColumnEnd: "3"
         },
         favorite: {
-            marginLeft: "930px",
-            marginTop: "-250px"
+            position:"relative",
+            top:"-260px",
+            right:'-1300px'
         },
         addComment: {
             width: "55%",
@@ -104,7 +107,6 @@ const useStyles = makeStyles(theme => {
 
 export default function AlbumDetails() {
 
-    debugger;
     const classes = useStyles();
     const { albumId } = useParams();
     const { user } = useAuthContext();
@@ -142,7 +144,6 @@ export default function AlbumDetails() {
         const controller = abortController.current;
         const fetchAlbum = async () => {
             let album = await handleGetAlbumById(albumId);
-            debugger;
             if(album){
                 setAlbum(album);
                 const bandsAl = await handleGetBandsAlbums(album.band);
@@ -213,16 +214,19 @@ export default function AlbumDetails() {
                                 </Typography>
                                 <Typography>
                                     <strong>O albumie: </strong> {album.desc}
+                                    
+                           
                                 </Typography>
 
-                                {user?.id && <div className={classes.favorite} onClick={handleAddOrDeleteFromFavorites}>
-                                    {isFavorite ?
-                                        <FavoriteIcon fontSize='large' /> : <FavoriteBorderIcon fontSize='large' />}
-                                </div>}
                             </div>
+                           
                         </div>
 
                     </div>
+                    {user?.id && <div className={classes.favorite} onClick={handleAddOrDeleteFromFavorites}>
+                                    {isFavorite ?
+                                        <FavoriteIcon fontSize='large' /> : <FavoriteBorderIcon fontSize='large' />}
+                                </div>}
                     <div className={classes.songsList}>
                         <div className={classes.songsWrapper}>
                             <SongList songs={album.songs} />
@@ -235,7 +239,10 @@ export default function AlbumDetails() {
                             Komentarze:
                         </Typography>
                         <div className={classes.commentSection} >
-                            <CommentSection comments={comments} />
+                            <CommentSection comments={comments}
+                             handleDeleteInvalidComment = {handleDeleteInvalidComment}
+                             shouldRefresh = {setRefhresh}
+                             />
                         </div>
                         <RecommendedAlbums bandsAlbums={bandsAlbums?.filter(album => album.id != albumId)}/>
                     </div>

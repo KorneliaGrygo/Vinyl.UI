@@ -29,7 +29,6 @@ export const handleGetNick = async (nick) =>{
 }
 
 export const handleSearchResults = async (type, phrase) => {
-    debugger;
     let response;
     switch (type) {
         case "albums":
@@ -94,6 +93,13 @@ export const handleDeleteFromFavorites = async (userAlbumId) =>{
 export const handleGetBandsAlbums = async (bandName, mainId) =>{
     const response = await axiosInstance.get(`albums?band=${bandName}`);
     return response.data;
+}
+
+export const handleDeleteInvalidComment = async (comment) => {
+    const response = await axiosInstance.patch(`albumComments/${comment.id}`,{
+        comment: "Komentarz został usunięty przez administratora, ponieważ zawierał niewłaściwe treści"
+    })
+    return response.status;
 }
 
 
