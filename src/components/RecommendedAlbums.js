@@ -10,6 +10,7 @@ const useStyles = makeStyles (theme => {
             borderColor: "lightgray",
             borderRadius: '5px',
             width:"455px",
+            height: "355px",
             gridColumnStart:"2",
             gridColumnEnd:"3",
             overflowY: "auto",
@@ -58,7 +59,7 @@ export default function RecommendedAlbums({bandsAlbums}) {
             <div className={classes.albumBox}>
             <Avatar
                 className={classes.avatar}
-                src={album.avatarUrl ?? '/album.png'}
+                src={`/${album.avatarUrl}` ?? '/album.png'}
                 variant='square'
                 onClick={()=> history.push(`/albums/details/${album.id}`)}
             />

@@ -33,13 +33,13 @@ export const handleSearchResults = async (type, phrase) => {
     let response;
     switch (type) {
         case "albums":
-            response = await axiosInstance.get(`${type}?name_like=${phrase}`)     
+            response = await axiosInstance.get(`${type}?name_like=${phrase}&_sort=band&_order=asc`)     
             return response.data;   
         case "users":
             response = await axiosInstance.get(`${type}?nick_like=${phrase}`)
             return response.data
         case 'band':
-            response = await axiosInstance.get(`albums?band_like=${phrase}`)
+            response = await axiosInstance.get(`albums?band_like=${phrase}&_sort=band&_order=asc`)
             return response.data
         default:
             return null;

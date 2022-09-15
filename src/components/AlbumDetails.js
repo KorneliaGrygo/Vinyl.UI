@@ -103,6 +103,8 @@ const useStyles = makeStyles(theme => {
 })
 
 export default function AlbumDetails() {
+
+    debugger;
     const classes = useStyles();
     const { albumId } = useParams();
     const { user } = useAuthContext();
@@ -115,7 +117,6 @@ export default function AlbumDetails() {
     const [refresh, setRefhresh] = useState(false);
     const [refreshFavorite, setRefreshFavorite] = useState(false);
     const [error, setError] = useState("");
-    const pobraneCos = "xxdxd";
     const abortController = useRef(new AbortController());
 
     const handleAddNewComment = async (e) => {
@@ -195,7 +196,7 @@ export default function AlbumDetails() {
                         <div className={classes.avatarBox}>
                             <Avatar
                                 className={classes.avatar}
-                                src={album.avatarUrl ?? '/album.png'}
+                                src= {`/${album.avatarUrl}` ?? '/album.png'}
                                 variant='square'
                             />
 

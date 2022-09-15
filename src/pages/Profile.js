@@ -36,9 +36,10 @@ const { user } = useAuthContext();
             </div>
             <div className={classes.child}>
                 <Typography variant='h5'>
-                Nazwa użytkownika {user.nick} <br />
+                {user.nick} <br />
                 <br />
-                informacje o użytkowniku
+                {user.description} <br />
+                <br />
                 </Typography>
             </div>
         </div>

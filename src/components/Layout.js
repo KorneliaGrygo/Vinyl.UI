@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => {
         },
         drawerPaper: {
             width: drawerWidth,
-            backgroundColor:"rgba(244, 235, 235, 0.583)"
         },
         root: {
             display: 'flex'
@@ -45,7 +44,6 @@ const useStyles = makeStyles((theme) => {
         appbar: {
             width: "100%",
             height:"88px",
-            backgroundColor:"rgba(244, 235, 235, 0.583)"
         },
         toolbar: theme.mixins.toolbar,
         date: {
@@ -58,7 +56,8 @@ const useStyles = makeStyles((theme) => {
             display: 'inline-block',
             marginTop:"21px",
             height: "60px",
-            width: "60px"
+            width: "60px",
+            textAlign: "center"
         },
         userBar: {
             marginTop:'22px',
