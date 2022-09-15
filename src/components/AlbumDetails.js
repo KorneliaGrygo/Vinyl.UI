@@ -248,6 +248,7 @@ export default function AlbumDetails() {
                     </div>
                
                 </>)}
+                {user && 
                 <form className={classes.addComment} noValidate autoComplete="off" onSubmit={handleAddNewComment} >
                         <TextField
                             fullWidth
@@ -269,6 +270,7 @@ export default function AlbumDetails() {
                                 {error}
                             </Typography>}
                     </form>
+                    }
 
         </div>
     )
