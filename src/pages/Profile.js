@@ -2,6 +2,7 @@ import React from 'react'
 import Avatar from "@material-ui/core/Avatar"
 import { makeStyles } from "@material-ui/styles"
 import { Typography } from '@material-ui/core'
+import useAuthContext from '../hooks/useAuthContext'
 
 const useStyles = makeStyles ({
     avatar:{
@@ -22,6 +23,8 @@ const useStyles = makeStyles ({
 
 export default function Profile() {
 const classes = useStyles();
+const { user } = useAuthContext();
+
   return (
     <div style={{
         width: `Calc(100% - 240px)`
@@ -33,7 +36,7 @@ const classes = useStyles();
             </div>
             <div className={classes.child}>
                 <Typography variant='h5'>
-                Nazwa użytkownika <br />
+                Nazwa użytkownika {user.nick} <br />
                 <br />
                 informacje o użytkowniku
                 </Typography>

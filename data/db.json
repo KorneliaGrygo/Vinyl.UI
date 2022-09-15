@@ -31,13 +31,13 @@
       "avatar": ""
     },
     {
-      "email": "danusia@wp.pl",
-      "nick": "Danusia",
-      "gender": "kobieta",
-      "phone": "123123123",
-      "password": "123123",
-      "description": null,
       "id": 4,
+      "email": "kornelia@o2.pl",
+      "nick": "katerina",
+      "gender": "kobieta",
+      "phone": "321321321",
+      "description": "Hello. I'm Kornelia. I love animals and good music.",
+      "password": "password",
       "avatar": ""
     }
   ],
@@ -109,7 +109,7 @@
         }
       ],
       "releaseDate": "08/04/1960",
-      "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/6/64/Elvis_is_Back%21.jpg",
+      "avatarUrl": "EP Elvis_is_Back!.jpg",
       "desc": "Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957.Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957."
     },
     {
@@ -178,13 +178,14 @@
           "length": "4:32"
         }
       ],
-      "desc": "Innuendo był pierwszym albumem Queen, który ukazał się (tylko w Ameryce) nakładem wytwórni Hollywood Records, będącej oddziałem Walt Disney Productions. Wytwórnia zapłaciła za prawa do amerykańskich płyt zespołu 10 milionów dolarów. Album dotarł na szczyty list przebojów, gdzie utrzymywał się przez dwa tygodnie. Recenzje reprezentowały dość szeroką gamę odczuć: od pełnych zachwytu (w magazynie „Q”), po określające album „skrzyżowaniem Led Zeppelin z Kennethem Williamsem”.",
-      "releaseDate": "04/02/1991"
+      "releaseDate": "04/02/1991",
+      "avatarUrl": "Queen_Innuendo.png",
+      "desc": "Innuendo był pierwszym albumem Queen, który ukazał się (tylko w Ameryce) nakładem wytwórni Hollywood Records, będącej oddziałem Walt Disney Productions. Wytwórnia zapłaciła za prawa do amerykańskich płyt zespołu 10 milionów dolarów. Album dotarł na szczyty list przebojów, gdzie utrzymywał się przez dwa tygodnie. Recenzje reprezentowały dość szeroką gamę odczuć: od pełnych zachwytu (w magazynie „Q”), po określające album „skrzyżowaniem Led Zeppelin z Kennethem Williamsem”."
     },
     {
       "id": 3,
-      "band": "Koko Taylor",
       "name": "Queen Of The Blues",
+      "band": "Koko Taylor",
       "songs": [
         {
           "id": 1,
@@ -237,13 +238,14 @@
           "length": "4:32"
         }
       ],
-      "desc": "Queen of the Blues to album amerykańskiej wokalistki bluesowej Koko Taylor , wydany w 1985 roku. Album został nominowany do nagrody Grammy w kategorii „Najlepsze tradycyjne nagranie bluesowe”.",
-      "releaseDate": "13/06/1985"
+      "releaseDate": "06/13/1985",
+      "avatarUrl": "KT QueenOfTheBlues.png",
+      "desc": "Queen of the Blues to album amerykańskiej wokalistki bluesowej Koko Taylor , wydany w 1985 roku. Album został nominowany do nagrody Grammy w kategorii „Najlepsze tradycyjne nagranie bluesowe”."
     },
     {
       "id": 4,
-      "band": "Elvis Presley",
       "name": "A Date with Elvis",
+      "band": "Elvis Presley",
       "songs": [
         {
           "id": 1,
@@ -297,24 +299,220 @@
         }
       ],
       "releaseDate": "07/24/1959",
+      "avatarUrl": "EP ADateWithElvis.jpg",
       "desc": "A Date with Elvis – kompilacyjny album Elvisa Presleya wydany przez wytwórnię RCA Victor Records w lipcu 1959 roku. Płyta zawiera publikowane wcześniej utwory zarejestrowane podczas różnych sesji. Na liście najlepszych albumów magazynu Billboard 200 została sklasyfikowana na 32 miejscu."
+    },
+    {
+      "id": 5,
+      "name": "Something for Everybody",
+      "band": "Elvis Presley",
+      "songs": [
+        {
+          "id": 1,
+          "name": "There's Always Me",
+          "length": "2:16"
+        },
+        {
+          "id": 2,
+          "name": "Give Me the Right",
+          "length": "2:32"
+        },
+        {
+          "id": 3,
+          "name": "It's a Sin",
+          "length": "2:39"
+        },
+        {
+          "id": 4,
+          "name": "Sentimental Me",
+          "length": "2:31"
+        },
+        {
+          "id": 5,
+          "name": "Starting Today",
+          "length": "2:03"
+        },
+        {
+          "id": 6,
+          "name": "Gently",
+          "length": "2:15"
+        },
+        {
+          "id": 7,
+          "name": "I'm Comin' Home",
+          "length": "2:20"
+        },
+        {
+          "id": 8,
+          "name": "In Your Arms",
+          "length": "1:50"
+        },
+        {
+          "id": 9,
+          "name": "Put the Blame On Me",
+          "length": "1:57"
+        },
+        {
+          "id": 10,
+          "name": "Judy",
+          "length": "2:10"
+        },
+        {
+          "id": 11,
+          "name": "I Want You With Me",
+          "length": "2:13"
+        },
+        {
+          "id": 12,
+          "name": "I Slipped, I Stumbled, I Fell",
+          "length": "1:35"
+        }
+      ],
+      "releaseDate": "06/17/1961",
+      "avatarUrl": "EP SomethingForEverybody.jpg",
+      "desc": "Something for Everybody – trzynasty album Elvisa Presleya wydany 17 czerwca 1961 roku przez RCA Victor Records. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na pierwszym miejscu."
+    },
+    {
+      "id": 6,
+      "name": "Pot Luck",
+      "band": "Elvis Presley",
+      "songs": [
+        {
+          "id": 1,
+          "name": "Kiss Me Quick",
+          "length": "2:46"
+        },
+        {
+          "id": 2,
+          "name": "Just for Old Time Sake",
+          "length": "2:08"
+        },
+        {
+          "id": 3,
+          "name": "Gonna Get Back Home Somehow",
+          "length": "2:27"
+        },
+        {
+          "id": 4,
+          "name": "(Such an) Easy Question",
+          "length": "2:18"
+        },
+        {
+          "id": 5,
+          "name": "Steppin' Out of Line",
+          "length": "1:54"
+        },
+        {
+          "id": 6,
+          "name": "I'm Yours",
+          "length": "2:21"
+        },
+        {
+          "id": 7,
+          "name": "Something Blue",
+          "length": "2:57"
+        },
+        {
+          "id": 8,
+          "name": "Suspicion",
+          "length": "2:34"
+        },
+        {
+          "id": 9,
+          "name": "I Feel That I've Known You Forever",
+          "length": "1:39"
+        },
+        {
+          "id": 10,
+          "name": "Night Rider",
+          "length": "2:08"
+        },
+        {
+          "id": 11,
+          "name": "Fountain of Love",
+          "length": "2:12"
+        },
+        {
+          "id": 12,
+          "name": "That's Someone You Never Forget",
+          "length": "2:47"
+        }
+      ],
+      "releaseDate": "06/05/1962",
+      "avatarUrl": "EP Pot_Luck.jpg",
+      "desc": "Pot Luck – piętnasty album Elvisa Presleya wydany 5 czerwca 1962 roku przez RCA Victor Records. Zawiera on zbiór różnych piosenek Elvisa zarejestrowanych w czasie sesji nagraniowych w 1961 i 1962 r. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na czwartym miejscu."
+    },
+    {
+      "id": 7,
+      "name": "Let's Be Friends",
+      "band": "Elvis Presley",
+      "songs": [
+        {
+          "id": 1,
+          "name": "Stay Away Joe",
+          "length": "1:37"
+        },
+        {
+          "id": 2,
+          "name": "I'm A Fool",
+          "length": "2:43"
+        },
+        {
+          "id": 3,
+          "name": "Let's Be Friends",
+          "length": "1:53"
+        },
+        {
+          "id": 4,
+          "name": "Let's Forget About The Stars",
+          "length": "1:49"
+        },
+        {
+          "id": 5,
+          "name": "Mama",
+          "length": "2:25"
+        },
+        {
+          "id": 6,
+          "name": "I'll Be There",
+          "length": "2:21"
+        },
+        {
+          "id": 7,
+          "name": "Almost",
+          "length": "1:39"
+        },
+        {
+          "id": 8,
+          "name": "Change Of Habit",
+          "length": "3:18"
+        },
+        {
+          "id": 9,
+          "name": "Have A Happy",
+          "length": "2:41"
+        }
+      ],
+      "releaseDate": "04/13/1970",
+      "avatarUrl": "EP Let's_Be_Friends.jpg",
+      "desc": "Let's Be Friends – 37 album składankowy Elvisa Presleya."
     }
   ],
   "usersAlbums": [
     {
       "id": 2,
-      "albumId": 2,
+      "albumId": "2",
       "userId": 1
     },
     {
+      "id": 3,
       "albumId": "1",
-      "userId": 1,
-      "id": 3
+      "userId": 1
     },
     {
+      "id": 4,
       "albumId": "1",
-      "userId": 2,
-      "id": 4
+      "userId": 2
     }
   ],
   "albumComments": [
