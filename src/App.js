@@ -9,6 +9,7 @@ import Search from './pages/Search'
 import useAuthContext from './hooks/useAuthContext'
 import Profile from './pages/Profile'
 import AlbumDetails from './components/AlbumDetails'
+import AddAlbums from './pages/AddAlbums'
 
 const theme = createTheme({
   palette: {
@@ -62,6 +63,16 @@ function App() {
             </Route>
             <Route path='/albums/details/:albumId'>
               <AlbumDetails/>
+            </Route>
+            <Route path="/AddAlbums">
+              {user?.role === "admin" &&
+                <AddAlbums/>
+              }
+              {
+                user?.role !== "admin" && 
+                <Home/>
+              }
+
             </Route>
           </Switch>
         </Layout>

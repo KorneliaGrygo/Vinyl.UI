@@ -17,6 +17,9 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import useAuthContext from "../hooks/useAuthContext";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import { useEffect } from "react";
+import { useState } from "react";
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => {
@@ -79,12 +82,12 @@ const useStyles = makeStyles((theme) => {
     }
 })
 
+
 export default function Layout({ children }) {
     const classes = useStyles()
     const history = useHistory()
     const location = useLocation()
     const { user, dispatch } = useAuthContext()
-
     const menuItems = [
         {
             text: 'Strona Główna',
@@ -94,14 +97,16 @@ export default function Layout({ children }) {
         {
             text: 'Wyszukaj',
             path: '/wyszukaj',
-            icon: <SearchIcon/>
+            icon: <SearchIcon/>,
         },
         {
             text: 'Profil',
             path: user?.id ? `/profil/${user.id}` : '/login', 
             icon: <PersonIcon/>
-        }
+        },
+
     ]
+    
 
     return (
         <div className={classes.root}>
@@ -156,8 +161,24 @@ export default function Layout({ children }) {
                             />
                         </>
                     ))}
+                    {user?.role === "admin" &&
+                        <ListItem
+                            button
+                            onClick={() => history.push("/AddAlbums")}
+                            className={classes.logout}
+                        >
+                            <ListItemIcon>
+                                {<AssignmentIcon />}
+                            </ListItemIcon>
+                            <ListItemText
+                                primary="Dodaj album"
+                            />
+                            <Divider />
+                        </ListItem>
+                    }
                     {user &&
                         <>
+                        
                             <ListItem
                                 button
                                 onClick={() => {

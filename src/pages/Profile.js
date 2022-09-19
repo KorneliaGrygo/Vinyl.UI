@@ -36,9 +36,9 @@ const { user } = useAuthContext();
             </div>
             <div className={classes.child}>
                 <Typography variant='h5'>
-                {user.nick} <br />
+                {user?.nick} <br />
                 <br />
-                {user.description} <br />
+                {user?.description} <br />
                 <br />
                 </Typography>
             </div>
