@@ -17,6 +17,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import { handleSearchResults } from '../hooks/useAxios';
 import Divider from '@material-ui/core/Divider'
 import SearchResult from '../components/SearchResult'
+import useAuthContext from './../hooks/useAuthContext'
+
 
 const useStyles = makeStyles({
   field: {
@@ -24,19 +26,19 @@ const useStyles = makeStyles({
     marginBottom: 20,
     display: 'block',
     textAlign: "center",
-    width:"88%"
+    width: "88%"
   },
   radio: {
     textAlign: "center",
-    marginLeft:'15px'
+    marginLeft: '15px'
   },
-  title:{
-    marginTop:'10px'
+  title: {
+    marginTop: '10px'
   },
-  searchButton:{
-    textAlign:'center',
-    marginRight:'150px',
-    marginTop:'-10px'
+  searchButton: {
+    textAlign: 'center',
+    marginRight: '150px',
+    marginTop: '-10px'
   }
 })
 
@@ -46,19 +48,20 @@ export default function Search() {
   const [titleError, setTitleError] = useState(false)
   const [category, setCategory] = useState('albums');
   const [searchResult, setSearchResult] = useState(null);
+  const { user: userLoggedIn } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await handleSearchResults(category, phrase);
-        setSearchResult(data);
+    setSearchResult(data);
   }
-    useEffect(() => {
-        const fetchData = async () =>{
-          const data = await handleSearchResults(category, phrase);
-          setSearchResult(data);
-        }
-        fetchData();
-    },[category])
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await handleSearchResults(category, phrase);
+      setSearchResult(data);
+    }
+    fetchData();
+  }, [category])
 
   return (
     <Container>
@@ -86,9 +89,9 @@ export default function Search() {
           <FormLabel> Wybierz jedną z opcji: </FormLabel>
           <RadioGroup
             value={category}
-            onChange={(e) =>{
-               setCategory(e.target.value) 
-               setPhrase('')
+            onChange={(e) => {
+              setCategory(e.target.value)
+              setPhrase('')
             }}
           >
             <div className={classes.radio}>
@@ -118,13 +121,13 @@ export default function Search() {
         </div>
       </form>
       <br />
-      <Divider fullWidth/>
+      <Divider fullWidth />
       <div style={{
-        marginTop:"10px"
+        marginTop: "10px"
       }}>
-          { searchResult && (
-            <SearchResult data={searchResult} category={category}/>
-          )}
+        {searchResult && (
+          <SearchResult data={searchResult[0]?.hasOwnProperty("nick") ? searchResult.filter(user => user.id != userLoggedIn.id) : searchResult} category={category} />
+        )}
       </div>
     </Container>
   )

@@ -7,23 +7,23 @@ const axiosInstance = axios.create({
 });
 
 export const handleRegisterUser = async (user) => {
-    const response = await axiosInstance.post("users",{
-        email : user.email,
+    const response = await axiosInstance.post("users", {
+        email: user.email,
         nick: user.nick,
         gender: user.gender,
-        phone : user.phone,
+        phone: user.phone,
         password: user.password,
-        description:"",
+        description: "",
     })
     return response.status; //201 to jest gitówka mordo, stworzylo sie
 }
 
-export const handleGetEmail = async (email) =>{
+export const handleGetEmail = async (email) => {
     const response = await axiosInstance.get(`users?email=${email}`);
     return response.data.length;
 }
 
-export const handleGetNick = async (nick) =>{
+export const handleGetNick = async (nick) => {
     const response = await axiosInstance.get(`users?nick=${nick}`);
     return response.data.length;
 }
@@ -32,8 +32,8 @@ export const handleSearchResults = async (type, phrase) => {
     let response;
     switch (type) {
         case "albums":
-            response = await axiosInstance.get(`${type}?name_like=${phrase}&_sort=band&_order=asc`)     
-            return response.data;   
+            response = await axiosInstance.get(`${type}?name_like=${phrase}&_sort=band&_order=asc`)
+            return response.data;
         case "users":
             response = await axiosInstance.get(`${type}?nick_like=${phrase}`)
             return response.data
@@ -45,27 +45,27 @@ export const handleSearchResults = async (type, phrase) => {
     }
 }
 
-export const handleGetUser = async (email, password) =>{
+export const handleGetUser = async (email, password) => {
     const response = await axiosInstance.get(`users?email=${email}&password=${password}`);
     return response.data[0];
 }
 
-export const handleGetAlbumById = async (albumId) =>{
+export const handleGetAlbumById = async (albumId) => {
     const response = await axiosInstance.get(`albums/${albumId}`)
     return response.data;
 }
-export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) =>{
+export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) => {
     const response = await axiosInstance.get(`usersAlbums?albumId=${albumId}&userId=${userId}`);
     return response.data;;
 }
 export const handleGetAlbumsCommentsSection = async (albumid) => {
-    const response  = await axiosInstance.get(`albumComments?albumId=${albumid}&_sort=date&_order=desc`);
+    const response = await axiosInstance.get(`albumComments?albumId=${albumid}&_sort=date&_order=desc`);
     return response.data;
 }
-export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comment, avatar) =>{
+export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comment, avatar) => {
 
     let date = new Date().toUTCString();
-    const response = await axiosInstance.post('albumComments',{
+    const response = await axiosInstance.post('albumComments', {
         albumId,
         userId,
         nickName,
@@ -77,34 +77,37 @@ export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comme
     return response.status;
 }
 
-export const handleAddToFavorites = async (albumId, userId) =>{
+export const handleAddToFavorites = async (albumId, userId) => {
 
-    const response = await axiosInstance.post("usersAlbums",{
+    const response = await axiosInstance.post("usersAlbums", {
         albumId,
         userId
     })
     return response.status;
 }
-export const handleDeleteFromFavorites = async (userAlbumId) =>{
-    
+export const handleDeleteFromFavorites = async (userAlbumId) => {
+
     const response = await axiosInstance.delete(`usersAlbums/${userAlbumId}`);
     return response.status;
 }
-export const handleGetBandsAlbums = async (bandName, mainId) =>{
+export const handleGetBandsAlbums = async (bandName, mainId) => {
     const response = await axiosInstance.get(`albums?band=${bandName}`);
     return response.data;
 }
 
 export const handleDeleteInvalidComment = async (comment) => {
-    const response = await axiosInstance.patch(`albumComments/${comment.id}`,{
+    const response = await axiosInstance.patch(`albumComments/${comment.id}`, {
         comment: "Komentarz został usunięty przez administratora, ponieważ zawierał niewłaściwe treści"
     })
     return response.status;
 }
 
+export const handleGetUserById = async (userId) => {
+    const response = await axiosInstance.get(`users/${userId}`);
 
-
+    return response.data;
+}
 
 export default function useAxios() {
-  return null;
+    return null;
 }

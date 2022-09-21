@@ -214,8 +214,6 @@ export default function AlbumDetails() {
                                 </Typography>
                                 <Typography>
                                     <strong>O albumie: </strong> {album.desc}
-                                    
-                           
                                 </Typography>
 
                             </div>
