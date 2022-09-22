@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Avatar from "@material-ui/core/Avatar"
 import { makeStyles } from "@material-ui/styles"
 import { Typography } from '@material-ui/core'
@@ -9,6 +9,8 @@ import PublicIcon from '@material-ui/icons/Public';
 import PhoneIcon from '@material-ui/icons/Phone';
 import CreateIcon from '@material-ui/icons/Create';
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
+import { handleGetUserById,handleGetFavoriteAlbums } from '../hooks/useAxios'
+import RecommendedAlbums from '../components/RecommendedAlbums';
 
 const useStyles = makeStyles ({
     avatar:{
@@ -28,15 +30,36 @@ const useStyles = makeStyles ({
     nickName: {
         marginBottom: "15px",
         
-    }   
+    },
+    favAlbums:{
+        marginTop:'5px',
+        border:"1px solid black",
+    }
 })
 
 export default function Profile() {
 const classes = useStyles();
 
 const [user,setUser] = useState(null);
+const [favAlbums,setFavAlbums] = useState([]);
 const {userId} = useParams();
  // napisac useEffect i jeszcze request do po
+
+useEffect(() => {
+    const getData = async () =>{
+        let user = await handleGetUserById(userId);
+        if (user) {
+            setUser(user);
+            let favAlbums = await handleGetFavoriteAlbums(userId);
+            if(favAlbums){
+                setFavAlbums(favAlbums);
+            }
+        }
+    }
+
+    getData();
+  
+}, [userId])
 
   return (
     <div style={{
@@ -46,7 +69,7 @@ const {userId} = useParams();
         { user && (
         <div className={classes.parent}>
             <div className={classes.child}> 
-            <Avatar src="/flower.jpg" className={classes.avatar} />
+            <Avatar src={user.avatar} className={classes.avatar} />
             </div>
             <div className={classes.child}>
                 <Typography 
@@ -82,13 +105,24 @@ const {userId} = useParams();
                 style={{
                     backgroundColor:'rgb(156, 156, 156)'
                 }}
+                variant = "fullWidth"
                 
             />
         </div>
          )}
-        <div>
+        <div >
             <Typography variant='h4' >
                 Ulubione:  
+                <div className={classes.favAlbums}>
+
+                
+                {favAlbums?.length && favAlbums.map(album => (
+                    <>
+                    
+                    </>
+                ))
+                }
+                </div>
             </Typography>
         </div>
                

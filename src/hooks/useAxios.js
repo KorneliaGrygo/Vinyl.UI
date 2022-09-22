@@ -107,6 +107,23 @@ export const handleGetUserById = async (userId) => {
 
     return response.data;
 }
+const getidsOnly = (albumsIdsoObjects) => {
+    let tempString = "";
+    for (let index = 0; index < albumsIdsoObjects.length; index++) {
+        let id = albumsIdsoObjects[index];
+        tempString += `id=${id}&`;
+    }
+    return tempString;
+}
+export const handleGetFavoriteAlbums = async (userId) => {
+    const responseAlbums = await axiosInstance.get(`usersAlbums?userId=${userId}`)
+    if(!responseAlbums.data){
+        return null;
+    }
+    const albumsIds = responseAlbums.data?.map(x => x.albumId);
+    const responseMatchedAlbums = await axiosInstance.get(`albums?${getidsOnly(albumsIds)}`);
+    return responseMatchedAlbums.data;
+}
 
 export default function useAxios() {
     return null;
