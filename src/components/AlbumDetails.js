@@ -33,8 +33,7 @@ const useStyles = makeStyles(theme => {
             height: "300px",
             width: '84%',
             marginTop: '10px',
-            grid: 'flex',
-
+            grid: 'flex'
         },
         songsList: {
             border: '1px solid',

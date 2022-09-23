@@ -11,6 +11,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
 import { handleGetUserById,handleGetFavoriteAlbums } from '../hooks/useAxios'
 import RecommendedAlbums from '../components/RecommendedAlbums';
+import FavAlbums from '../components/FavAlbums'
 
 const useStyles = makeStyles ({
     avatar:{
@@ -34,6 +35,18 @@ const useStyles = makeStyles ({
     favAlbums:{
         marginTop:'5px',
         border:"1px solid black",
+        borderColor: "lightgray",
+        borderRadius: '5px',
+        height: "219px",
+        maxHeight: "1000px",
+        width: "100%",
+        marginTop: '10px',
+        overflowY: "auto"
+    },
+    favWrapper: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+        padding: " 5px",
     }
 })
 
@@ -43,7 +56,6 @@ const classes = useStyles();
 const [user,setUser] = useState(null);
 const [favAlbums,setFavAlbums] = useState([]);
 const {userId} = useParams();
- // napisac useEffect i jeszcze request do po
 
 useEffect(() => {
     const getData = async () =>{
@@ -91,7 +103,7 @@ useEffect(() => {
 
                 <Typography variant='h6'>  <PhoneIcon style={{
                   marginRight: "10px"}} />
-                {"Numer telefonu:   " + user?.phone} 
+                {user?.phone} 
                 </Typography>
 
                 <Typography variant='h6'> <CreateIcon style={{
@@ -116,11 +128,11 @@ useEffect(() => {
                 <div className={classes.favAlbums}>
 
                 
-                {favAlbums?.length && favAlbums.map(album => (
-                    <>
-                    
-                    </>
-                ))
+                {favAlbums?.length && 
+                    <div className={classes.favWrapper}>
+                        <FavAlbums albums={favAlbums} />
+                    </div>
+                
                 }
                 </div>
             </Typography>
