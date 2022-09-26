@@ -56,7 +56,11 @@ export const handleGetAlbumById = async (albumId) => {
 }
 export const handleCheckIfUserAddedAlbumToFavorites = async (userId, albumId) => {
     const response = await axiosInstance.get(`usersAlbums?albumId=${albumId}&userId=${userId}`);
-    return response.data;;
+    return response.data;
+}
+export const handleCheckIfUserAddedAlbumToShopping = async (userId, albumId) => {
+    const response = await axiosInstance.get(`shoppingAlbums?albumId=${albumId}&userId=${userId}`);
+    return response.data;
 }
 export const handleGetAlbumsCommentsSection = async (albumid) => {
     const response = await axiosInstance.get(`albumComments?albumId=${albumid}&_sort=date&_order=desc`);
@@ -85,9 +89,23 @@ export const handleAddToFavorites = async (albumId, userId) => {
     })
     return response.status;
 }
+export const handleAddToShopping = async (albumId, userId) => {
+
+    const response = await axiosInstance.post("shoppingAlbums", {
+        albumId,
+        userId
+    })
+    return response.status;
+}
+
 export const handleDeleteFromFavorites = async (userAlbumId) => {
 
     const response = await axiosInstance.delete(`usersAlbums/${userAlbumId}`);
+    return response.status;
+}
+export const handleDeleteFromShopping = async (shoppingAlbumsId) => {
+
+    const response = await axiosInstance.delete(`shoppingAlbums/${shoppingAlbumsId}`);
     return response.status;
 }
 export const handleGetBandsAlbums = async (bandName, mainId) => {
@@ -124,7 +142,15 @@ export const handleGetFavoriteAlbums = async (userId) => {
     const responseMatchedAlbums = await axiosInstance.get(`albums?${getidsOnly(albumsIds)}`);
     return responseMatchedAlbums.data;
 }
-
+export const handleGetShoppingAlbums = async (userId) => {
+    const responseAlbums = await axiosInstance.get(`shoppingAlbums?userId=${userId}`)
+    if(!responseAlbums.data){
+        return null;
+    }
+    const albumsIds = responseAlbums.data?.map(x => x.albumId);
+    const responseMatchedAlbums = await axiosInstance.get(`albums?${getidsOnly(albumsIds)}`);
+    return responseMatchedAlbums.data;
+}
 export default function useAxios() {
     return null;
 }

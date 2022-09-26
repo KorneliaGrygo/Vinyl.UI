@@ -14,12 +14,17 @@ import {
     handleAddToFavorites,
     handleDeleteFromFavorites,
     handleGetBandsAlbums,
-    handleDeleteInvalidComment
+    handleDeleteInvalidComment,
+    handleDeleteFromShopping,
+    handleAddToShopping,
+    handleCheckIfUserAddedAlbumToShopping
 } from '../hooks/useAxios';
 import { makeStyles } from "@material-ui/styles";
 import SongList from './SongList';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import CommentSection from './CommentSection';
 import RecommendedAlbums from './RecommendedAlbums';
 const wd = "84%"
@@ -91,6 +96,16 @@ const useStyles = makeStyles(theme => {
             top:"-260px",
             right:'-1300px'
         },
+        shopping: {
+            position:"relative",
+            top:"-260px",
+            right:'-1300px'
+        },
+        price: {
+            position:"relative",
+            top:"-50px",
+            right:'-990px'
+        },
         addComment: {
             width: "55%",
             marginTop: '10px'
@@ -113,10 +128,12 @@ export default function AlbumDetails() {
     const [album, setAlbum] = useState(null);
     const [bandsAlbums, setBandsAlbums] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
+    const [isShopping, setIsShopping] = useState(false);
     const [comments, setComments] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [refresh, setRefhresh] = useState(false);
     const [refreshFavorite, setRefreshFavorite] = useState(false);
+    const [refreshShopping, setRefreshShopping] = useState(false);
     const [error, setError] = useState("");
     const abortController = useRef(new AbortController());
 
@@ -139,6 +156,17 @@ export default function AlbumDetails() {
             setRefreshFavorite(prev => !prev)
         }
     }
+
+    const handleAddOrDeleteFromShopping = async () => {
+        if (isShopping) {
+            await handleDeleteFromShopping(isShopping.id);
+            setRefreshShopping(prev => !prev);
+        } else {
+            await handleAddToShopping(albumId, user.id);
+            setRefreshShopping(prev => !prev)
+        }
+    }
+
     useEffect(() => {
         const controller = abortController.current;
         const fetchAlbum = async () => {
@@ -156,6 +184,7 @@ export default function AlbumDetails() {
             controller.abort();
         }
     }, [albumId])
+
     useEffect(() => {
 
         const controller = abortController.current;
@@ -168,6 +197,7 @@ export default function AlbumDetails() {
             controller.abort();
         }
     }, [refresh, albumId])
+
     useEffect(() => {
         const controller = abortController.current;
 
@@ -184,8 +214,27 @@ export default function AlbumDetails() {
         return () => {
             controller.abort();
         }
-
     }, [refreshFavorite, albumId])
+
+    useEffect(() => {
+      
+        const controller = abortController.current;
+
+        const fetchIsShopping = async () => {
+            let isShopping = await handleCheckIfUserAddedAlbumToShopping(user?.id ?? 0, albumId);
+            if(isShopping){
+                setIsShopping(isShopping[0]);
+            }else{
+                setIsShopping(false);
+            }
+        }
+        fetchIsShopping();
+
+        return () => {
+            controller.abort();
+        }
+    }, [refreshShopping, albumId])
+    
     return (
 
         <div>
@@ -201,29 +250,37 @@ export default function AlbumDetails() {
                             />
 
                             <div className={classes.albumInfo}>
-                                <Typography
-                                    style={{ fontSize: 32 }}
-                                >
+                                <Typography style={{ fontSize: 32 }}>
                                     <strong> Nazwa Albumu: </strong>  {album.name}
                                 </Typography>
-                                <Typography
-
-                                >
+                                <Typography>
                                     <strong> Data wydania: </strong> {album.releaseDate}
                                 </Typography>
                                 <Typography>
                                     <strong>O albumie: </strong> {album.desc}
                                 </Typography>
-
+                                <Typography style={{ fontSize: 20 }} className={classes.price}>
+                                    <strong> $ </strong>  {album.price}
+                                </Typography>
                             </div>
-                           
                         </div>
-
                     </div>
-                    {user?.id && <div className={classes.favorite} onClick={handleAddOrDeleteFromFavorites}>
-                                    {isFavorite ?
-                                        <FavoriteIcon fontSize='large' /> : <FavoriteBorderIcon fontSize='large' />}
-                                </div>}
+
+                    {user?.id &&
+                        <>              
+                            <div className={classes.favorite} onClick={handleAddOrDeleteFromFavorites}>
+                                {isFavorite ?
+                                    <FavoriteIcon fontSize='large' /> : <FavoriteBorderIcon fontSize='large' />}
+                            </div>
+
+                            <div className={classes.shopping} onClick={handleAddOrDeleteFromShopping}>
+                                {isShopping ?
+                                    <ShoppingCartIcon fontSize='large' /> : <ShoppingCartOutlinedIcon fontSize='large' />}
+                            </div>
+      
+                        </>
+                    }
+
                     <div className={classes.songsList}>
                         <div className={classes.songsWrapper}>
                             <SongList songs={album.songs} />

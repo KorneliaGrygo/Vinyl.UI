@@ -58,6 +58,17 @@
       "password": "password",
       "description": "administrator",
       "role": "admin"
+    },
+    {
+      "email": "anita@o2.pl",
+      "nick": "cat mom",
+      "gender": "kobieta",
+      "phone": "500200400",
+      "password": "password",
+      "description": "Hello. I'm Anita.",
+      "nationality": "Polska",
+      "role": "user",
+      "id": 6
     }
   ],
   "albums": [
@@ -129,6 +140,7 @@
       ],
       "releaseDate": "08/04/1960",
       "avatarUrl": "EP_ElvisIsBack.jpg",
+      "price": 49.99,
       "desc": "Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957.Elvis Is Back! is the fourth studio album by American rock and roll singer Elvis Presley, released by RCA Victor on April 8, 1960. It was Presley's first album issued in stereophonic sound. Recorded over two sessions in March and April, the album marked Presley's return to recording after his discharge from the U.S. Army. It was Presley's first album of new material since Elvis' Christmas Album was issued in 1957."
     },
     {
@@ -199,6 +211,7 @@
       ],
       "releaseDate": "04/02/1991",
       "avatarUrl": "Queen_Innuendo.png",
+      "price": 69.99,
       "desc": "Innuendo był pierwszym albumem Queen, który ukazał się (tylko w Ameryce) nakładem wytwórni Hollywood Records, będącej oddziałem Walt Disney Productions. Wytwórnia zapłaciła za prawa do amerykańskich płyt zespołu 10 milionów dolarów. Album dotarł na szczyty list przebojów, gdzie utrzymywał się przez dwa tygodnie. Recenzje reprezentowały dość szeroką gamę odczuć: od pełnych zachwytu (w magazynie „Q”), po określające album „skrzyżowaniem Led Zeppelin z Kennethem Williamsem”."
     },
     {
@@ -259,6 +272,7 @@
       ],
       "releaseDate": "06/13/1985",
       "avatarUrl": "KT_QueenOfTheBlues.png",
+      "price": 39.99,
       "desc": "Queen of the Blues to album amerykańskiej wokalistki bluesowej Koko Taylor , wydany w 1985 roku. Album został nominowany do nagrody Grammy w kategorii „Najlepsze tradycyjne nagranie bluesowe”."
     },
     {
@@ -319,7 +333,8 @@
       ],
       "releaseDate": "07/24/1959",
       "avatarUrl": "EP_ADateWithElvis.jpg",
-      "desc": "A Date with Elvis – kompilacyjny album Elvisa Presleya wydany przez wytwórnię RCA Victor Records w lipcu 1959 roku. Płyta zawiera publikowane wcześniej utwory zarejestrowane podczas różnych sesji. Na liście najlepszych albumów magazynu Billboard 200 została sklasyfikowana na 32 miejscu."
+      "price": 49.99,
+      "desc": "A Date with Elvis – kompilacyjny album Elvisa Presleya wydany przez wytwórnię RCA Victor Records w lipcu 1959 roku. Płyta zawiera publikowane wcześniej utwory zarejestrowane podczas różnych sesji. Na liście najlepszych albumów magazynu Billboard 200 została sklasyfikowana na 32 miejscu. Album ukazał się w sprzedaży 24 lipca 1959 roku i pomimo wysokich ocen, okazał się najniżej sklasyfikowanym krążkiem Elvisa lat 50. w rankingu magazynu Billboard. W listopadzie tego samego roku RCA wydała jeszcze kompilacyjną płytę 50,000,000 Elvis Fans Can’t Be Wrong, którą również uznano za udaną, choć w rankingu najlepszych albumów zajęła dopiero trzydzieste pierwsze miejsce."
     },
     {
       "id": 5,
@@ -389,7 +404,8 @@
       ],
       "releaseDate": "06/17/1961",
       "avatarUrl": "EP_SomethingForEverybody.jpg",
-      "desc": "Something for Everybody – trzynasty album Elvisa Presleya wydany 17 czerwca 1961 roku przez RCA Victor Records. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na pierwszym miejscu."
+      "price": 49.99,
+      "desc": "Something for Everybody – trzynasty album Elvisa Presleya wydany 17 czerwca 1961 roku przez RCA Victor Records. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na pierwszym miejscu.Po powrocie Elvisa z wojska w marcu 1960 r. pojawiły się wątpliwości, czy jego dalsza kariera potoczy się równie błyskotliwie, jak w latach 50. Jednak wydane w tym samym roku trzy single i album Elvis Is Back!, który dotarł do drugiego miejsca listy najlepszych albumów, potwierdziły jego silną pozycję na rynku muzycznym. Podobnie było z płytą G.I. Blues, która była ścieżką dźwiękową z filmu Żołnierski blues i znalazła się na pierwszej pozycji najlepszych albumów."
     },
     {
       "id": 6,
@@ -459,7 +475,8 @@
       ],
       "releaseDate": "06/05/1962",
       "avatarUrl": "EP_Pot_Luck.jpg",
-      "desc": "Pot Luck – piętnasty album Elvisa Presleya wydany 5 czerwca 1962 roku przez RCA Victor Records. Zawiera on zbiór różnych piosenek Elvisa zarejestrowanych w czasie sesji nagraniowych w 1961 i 1962 r. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na czwartym miejscu."
+      "price": 49.99,
+      "desc": "Pot Luck – piętnasty album Elvisa Presleya wydany 5 czerwca 1962 roku przez RCA Victor Records. Zawiera on zbiór różnych piosenek Elvisa zarejestrowanych w czasie sesji nagraniowych w 1961 i 1962 r. Na liście najlepszych albumów magazynu Billboard 200 płyta znalazła się na czwartym miejscu.Większość piosenek znajdujących się na płycie zostało napisanych przez Doca Pomusa i Morta Shumana, którzy wcześniej napisali takie przeboje, jak: Surrender oraz His Latest Flame. Obie zostały wydane przez Elvisa jako single i szybko zdobyły szczyty listy przebojów. Z kolei utwory Kiss Me Quick i Suspicion zostały wydane jako singiel dopiero dwa lata po premierze albumu, ale i tak znalazły się na liście najlepszych singli Top 40."
     },
     {
       "id": 7,
@@ -514,7 +531,8 @@
       ],
       "releaseDate": "04/13/1970",
       "avatarUrl": "EP_Let's_Be_Friends.jpg",
-      "desc": "Let's Be Friends – 37 album składankowy Elvisa Presleya."
+      "price": 49.99,
+      "desc": "Let's Be Friends – 37 album składankowy Elvisa Presleya.od koniec stycznia 1970 rozpoczął kolejną serię występów w Las Vegas, wtedy też zaczął ubierać się w biały kombinezon z wysokim kołnierzem i spodniami-dzwonami, który stał się jego znakiem rozpoznawczym[106]. Nagrania z tych koncertów zostały umieszczone na albumach On Stage i Elvis in Person at the International Hotel, Las Vegas, Nevada oraz pokazane w filmie dokumentalnym Elvis: Tak to jest, do którego wydał również ścieżkę dźwiękową[107]. Oprócz tego w 1970 wypuścił jeszcze kilka albumów studyjnych: Let’s Be Friends, Almost in Love, Elvis’ Christmas Album i Back to Memphis oraz czteropłytową składankę pt. Worldwide 50 Gold Awards Hits Vol. 1."
     },
     {
       "id": 8,
@@ -584,6 +602,7 @@
       ],
       "releaseDate": "11/06/1995",
       "avatarUrl": "Queen_MadeInHeaven.jpg",
+      "price": 69.99,
       "desc": "Made in Heaven – ostatni studyjny album zespołu Queen, nad którym grupa rozpoczęła pracę jeszcze za życia Freddiego Mercury'ego. Materiał na album został częściowo nagrany w 1991 w Montreux w Szwajcarii, gdzie grupa miała swoje własne studio nagraniowe. W 1993, dwa lata po śmierci Mercury'ego, zespół powrócił do pracy nad albumem. Ostatecznie ukazał się on w 1995."
     },
     {
@@ -644,6 +663,7 @@
       ],
       "releaseDate": "05/22/1989",
       "avatarUrl": "Queen_TheMiracle.png",
+      "price": 69.99,
       "desc": "The Miracle – wydany w 1989 roku album zespołu Queen. Ze względu na zły stan zdrowia wokalisty Freddiego Mercury’ego zespół nie promował albumu trasą koncertową, co starano się zrekompensować widowiskowymi teledyskami (aż pięć utworów wydano jako single, a cztery z nich znalazły się na kompilacji Greatest Hits II). Album pierwotnie miał się nazywać The Invisible Men, a tytuł zmieniono dopiero 3 tygodnie przed premierą. Podczas sesji nagraniowej The Miracle zarejestrowano dużo więcej utworów, niż ostateczne (m.in. „I Guess We're Falling Out”). Na całym świecie sprzedał się w ok. 7 milionach egzemplarzy."
     },
     {
@@ -699,6 +719,7 @@
       ],
       "releaseDate": "06/02/1986",
       "avatarUrl": "Queen_AKindOfMagic.jpg",
+      "price": 69.99,
       "desc": "A Kind of Magic – dwunasty album studyjny brytyjskiego zespołu rockowego Queen, który wydano w 1986 roku. Materiał jest oparty na ścieżce dźwiękowej do amerykańsko-brytyjskiego filmu Nieśmiertelny (1986). Piosenki z albumu, które wykorzystano w nieco innych wersjach w filmie Nieśmiertelny: „Princes of the Universe”, „Gimme the Prize”, „Who Wants to Live Forever”, „A Kind of Magic”, „One Year of Love”. W filmie pojawia się też piosenka „Hammer to Fall” z poprzedniego albumu studyjnego grupy, The Works (1984)."
     },
     {
@@ -754,6 +775,7 @@
       ],
       "releaseDate": "02/27/1984",
       "avatarUrl": "Queen_TheWorks.jpg",
+      "price": 69.99,
       "desc": "The Works – jedenasty studyjny album brytyjskiego zespołu rockowego Queen, znany zwłaszcza z przebojów 'Radio Ga Ga' i 'I Want to Break Free'. Sprzedawał się bardzo dobrze, docierając do drugiego miejsca list w Wielkiej Brytanii (w USA miejsce 23). Album promowały zaliczane dziś do klasyki teledyski. Klip 'I Want to Break Free' został uznany w USA za kontrowersyjny (członkowie zespołu byli w nim przebrani za kobiety). Teledysk do 'Radio Ga Ga' został wyreżyserowany przez Davida Malleta i zawiera fragmenty filmu Metropolis z 1926 roku. Album był promowany podczas trasy koncertowej The Works Tour. 8 lipca 2009 roku wydawnictwo uzyskało status platynowej płyty w Polsce."
     }
   ],
@@ -822,6 +844,18 @@
       "albumId": "2",
       "userId": 4,
       "id": 17
+    }
+  ],
+  "shoppingAlbums": [
+    {
+      "albumId": 1,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "albumId": "4",
+      "userId": 4,
+      "id": 2
     }
   ],
   "albumComments": [
