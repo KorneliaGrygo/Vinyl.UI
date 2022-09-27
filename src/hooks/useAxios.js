@@ -135,7 +135,7 @@ const getidsOnly = (albumsIdsoObjects) => {
 }
 export const handleGetFavoriteAlbums = async (userId) => {
     const responseAlbums = await axiosInstance.get(`usersAlbums?userId=${userId}`)
-    if(!responseAlbums.data){
+    if(!responseAlbums.data.length){
         return null;
     }
     const albumsIds = responseAlbums.data?.map(x => x.albumId);
@@ -150,6 +150,23 @@ export const handleGetShoppingAlbums = async (userId) => {
     const albumsIds = responseAlbums.data?.map(x => x.albumId);
     const responseMatchedAlbums = await axiosInstance.get(`albums?${getidsOnly(albumsIds)}`);
     return responseMatchedAlbums.data;
+}
+
+export const handleUserProfileUpdate = async(user, userId) => {
+    const response = await axiosInstance.patch(`users/${userId}`,{
+        gender: user.gender,
+        nationality: user.nationality,
+        phone: user.phone,
+        description: user.description
+    })
+
+    return response.status;
+}
+
+export const handleUpdateImageToServer = async (data) =>{
+    debugger;
+    const response = await axios.post("http://localhost:3000/", data);
+    return response.data;
 }
 export default function useAxios() {
     return null;

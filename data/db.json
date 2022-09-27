@@ -69,6 +69,15 @@
       "nationality": "Polska",
       "role": "user",
       "id": 6
+    },
+    {
+      "email": "damian@email.com",
+      "nick": "Testowy",
+      "gender": "mężczyzna",
+      "phone": "123123123",
+      "password": "password",
+      "description": "",
+      "id": 7
     }
   ],
   "albums": [
@@ -844,6 +853,11 @@
       "albumId": "2",
       "userId": 4,
       "id": 17
+    },
+    {
+      "albumId": "4",
+      "userId": 6,
+      "id": 18
     }
   ],
   "shoppingAlbums": [
@@ -876,6 +890,15 @@
       "avatar": "",
       "date": "Thu, 15 Sep 2022 16:38:18 GMT",
       "id": 4
+    },
+    {
+      "albumId": "4",
+      "userId": 1,
+      "nickName": "blues.girl",
+      "comment": "xD",
+      "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png",
+      "date": "Mon, 26 Sep 2022 18:57:21 GMT",
+      "id": 5
     }
   ]
 }
