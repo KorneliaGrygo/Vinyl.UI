@@ -126,7 +126,7 @@ export default function Search() {
         marginTop: "10px"
       }}>
         {searchResult && (
-          <SearchResult data={searchResult[0]?.hasOwnProperty("nick") ? searchResult.filter(user => user.id != userLoggedIn.id) : searchResult} category={category} />
+          <SearchResult data={searchResult[0]?.hasOwnProperty("nick") ? searchResult.filter(user => user?.id != userLoggedIn?.id) : searchResult} category={category} />
         )}
       </div>
     </Container>

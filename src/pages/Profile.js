@@ -45,7 +45,7 @@ const useStyles = makeStyles({
     },
     favWrapper: {
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
         padding: " 5px",
     },
     inputs: {
