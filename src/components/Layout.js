@@ -19,7 +19,6 @@ import useAuthContext from "../hooks/useAuthContext";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { useEffect } from "react";
-import { useState } from "react";
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => {
@@ -106,7 +105,6 @@ export default function Layout({ children }) {
         },
 
     ]
-    
 
     return (
         <div className={classes.root}>

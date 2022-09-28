@@ -80,7 +80,6 @@ export const handleAddNewComentToAlbum = async (userId, albumId, nickName, comme
 
     return response.status;
 }
-
 export const handleAddToFavorites = async (albumId, userId) => {
 
     const response = await axiosInstance.post("usersAlbums", {
@@ -157,17 +156,14 @@ export const handleUserProfileUpdate = async(user, userId) => {
         gender: user.gender,
         nationality: user.nationality,
         phone: user.phone,
-        description: user.description
+        description: user.description,
+        avatar: user.avatar
     })
 
     return response.status;
 }
 
-export const handleUpdateImageToServer = async (data) =>{
-    debugger;
-    const response = await axios.post("http://localhost:3000/", data);
-    return response.data;
-}
+
 export default function useAxios() {
     return null;
 }

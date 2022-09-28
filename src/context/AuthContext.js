@@ -9,13 +9,13 @@ let user = {
     gender: null,
     phone: null,
     description: null,
-    role:null
+    role:null,
+    avatar:null
 }
 
 export const AuthContext = createContext();
 
 export const authReducer = (state, action) =>{
-
     switch (action.type) {
         case "LOGIN":
             localStorage.setItem("user", JSON.stringify(action.payload));
@@ -33,7 +33,6 @@ export function AuthContextProvider({children}) {
         user : user.id === null ? JSON.parse(localStorage.getItem("user")) : user 
     })
   return (
-
     <AuthContext.Provider value={{...state, dispatch}}>
         {children}
     </AuthContext.Provider>

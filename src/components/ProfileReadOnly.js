@@ -6,60 +6,69 @@ import WcIcon from '@material-ui/icons/Wc';
 import PublicIcon from '@material-ui/icons/Public';
 import PhoneIcon from '@material-ui/icons/Phone';
 import CreateIcon from '@material-ui/icons/Create';
-import { handleUpdateImageToServer } from '../hooks/useAxios';
 
 
 
-export default function ProfileReadOnly({ user, classes, isEditMode, setIsEditMode, userLoggedInProfile, handleUpdateUserProfileData }) {
+export default function ProfileReadOnly({
+    user,
+    classes,
+    isEditMode,
+    setIsEditMode,
+    userLoggedInProfile,
+    handleUpdateUserProfileData }) {
 
     const [gender, setGender] = useState(user.gender);
     const [nationality, setNationality] = useState(user.nationality);
     const [phone, setPhone] = useState(user.phone);
     const [description, setDescription] = useState(user.description);
-    const [avatarName, setAvatarName] = useState("");
+    const [avatar, setAvatar] = useState(user.avatar);
 
 
     const handleAnuluj = () => {
-        setIsEditMode(false)
+        setIsEditMode(false);
         setGender(user.gender);
         setNationality(user.nationality);
         setPhone(user.phone);
         setDescription(user.description);
+        setAvatar(user.avatar);
     }
+    const toBase64 = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result); // tu jest return
+        reader.onerror = error => reject(error);
+    });
 
     const handleChangeToNewAvatar = async (event) => {
-        debugger;
-        if(event.target.files && event.target.files[0]){
+        if (event.target.files && event.target.files[0]) {
             const file = event.target.files[0];
-            const response = await handleUpdateImageToServer(file);
-
+            const result = await toBase64(file);
+            setAvatar(result);
         }
     }
 
     return (
         <div className={classes.parent}>
-
             {user &&
                 <>
                     <div className={classes.child}>
-                        <Avatar src={user.avatar} className={classes.avatar} />
+                        <Avatar src={avatar} className={classes.avatar} />
                         {isEditMode &&
                             <Button
                                 variant='contained'
                                 component="label"
                                 style={{
-                                    marginLeft:'-8px',
-                                    marginTop:"20px"
+                                    marginLeft: '-8px',
+                                    marginTop: "20px"
                                 }}
                                 size='small'
                             >
-                                <input 
-                                type="file"
-                                hidden 
-                                onChange={(e) => handleChangeToNewAvatar(e)}
+                                <input
+                                    type="file"
+                                    hidden
+                                    onChange={(e) => handleChangeToNewAvatar(e)}
                                 />
-                               Zmień zdjęcie
-
+                                Zmień zdjęcie
                             </Button>
                         }
                     </div>
@@ -104,7 +113,8 @@ export default function ProfileReadOnly({ user, classes, isEditMode, setIsEditMo
                                         gender,
                                         nationality,
                                         phone,
-                                        description
+                                        description,
+                                        avatar
                                     })}
                                 >
                                     Zapisz

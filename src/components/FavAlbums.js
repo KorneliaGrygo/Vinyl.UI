@@ -1,5 +1,4 @@
 import { Avatar, makeStyles, Typography } from '@material-ui/core'
-import React from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const useStyles = makeStyles(theme => {
@@ -43,16 +42,12 @@ export default function FavAlbums({albums}) {
             <Typography 
              className={classes.name}
              variant="h6"
-
             >
                 {album.name}
                 <br /> 
                 {isNaN(new Date(album.releaseDate)?.getFullYear()) ? "" :  new Date(album.releaseDate)?.getFullYear()}
             </Typography>
-
             </div>
-          
-
         </div>
     ))}
     </>

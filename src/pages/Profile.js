@@ -3,7 +3,11 @@ import { makeStyles } from "@material-ui/styles"
 import { Typography } from '@material-ui/core'
 import useAuthContext from '../hooks/useAuthContext'
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
-import { handleGetUserById, handleGetFavoriteAlbums, handleUserProfileUpdate } from '../hooks/useAxios'
+import {
+    handleGetUserById,
+    handleGetFavoriteAlbums,
+    handleUserProfileUpdate
+} from '../hooks/useAxios'
 import FavAlbums from '../components/FavAlbums'
 import ProfileReadOnly from '../components/ProfileReadOnly'
 
@@ -54,7 +58,7 @@ const useStyles = makeStyles({
 
 export default function Profile() {
     const classes = useStyles();
-    const { user: userLoggedIn } = useAuthContext();
+    const { user: userLoggedIn, dispatch } = useAuthContext();
     const [user, setUser] = useState(null);
     const [favAlbums, setFavAlbums] = useState([]);
     const { userId } = useParams();
@@ -62,11 +66,16 @@ export default function Profile() {
     const [userLoggedInProfile, setUserLoggedInProfile] = useState(userLoggedIn?.id == userId)
     const [shouldRefresh, setShouldRefresh] = useState(false);
 
-    const handleUpdateUserProfileData = async (user) => {
-        const response = await handleUserProfileUpdate(user, userId)
+    const handleUpdateUserProfileData = async (userData) => {
+        const response = await handleUserProfileUpdate(userData, userId);
         if (response === 200) {
             setShouldRefresh(prev => !prev);
             setIsEditMode(false);
+            let user = await handleGetUserById(userId);
+            if (user) {
+                setUser(user);
+            }
+            dispatch({ type: "LOGIN", payload: user });
         }
     }
     useEffect(() => {

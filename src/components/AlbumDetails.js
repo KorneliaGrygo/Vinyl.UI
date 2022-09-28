@@ -27,7 +27,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import CommentSection from './CommentSection';
 import RecommendedAlbums from './RecommendedAlbums';
-const wd = "84%"
+const wd = "84%";
 
 const useStyles = makeStyles(theme => {
     return {

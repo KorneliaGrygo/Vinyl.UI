@@ -1,7 +1,6 @@
 import { Avatar, Typography } from '@material-ui/core';
 import { PostAddTwoTone } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
-import React from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import DeleteIcon from '@material-ui/icons/Delete';
 import useAuthContext from '../hooks/useAuthContext';
