@@ -10,6 +10,7 @@ import useAuthContext from './hooks/useAuthContext'
 import Profile from './pages/Profile'
 import AlbumDetails from './components/AlbumDetails'
 import AddAlbums from './pages/AddAlbums'
+import ShoppingCart from './components/ShoppingCart'
 
 const theme = createTheme({
   palette: {
@@ -59,7 +60,7 @@ function App() {
             </Route>
             
             <Route path="/profil/:userId">
-              <Profile />
+              <Profile/>
             </Route>
             <Route path='/albums/details/:albumId'>
               <AlbumDetails/>
@@ -73,6 +74,14 @@ function App() {
                 <Home/>
               }
 
+            </Route>
+            <Route path="/koszyk">
+              {!user &&
+                <Login/>
+              }
+              {user &&
+                <ShoppingCart/>
+              }
             </Route>
           </Switch>
         </Layout>

@@ -19,6 +19,7 @@ import useAuthContext from "../hooks/useAuthContext";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { useEffect } from "react";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => {
@@ -103,6 +104,11 @@ export default function Layout({ children }) {
             path: user?.id ? `/profil/${user.id}` : '/login', 
             icon: <PersonIcon/>
         },
+        {
+            text: 'Koszyk',
+            path: user?.id ? `/koszyk/` : '/login', 
+            icon: <ShoppingCartIcon/>
+        }
 
     ]
 
