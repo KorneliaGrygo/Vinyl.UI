@@ -10,7 +10,7 @@ import useAuthContext from './hooks/useAuthContext'
 import Profile from './pages/Profile'
 import AlbumDetails from './components/AlbumDetails'
 import AddAlbums from './pages/AddAlbums'
-import ShoppingCart from './components/ShoppingCart'
+import ShoppingCart from './pages/ShoppingCart'
 
 const theme = createTheme({
   palette: {

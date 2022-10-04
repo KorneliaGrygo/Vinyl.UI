@@ -92,7 +92,8 @@ export const handleAddToShopping = async (albumId, userId) => {
 
     const response = await axiosInstance.post("shoppingAlbums", {
         albumId,
-        userId
+        userId,
+        amount:1
     })
     return response.status;
 }
