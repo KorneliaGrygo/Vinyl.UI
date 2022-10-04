@@ -29,8 +29,5 @@ export default function ShoppingCart() {
 
     </>
     
-
-
-
   )
 }
