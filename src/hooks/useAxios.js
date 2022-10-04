@@ -164,6 +164,16 @@ export const handleUserProfileUpdate = async(user, userId) => {
     return response.status;
 }
 
+export const handleGetOrders = async (userId) => {
+    const response = await axiosInstance.get(`shoppingAlbums?userId=${userId}`)
+    return response.data;
+}
+export const handleUpdateWishListAlbumAmount = async (id, amount) => {
+    const response = await axiosInstance.patch(`shoppingAlbums/${id}`,{
+        amount: Number(amount)
+    })
+    return response.data;
+}
 
 export default function useAxios() {
     return null;

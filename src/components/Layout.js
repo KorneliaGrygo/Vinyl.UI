@@ -106,7 +106,7 @@ export default function Layout({ children }) {
         },
         {
             text: 'Koszyk',
-            path: user?.id ? `/koszyk/` : '/login', 
+            path: user?.id ? `/koszyk` : '/login', 
             icon: <ShoppingCartIcon/>
         }
 

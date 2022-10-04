@@ -944,10 +944,16 @@
   ],
   "shoppingAlbums": [
     {
-      "albumId": "2",
+      "id": 2,
+      "albumId": 1,
+      "userId": 1,
+      "amount": 1
+    },
+    {
+      "albumId": "7",
       "userId": 1,
       "amount": 1,
-      "id": 1
+      "id": 3
     }
   ],
   "albumComments": [

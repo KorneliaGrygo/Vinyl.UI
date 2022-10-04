@@ -4,31 +4,53 @@ import { useEffect } from 'react'
 import OrdersSummary from '../components/OrdersSummary'
 import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
+import { handleGetOrders, handleGetShoppingAlbums } from '../hooks/useAxios'
 
 export default function ShoppingCart() {
-  
+
   const [orders, setOrders] = useState([]);
-  const {userId} = useAuthContext();
+  const { user } = useAuthContext();
   const [sum, setSum] = useState(0.0);
+  const [refresh, setRefresh] = useState(false);
+  const [whishList, setWhishList] = useState([]);
 
-  useEffect(() =>{
 
-  },[])
+  useEffect(() => {
+    if (user.id) {
+      handleGetOrders(user.id).then(data => {
+        if (data) {
+          setWhishList(data)
+        }
+      }).catch(x => console.log(x.message))
+
+      handleGetShoppingAlbums(user.id).then(data => {
+        if (data) {
+          setOrders(data)
+        }
+      }).catch(x => console.log(x.message))
+    }
+  }, [user.id, refresh])
 
   return (
 
     <>
-    <Typography 
-      variant='h4'
-    > Koszyk
-    </Typography>
+      <Typography
+        variant='h4'
+      > Koszyk
+      </Typography>
 
-    <OrdersSummary/>
+      <OrdersSummary
+        orders={orders}
+        whishList={whishList}
+        setRefresh={setRefresh}
+        setSum={setSum} 
+        setWhishList={setWhishList}
+        />
 
-    <ShoppingSummary/>    
-
+      <ShoppingSummary />
+      <p>{sum}</p>
     </>
-    
+
 
 
 
