@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export default function ShoppingSummary() {
+export default function ShoppingSummary({sum}) {
   const classes = useStyles();
   return (
     <div>
@@ -26,7 +26,7 @@ export default function ShoppingSummary() {
       Podsumowanie
       <div className={classes.summaryBox}>
         <Typography style={{ fontSize: 25 }}>
-          Łączna kwota: 
+          Łączna kwota: {sum}
         </Typography>
         <button>Kupuje</button>
       </div>

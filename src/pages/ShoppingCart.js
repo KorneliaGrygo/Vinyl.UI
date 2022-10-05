@@ -36,6 +36,10 @@ export default function ShoppingCart() {
     <>
       <Typography
         variant='h4'
+        style={{
+          marginLeft:'630px',
+          marginTop:'10px'
+        }}
       > Koszyk
       </Typography>
 
@@ -46,9 +50,7 @@ export default function ShoppingCart() {
         setSum={setSum} 
         setWhishList={setWhishList}
         />
-
-      <ShoppingSummary />
-      <p>{sum}</p>
+      <ShoppingSummary sum={sum} />
     </>
 
 
