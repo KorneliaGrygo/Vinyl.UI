@@ -17,6 +17,7 @@ export default function ShoppingCart() {
 
   useEffect(() => {
     if (user.id) {
+      debugger;
       handleGetOrders(user.id).then(data => {
         if (data) {
           setWhishList(data)
@@ -42,7 +43,8 @@ export default function ShoppingCart() {
         }}
       > Koszyk
       </Typography>
-
+     {orders && whishList &&  whishList.some(w => w.albumId == orders[0]?.id)  && 
+      <>
       <OrdersSummary
         orders={orders}
         whishList={whishList}
@@ -50,10 +52,19 @@ export default function ShoppingCart() {
         setSum={setSum} 
         setWhishList={setWhishList}
         />
-
-
-        
       <ShoppingSummary sum={sum} />
+      </>
+    }
+    { orders && whishList && 
+      <Typography variant='h3'
+        style={{
+          marginLeft:'450px',
+          marginTop:'50px'
+        }}
+      >
+        Twój koszyk jest pusty
+      </Typography>
+    }
     </>
 
 

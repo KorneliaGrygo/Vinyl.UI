@@ -165,6 +165,7 @@ export const handleUserProfileUpdate = async(user, userId) => {
 }
 
 export const handleGetOrders = async (userId) => {
+    debugger;
     const response = await axiosInstance.get(`shoppingAlbums?userId=${userId}`)
     return response.data;
 }
