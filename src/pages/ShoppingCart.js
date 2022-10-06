@@ -50,6 +50,9 @@ export default function ShoppingCart() {
         setSum={setSum} 
         setWhishList={setWhishList}
         />
+
+
+        
       <ShoppingSummary sum={sum} />
     </>
 

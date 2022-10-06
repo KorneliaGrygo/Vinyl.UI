@@ -940,6 +940,11 @@
       "albumId": "4",
       "userId": 1,
       "id": 38
+    },
+    {
+      "albumId": "1",
+      "userId": 1,
+      "id": 39
     }
   ],
   "shoppingAlbums": [
@@ -947,10 +952,10 @@
       "id": 2,
       "albumId": 1,
       "userId": 1,
-      "amount": 1
+      "amount": 4
     },
     {
-      "albumId": "7",
+      "albumId": "4",
       "userId": 1,
       "amount": 1,
       "id": 3

@@ -36,10 +36,11 @@ const useStyles = makeStyles(theme => {
     },
     price:{
       marginTop:'25px',
-      marginLeft:'25px'
+      marginLeft:'25px',
+      width:'200px'
     },
     delete:{
-      marginLeft:'150px'
+      marginLeft:'450px'
     }
   }
 })
@@ -47,6 +48,8 @@ const useStyles = makeStyles(theme => {
 export default function OrdersSummary({ orders, whishList, setRefresh, setSum, setWhishList }) {
   const classes = useStyles()
   const history = useHistory();
+
+  
   const sumPrizes = (prizes) => {
     let sum = 0;
     prizes.forEach(element => {
@@ -67,7 +70,7 @@ export default function OrdersSummary({ orders, whishList, setRefresh, setSum, s
   }, [orders, whishList])
 
   const handleUpdateValue = (index, value, list) => {
-    debugger;
+    
     if (value && Number(value) > 0) {
       const newWhislist = [...list]
       newWhislist.find(w => w.albumId == index).amount = Number(value < 1 ? 1 : value)
@@ -109,7 +112,7 @@ export default function OrdersSummary({ orders, whishList, setRefresh, setSum, s
                   variant='outlined'
                   size='small'
                   style={{
-                    width: Number(whishList?.find(w => w.albumId == album.id)?.amount) > 9 ?  70 : 60,
+                    width: Number(whishList?.find(w => w.albumId == album.id)?.amount) > 9 ?  80 : 70,
                   }}
                   onChange={(e) => handleUpdateValue(album.id, e.target.value, whishList)}
                 />

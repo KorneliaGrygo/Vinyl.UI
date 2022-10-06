@@ -26,7 +26,7 @@ export default function ShoppingSummary({sum}) {
       Podsumowanie
       <div className={classes.summaryBox}>
         <Typography style={{ fontSize: 25 }}>
-          Łączna kwota: {sum}
+          Łączna kwota: {sum} zł.
         </Typography>
         <button>Kupuje</button>
       </div>
