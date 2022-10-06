@@ -31,7 +31,7 @@ export default function ShoppingSummary({ sum, setShowform }) {
       <Typography
         variant='h4'
         style={{
-          marginLeft: '480px',
+          marginLeft: '10px',
           marginTop: '40px',
           marginBottom: '20px'
         }}
@@ -45,8 +45,7 @@ export default function ShoppingSummary({ sum, setShowform }) {
           variant='h4'
           style={{
             marginLeft: '450px',
-            marginTop: '30px',
-
+            marginTop: '30px'
           }}
         > Łączna kwota: {sum} zł
         </Typography>
@@ -58,7 +57,6 @@ export default function ShoppingSummary({ sum, setShowform }) {
             marginBottom: '30px'
           }}
           onClick={()=>setShowform(true)}
-
         > Wprowadź dane do zamówienia </Button>
       </Paper>
     </div>
