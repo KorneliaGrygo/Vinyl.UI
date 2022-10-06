@@ -91,7 +91,7 @@ export default function OrdersSummary({ orders, whishList, setRefresh, setSum, s
       marginLeft:'125px'
     }}>
  
-      <Paper classname >
+      <Paper>
         {orders && orders.map(album => (
           
             <div className={classes.singleItem}>
