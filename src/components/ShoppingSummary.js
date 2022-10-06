@@ -44,14 +44,13 @@ export default function ShoppingSummary({sum}) {
         <Typography
           variant='h4'
           style={{
-            marginLeft:'450px',
-            marginTop:'30px',
-            
+            marginLeft:'430px',
+            marginTop:'30px'
           }}
-        > Łączna kwota: {sum} zł.
+        > Łączna kwota: {sum} zł
         </Typography>
         <Button variant="outlined" style={{
-          marginLeft:'500px',
+          marginLeft:'480px',
           marginTop:'30px',
           marginBottom: '30px'
         }}> Wprowadź dane do zamówienia </Button>

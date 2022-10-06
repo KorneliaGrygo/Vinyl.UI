@@ -38,7 +38,7 @@ export default function ShoppingCart() {
       <Typography
         variant='h4'
         style={{
-          marginLeft:'630px',
+          marginLeft:'620px',
           marginTop:'10px'
         }}
       > Koszyk
