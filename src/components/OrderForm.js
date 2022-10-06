@@ -47,6 +47,9 @@ const useStyles = makeStyles(() => {
             width: '500px',
             fontSize: "40px",
             fontWeight: '400'
+        },
+        errorText:{
+            width:"400px",
         }
     }
 })
@@ -65,6 +68,17 @@ export default function OrderForm() {
     const [statute, setStatute] = useState(false);
     const [newsletter, setNewSletter] = useState(false);
     const [disabled, setDisabled] = useState(true);
+
+    const [nameError, setNameError] = useState('')
+
+    const validateNameAndSurname = () => {
+        if(nameAndSurrName.length === 0){
+            setNameError("Te pole nie może być puste.")
+        }else{
+            setNameError('')
+        }
+    }
+    
 
     useEffect(() => {
         debugger;
@@ -104,7 +118,10 @@ export default function OrderForm() {
                             required
                             value={nameAndSurrName}
                             onChange={(e) => setNameAndSurrName(e.target.value)}
+                            onBlur={() => validateNameAndSurname()}
+                            error={nameError}
                         />
+                        {nameError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {nameError}</Typography> </div>}
 
                         <TextField className={classes.inputField}
                             variant='outlined'
@@ -209,7 +226,6 @@ export default function OrderForm() {
                                 checked={statute}
                                 onChange={() => setStatute(prev => !prev)}
                             />}
-
                         />
                         <Typography style={{
                             marginTop: "-35px",
