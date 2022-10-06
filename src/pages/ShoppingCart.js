@@ -1,6 +1,7 @@
 import { Typography } from '@material-ui/core'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import OrderForm from '../components/OrderForm'
 import OrdersSummary from '../components/OrdersSummary'
 import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
@@ -13,7 +14,7 @@ export default function ShoppingCart() {
   const [sum, setSum] = useState(0.0);
   const [refresh, setRefresh] = useState(false);
   const [whishList, setWhishList] = useState([]);
-
+  const [showForm, setShowform] = useState(false);
 
   useEffect(() => {
     if (user.id) {
@@ -52,8 +53,13 @@ export default function ShoppingCart() {
         setSum={setSum} 
         setWhishList={setWhishList}
         />
-      <ShoppingSummary sum={sum} />
+      <ShoppingSummary sum={sum} setShowform={setShowform} />
+
+      
+      {showForm && <OrderForm/> }
       </>
+      
+
     }
     { !whishList.some(w => w.albumId == orders[0]?.id)  && 
       <Typography variant='h3'
@@ -65,6 +71,8 @@ export default function ShoppingCart() {
         Twój koszyk jest pusty
       </Typography>
     }
+
+
     </>
 
 
