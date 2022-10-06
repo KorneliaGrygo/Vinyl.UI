@@ -24,31 +24,36 @@ export default function ShoppingSummary({sum}) {
     <div style={{
       width: "Calc(100% - 480px)",
       marginTop:'25px',
-      marginLeft:'125px'
+      marginLeft:'125px',
+      height:'200px'
     }}>
     
       <Typography
         variant='h4'
         style={{
-          marginLeft:'450px',
-          marginTop:'50px'
+          marginLeft:'480px',
+          marginTop:'40px',
+          marginBottom:'20px'
         }}
       > Podsumowanie
       </Typography>
 
-    <Paper>
+    <Paper style={{
+            border:'1px solid lightgray',
+    }}>
         <Typography
           variant='h4'
           style={{
             marginLeft:'450px',
-            marginTop:'50px'
+            marginTop:'30px',
+            
           }}
         > Łączna kwota: {sum} zł.
         </Typography>
         <Button variant="outlined" style={{
           marginLeft:'500px',
-          marginTop:'50px',
-          marginBottom: '50px'
+          marginTop:'30px',
+          marginBottom: '30px'
         }}> Wprowadź dane do zamówienia </Button>
     </Paper>
     </div>
