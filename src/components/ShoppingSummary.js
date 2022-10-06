@@ -31,8 +31,8 @@ export default function ShoppingSummary({sum}) {
       <Typography
         variant='h4'
         style={{
-          marginLeft:'480px',
-          marginTop:'40px',
+          marginLeft:'10px',
+          marginTop:'30px',
           marginBottom:'20px'
         }}
       > Podsumowanie
