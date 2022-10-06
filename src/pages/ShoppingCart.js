@@ -39,40 +39,41 @@ export default function ShoppingCart() {
       <Typography
         variant='h4'
         style={{
-          marginLeft:'130px',
-          marginTop:'30px'
+          marginLeft: '130px',
+          marginTop: '30px'
         }}
       > Koszyk
       </Typography>
-     {orders && whishList &&  whishList.some(w => w.albumId == orders[0]?.id)  && 
-      <>
-      <OrdersSummary
-        orders={orders}
-        whishList={whishList}
-        setRefresh={setRefresh}
-        setSum={setSum} 
-        setWhishList={setWhishList}
-        />
-      <ShoppingSummary sum={sum} setShowform={setShowform} />
-
-      
-      {showForm && <OrderForm/> }
-      </>
-      
-
-    }
-    { !whishList.some(w => w.albumId == orders[0]?.id)  && 
-      <Typography variant='h3'
-        style={{
-          marginLeft:'450px',
-          marginTop:'50px'
-        }}
-      >
-        Twój koszyk jest pusty
-      </Typography>
-    }
+      {orders && whishList && whishList.some(w => w.albumId == orders[0]?.id) &&
+        <>
+          <OrdersSummary
+            orders={orders}
+            whishList={whishList}
+            setRefresh={setRefresh}
+            setSum={setSum}
+            setWhishList={setWhishList}
+          />
+          <ShoppingSummary sum={sum} setShowform={setShowform} />
 
 
+          {showForm &&
+            <OrderForm
+            //to do funckja do obslugi dodania do bazy i czyszczenie koszyka
+            />}
+        </>
+
+
+      }
+      {!whishList.some(w => w.albumId == orders[0]?.id) &&
+        <Typography variant='h3'
+          style={{
+            marginLeft: '450px',
+            marginTop: '50px'
+          }}
+        >
+          Twój koszyk jest pusty
+        </Typography>
+      }
     </>
 
 

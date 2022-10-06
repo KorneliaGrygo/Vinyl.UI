@@ -1,6 +1,6 @@
 import { Divider, FormControl, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
-import React from 'react'
+import React, { useState } from 'react'
 
 const useStyles = makeStyles(() => {
     return {
@@ -30,6 +30,17 @@ const useStyles = makeStyles(() => {
 })
 
 export default function OrderForm() {
+    
+    const [nameAndSurrName, setNameAndSurrName] = useState('');
+    const [address, setAddress] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [town, setTown] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState(false);
+    const [comments, setComments] = useState('');
+    const [statute, setStatute] = useState(false);
+    const [newsletter, setNewSletter] = useState(false);
 
     const classes = useStyles();
     return (
@@ -41,7 +52,6 @@ export default function OrderForm() {
                 Dane zamawiającego
             </Typography>
             <Grid container={true} md={2} columnSpacing={2}>
-
                 <Paper className={classes.paper}>
                     <div className={classes.leftSizeForm}>
 
