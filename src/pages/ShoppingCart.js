@@ -55,7 +55,7 @@ export default function ShoppingCart() {
       <ShoppingSummary sum={sum} />
       </>
     }
-    { orders && whishList && 
+    { !whishList.some(w => w.albumId == orders[0]?.id)  && 
       <Typography variant='h3'
         style={{
           marginLeft:'450px',

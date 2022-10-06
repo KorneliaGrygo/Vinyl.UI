@@ -959,6 +959,12 @@
       "userId": 1,
       "amount": 1,
       "id": 3
+    },
+    {
+      "albumId": "7",
+      "userId": 6,
+      "amount": 1,
+      "id": 4
     }
   ],
   "albumComments": [
