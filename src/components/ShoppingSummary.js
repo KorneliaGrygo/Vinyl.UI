@@ -18,44 +18,49 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export default function ShoppingSummary({sum}) {
+export default function ShoppingSummary({ sum, setShowform }) {
   const classes = useStyles();
   return (
     <div style={{
       width: "Calc(100% - 480px)",
-      marginTop:'25px',
-      marginLeft:'125px',
-      height:'200px'
+      marginTop: '25px',
+      marginLeft: '125px',
+      height: '200px'
     }}>
-    
+
       <Typography
         variant='h4'
         style={{
-          marginLeft:'480px',
-          marginTop:'40px',
-          marginBottom:'20px'
+          marginLeft: '480px',
+          marginTop: '40px',
+          marginBottom: '20px'
         }}
       > Podsumowanie
       </Typography>
 
-    <Paper style={{
-            border:'1px solid lightgray',
-    }}>
+      <Paper style={{
+        border: '1px solid lightgray',
+      }}>
         <Typography
           variant='h4'
           style={{
-            marginLeft:'450px',
-            marginTop:'30px',
-            
+            marginLeft: '450px',
+            marginTop: '30px',
+
           }}
         > Łączna kwota: {sum} zł.
         </Typography>
-        <Button variant="outlined" style={{
-          marginLeft:'500px',
-          marginTop:'30px',
-          marginBottom: '30px'
-        }}> Wprowadź dane do zamówienia </Button>
-    </Paper>
+        <Button
+          variant="outlined"
+          style={{
+            marginLeft: '500px',
+            marginTop: '30px',
+            marginBottom: '30px'
+          }}
+          onClick={()=>setShowform(true)}
+
+        > Wprowadź dane do zamówienia </Button>
+      </Paper>
     </div>
   )
 }
