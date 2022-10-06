@@ -66,36 +66,36 @@ export default function OrderForm() {
                             variant='outlined'
                             color="secondary"
                             label='Ulica i numer'
-                            placeholder='Wprowadź imię i nazwisko'
+                            placeholder='Wprowadź ulice i numer'
                         />
 
                         <TextField className={classes.inputField}
                             variant='outlined'
                             color="secondary"
-                            label='Imię i Nazwisko'
-                            placeholder='Wprowadź imię i nazwisko'
+                            label='Kod pocztowy'
+                            placeholder='Wprowadź kod pocztowy'
                         />
 
                         <TextField className={classes.inputField}
                             variant='outlined'
                             color="secondary"
-                            label='Imię i Nazwisko'
-                            placeholder='Wprowadź imię i nazwisko'
+                            label='Miejscowość'
+                            placeholder='Wprowadź miejscowość'
                         />
 
                         <TextField className={classes.inputField}
                             variant='outlined'
                             color="secondary"
-                            label='Imię i Nazwisko'
-                            placeholder='Wprowadź imię i nazwisko'
+                            label='Telefon'
+                            placeholder='Wprowadź telefon'
                         />
 
                        
                         <TextField className={classes.inputField}
                             variant='outlined'
                             color="secondary"
-                            label='Imię i Nazwisko'
-                            placeholder='Wprowadź imię i nazwisko'
+                            label='E-mail'
+                            placeholder='Wprowadź e-mail'
                         />
 
                       
