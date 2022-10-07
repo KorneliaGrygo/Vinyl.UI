@@ -52,7 +52,7 @@ export default function ShoppingCart() {
         debugger;
           await handleDeleteWhistListItemByUserId(amounts);
 
-          history.push(`/orders/${responseObject.data?.id}`) // przygotować nowy komponent
+          history.push(`/orders`) // przygotować nowy komponent
       }else{
         setOrderError("Coś poszło nie tak podczas składania zamówienia, spróbuj ponownie później.")
       }
@@ -101,7 +101,7 @@ export default function ShoppingCart() {
           {showForm &&
             <OrderForm
             handleRealizeOrder={handleRealizeOrder}
-            //to do funckja do obslugi dodania do bazy i czyszczenie koszyka
+  
             />}
         </>
 
