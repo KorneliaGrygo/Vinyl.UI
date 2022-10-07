@@ -70,15 +70,46 @@ export default function OrderForm() {
     const [disabled, setDisabled] = useState(true);
 
     const [nameError, setNameError] = useState('')
+    const [addressError, setAddressError] = useState('')
+    const [zipCodeError, setZipCodeError] = useState('')
+    const [townError, setTownError] = useState('')
+    const [phoneError, setPhoneError] = useState('')
 
     const validateNameAndSurname = () => {
-        if(nameAndSurrName.length === 0){
-            setNameError("Te pole nie może być puste.")
+        if(nameAndSurrName.length < 3){
+            setNameError("Imię i nazwisko powinno mieć przynajmniej 3 znaki.")
         }else{
             setNameError('')
         }
     }
-    
+    const validateAddress = () => {
+        if(address.length < 3){
+            setAddressError("Ulica i numer powinna mieć przynajmniej 3 znaki.")
+        }else{
+            setAddressError('')
+        }
+    }
+    const validateZipCode = () => {
+        if(zipCode.length !== 6){
+            setZipCodeError("Kod pocztowy musi składać się z 6 znaków.")
+        }else{
+            setZipCodeError('')
+        }
+    }
+    const validateTown = () => {
+        if(town.length === 0){
+            setTownError("Te pole nie może być puste.")
+        }else{
+            setTownError('')
+        }
+    }
+    const validatePhone = () => {
+        if(phone.length === 0){
+            setPhoneError("Te pole nie może być puste.")
+        }else{
+            setPhoneError('')
+        }
+    }
 
     useEffect(() => {
         debugger;
@@ -131,8 +162,10 @@ export default function OrderForm() {
                             value={address}
                             required
                             onChange={(e) => setAddress(e.target.value)}
-
+                            onBlur={() => validateAddress()}
+                            error={addressError}
                         />
+                        {addressError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {addressError}</Typography> </div>}
 
                         <TextField className={classes.inputField}
                             variant='outlined'
@@ -142,7 +175,10 @@ export default function OrderForm() {
                             value={zipCode}
                             required
                             onChange={(e) => setZipCode(e.target.value)}
+                            onBlur={() => validateZipCode()}
+                            error={zipCodeError}
                         />
+                        {zipCodeError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {zipCodeError}</Typography> </div>}
 
                         <TextField className={classes.inputField}
                             variant='outlined'
@@ -152,7 +188,10 @@ export default function OrderForm() {
                             required
                             value={town}
                             onChange={(e) => setTown(e.target.value)}
+                            onBlur={() => validateTown()}
+                            error={townError}
                         />
+                        {townError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {townError}</Typography> </div>}
 
                         <TextField className={classes.inputField}
                             variant='outlined'
@@ -162,7 +201,10 @@ export default function OrderForm() {
                             required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
+                            onBlur={() => validatePhone()}
+                            error={phoneError}
                         />
+                        {phoneError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {phoneError}</Typography> </div>}
 
                         <TextField className={classes.inputField}
                             variant='outlined'
