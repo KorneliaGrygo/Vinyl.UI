@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => {
     return {
         paper: {
             marginTop: "50px",
-            width: "1375px",
+            width: "Calc(100% - 480px)",
             marginLeft: "120px",
             border: '1px solid lightgray',
             height: '600px',
@@ -42,11 +42,11 @@ const useStyles = makeStyles(() => {
             width: '750px'
         },
         orderButton: {
-            marginLeft: '110px',
-            marginTop: '50px',
-            height: '150px',
-            width: '370px',
-            fontSize: "40px",
+            marginLeft: '50px',
+            marginTop: '70px',
+            height: '100px',
+            width: '350px',
+            fontSize: "25px",
             fontWeight: '400'
         },
         errorText:{
@@ -257,13 +257,13 @@ export default function OrderForm({handleRealizeOrder}) {
                             variant='outlined'
                             color="secondary"
                             label='Dodatkowe informacje'
-                            placeholder='Wprowadź jakieś dodatkowe informację dotyczące zamówienia'
+                            placeholder='Wprowadź dodatkowe informację dotyczące zamówienia'
                             multiline
                             value={comments}
                             onChange={(e) => setComments(e.target.value)}
                         />
                         <Tooltip
-                            title="Chwilowo jest tylko dostępna płatność przy odbiorze"
+                            title="Chwilowo dostępna jest jedynie płatność przy odbiorze."
                             arrow
                             placement='top-start'
                         >
@@ -272,27 +272,12 @@ export default function OrderForm({handleRealizeOrder}) {
                                 control={<Checkbox
                                     {...label}
                                     color="secondary"
-                                    checked={!paymentMethod}
+                                    checked={paymentMethod}
                                     disabled
                                 />}
-                                label="Płatność z góry *"
+                                label="Płatność przy odbiorze *"
                             />
                         </Tooltip>
-
-
-                        <div>
-                        <FormControlLabel
-                            className={classes.checkbox}
-                            control={<Checkbox
-                                {...label}
-                                color="secondary"
-                                checked={newsletter}
-                                onChange={() => setNewSletter(prev => !prev)}
-                                />}
-                                label="Newsletter z informacjami o nowych albumach?"
-                        />
-                        </div>
-
 
                         <FormControlLabel
                             className={classes.checkbox}
@@ -305,26 +290,37 @@ export default function OrderForm({handleRealizeOrder}) {
                         />
                         <Typography style={{
                             marginTop: "-35px",
+                            marginBottom: '10px',
                             marginLeft: '30px',
                             width: '500px'
                         }}>
                             Akceptuje <Link>regulamin</Link> sklepu *
                         </Typography>
+
+                        <div>
+                        <FormControlLabel
+                            className={classes.checkbox}
+                            control={<Checkbox
+                                {...label}
+                                color="secondary"
+                                checked={newsletter}
+                                onChange={() => setNewSletter(prev => !prev)}
+                                />}
+                                label="Chcę otrzymywać Newsletter"
+                        />
+                        </div>
+
                         <Button
                         className={classes.orderButton}
-                        size='large'
+                        size="medium"
                         variant='outlined'
                         disabled={disabled}
                         onClick={handleAddOrder}
-                    >
-                        Złóż zamówienie
+                    > Złóż zamówienie
                     </Button>
                     </div>
-             
-
                 </Grid>
             </Paper>
-
         </>
     )
 }

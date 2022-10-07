@@ -949,16 +949,22 @@
   ],
   "shoppingAlbums": [
     {
-      "albumId": "8",
-      "userId": 6,
-      "amount": 1,
-      "id": 4
-    },
-    {
       "albumId": "1",
       "userId": 1,
       "amount": 1,
       "id": 5
+    },
+    {
+      "albumId": "8",
+      "userId": 1,
+      "amount": 1,
+      "id": 6
+    },
+    {
+      "albumId": "1",
+      "userId": 5,
+      "amount": 1,
+      "id": 7
     }
   ],
   "albumComments": [
@@ -1050,6 +1056,40 @@
       },
       "generatedOrderId": 199743,
       "id": 2
+    },
+    {
+      "albums": [
+        {
+          "albumId": 5,
+          "name": "Something for Everybody",
+          "band": "Elvis Presley",
+          "avatar": "EP_SomethingForEverybody.jpg",
+          "price": 49.99,
+          "amount": 1
+        },
+        {
+          "albumId": 8,
+          "name": "Made in Heaven",
+          "band": "Queen",
+          "avatar": "Queen_MadeInHeaven.jpg",
+          "price": 69.99,
+          "amount": 1
+        }
+      ],
+      "sum": "119.98",
+      "userId": 6,
+      "orderState": "W trakcie realizacji",
+      "orderDetails": {
+        "nameAndSurrName": "Ada Wiśniewska",
+        "address": "1 Maja 30",
+        "zipCode": "16-400",
+        "town": "Suwałki",
+        "email": "ada@email.com",
+        "phone": "567890123",
+        "comments": ""
+      },
+      "generatedOrderId": 164595,
+      "id": 3
     }
   ]
 }
