@@ -165,7 +165,6 @@ export const handleUserProfileUpdate = async(user, userId) => {
 }
 
 export const handleGetOrders = async (userId) => {
-    debugger;
     const response = await axiosInstance.get(`shoppingAlbums?userId=${userId}`)
     return response.data;
 }
@@ -174,6 +173,22 @@ export const handleUpdateWishListAlbumAmount = async (id, amount) => {
         amount: Number(amount <= 0 ? 1 : amount)
     })
     return response.data;
+}
+
+export const handleAddNewOrder = async (data) => {
+    const response = await axiosInstance.post("orders",data);
+    return {
+        statusCode: response.status,
+        data: response.data
+    };
+}
+export const handleDeleteWhistListItemByUserId = async (whishList) =>{
+
+    const promises = whishList.map(w => {
+        return axiosInstance.delete(`shoppingAlbums/${w.id}`)
+    }) 
+
+    return await Promise.all(promises);
 }
 
 export default function useAxios() {

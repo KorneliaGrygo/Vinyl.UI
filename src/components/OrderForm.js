@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { validate } from 'react-email-validator';
 
 const useStyles = makeStyles(() => {
     return {
@@ -55,7 +56,7 @@ const useStyles = makeStyles(() => {
 })
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-export default function OrderForm() {
+export default function OrderForm({handleRealizeOrder}) {
 
     const [nameAndSurrName, setNameAndSurrName] = useState('');
     const [address, setAddress] = useState('');
@@ -74,6 +75,34 @@ export default function OrderForm() {
     const [zipCodeError, setZipCodeError] = useState('')
     const [townError, setTownError] = useState('')
     const [phoneError, setPhoneError] = useState('')
+    const [emailError, setEmailError] = useState('');
+
+
+    const handleAddOrder = async () =>{
+        debugger;
+        await handleRealizeOrder({
+            nameAndSurrName,
+            address,
+            zipCode,
+            town,
+            email,
+            phone,
+            comments,
+        });
+    }
+
+
+    const isThereAnyErrorLeft = ( ) =>{
+        return !(nameError || addressError || zipCodeError || townError || phoneError || emailError)
+    }
+
+    const validateEmail = async () => {
+        if (!validate(email)) {
+            setEmailError("Podany adres email jest nieprawidłowy!")
+        } else {
+            setEmailError("")
+        }
+    }
 
     const validateNameAndSurname = () => {
         if(nameAndSurrName.length < 3){
@@ -112,21 +141,22 @@ export default function OrderForm() {
     }
 
     useEffect(() => {
-        debugger;
         if (nameAndSurrName &&
             address &&
             zipCode &&
             town &&
             email &&
             phone &&
-            statute) {
+            statute && isThereAnyErrorLeft()) {
 
             setDisabled(false)
         }else{
             setDisabled(true)
         }
 
-    }, [nameAndSurrName, address, zipCode,town, email, phone, statute])
+    }, [nameAndSurrName, address, zipCode,town, email, phone, statute,
+        nameError, addressError, zipCodeError, emailError, phoneError
+    ])
 
     const classes = useStyles();
     return (
@@ -214,7 +244,10 @@ export default function OrderForm() {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            onBlur={validateEmail}
+                            error={emailError}
                         />
+                        {emailError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {emailError}</Typography> </div>}
                     </div>
                     <Divider orientation="vertical" className={classes.divider} />
                     <div className={classes.rightSideForm}>
@@ -282,6 +315,7 @@ export default function OrderForm() {
                         size='large'
                         variant='outlined'
                         disabled={disabled}
+                        onClick={handleAddOrder}
                     >
                         Złóż zamówienie
                     </Button>

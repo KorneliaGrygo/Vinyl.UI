@@ -949,22 +949,16 @@
   ],
   "shoppingAlbums": [
     {
-      "id": 2,
-      "albumId": 1,
-      "userId": 1,
-      "amount": 4
-    },
-    {
-      "albumId": "4",
-      "userId": 1,
-      "amount": 2,
-      "id": 3
-    },
-    {
       "albumId": "8",
       "userId": 6,
       "amount": 1,
       "id": 4
+    },
+    {
+      "albumId": "4",
+      "userId": 1,
+      "amount": 1,
+      "id": 5
     }
   ],
   "albumComments": [
@@ -994,6 +988,42 @@
       "avatar": "https://www.gdyniabluesfestival.eu/wp-content/uploads/Blues_brothers.png",
       "date": "Mon, 26 Sep 2022 18:57:21 GMT",
       "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "albums": [
+        {
+          "albumId": 4,
+          "name": "A Date with Elvis",
+          "band": "Elvis Presley",
+          "avatar": "EP_ADateWithElvis.jpg",
+          "price": 49.99,
+          "amount": 2
+        },
+        {
+          "albumId": 1,
+          "name": "Elvis Is Back!",
+          "band": "Elvis Presley",
+          "avatar": "EP_ElvisIsBack.jpg",
+          "price": 49.99,
+          "amount": 4
+        }
+      ],
+      "sum": "299.94",
+      "userId": 1,
+      "orderState": "W trakcie realizacji",
+      "orderDetails": {
+        "nameAndSurrName": "Damian",
+        "address": "Ulica fajna",
+        "zipCode": "10-300",
+        "town": "asjndasnd",
+        "email": "damian@dasda.com",
+        "phone": "123123123",
+        "comments": "asdasdasdasdas"
+      },
+      "generatedOrderId": 120201,
+      "id": 1
     }
   ]
 }

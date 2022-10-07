@@ -1,11 +1,12 @@
 import { Typography } from '@material-ui/core'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import OrderForm from '../components/OrderForm'
 import OrdersSummary from '../components/OrdersSummary'
 import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
-import { handleGetOrders, handleGetShoppingAlbums } from '../hooks/useAxios'
+import { handleAddNewOrder, handleDeleteWhistListItemByUserId, handleGetOrders, handleGetShoppingAlbums } from '../hooks/useAxios'
 
 export default function ShoppingCart() {
 
@@ -15,10 +16,51 @@ export default function ShoppingCart() {
   const [refresh, setRefresh] = useState(false);
   const [whishList, setWhishList] = useState([]);
   const [showForm, setShowform] = useState(false);
+  const [orderError, setOrderError] = useState('');
+  const history = useHistory();
 
+  const generateRandomIdInRange = (min, max) => {
+    return Math.floor((Math.random() * (max - min + 1)) + min) ;
+  }
+
+  const handleRealizeOrder = async (orderDetails) => {
+    
+
+      const albums = orders;
+      const amounts = whishList;
+
+      const dataToSave = {
+
+        albums: albums.map(album => ({
+            albumId : album.id,
+            name: album.name,
+            band: album.band,
+            avatar: album.avatarUrl,
+            price : album.price,
+            amount: amounts.find(x => x.albumId == album.id)?.amount 
+        })),
+        sum: sum,
+        userId: user.id,
+        orderState: "W trakcie realizacji",
+        orderDetails:orderDetails,
+        generatedOrderId: generateRandomIdInRange(10000, 250000)
+      }
+
+      const responseObject = await handleAddNewOrder(dataToSave);
+
+      if(responseObject.statusCode === 201){
+        debugger;
+          await handleDeleteWhistListItemByUserId(amounts);
+
+          history.push(`/orders/${responseObject.data?.id}`) // przygotować nowy komponent
+      }else{
+        setOrderError("Coś poszło nie tak podczas składania zamówienia, spróbuj ponownie później.")
+      }
+
+  }
+  
   useEffect(() => {
     if (user.id) {
-      debugger;
       handleGetOrders(user.id).then(data => {
         if (data) {
           setWhishList(data)
@@ -58,6 +100,7 @@ export default function ShoppingCart() {
 
           {showForm &&
             <OrderForm
+            handleRealizeOrder={handleRealizeOrder}
             //to do funckja do obslugi dodania do bazy i czyszczenie koszyka
             />}
         </>
@@ -75,9 +118,5 @@ export default function ShoppingCart() {
         </Typography>
       }
     </>
-
-
-
-
   )
 }
