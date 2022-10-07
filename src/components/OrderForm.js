@@ -9,8 +9,8 @@ const useStyles = makeStyles(() => {
     return {
         paper: {
             marginTop: "50px",
-            width: "Calc(100% - 640px)",
-            marginLeft: "190px",
+            width: "1375px",
+            marginLeft: "120px",
             border: '1px solid lightgray',
             height: '500px'
         },
@@ -36,16 +36,16 @@ const useStyles = makeStyles(() => {
         },
         rightSideForm: {
             marginLeft: "700px",
-            marginTop: "-505px"
+            marginTop: "-440px"
         },
         checkbox: {
             width: '750px'
         },
         orderButton: {
-            marginLeft: '770px',
+            marginLeft: '110px',
             marginTop: '50px',
             height: '150px',
-            width: '500px',
+            width: '370px',
             fontSize: "40px",
             fontWeight: '400'
         },
@@ -167,8 +167,9 @@ export default function OrderForm({handleRealizeOrder}) {
             >
                 Dane zamawiającego
             </Typography>
+            <Paper className={classes.paper}>
+
             <Grid container={true} md={2} columnSpacing={2}>
-                <Paper className={classes.paper}>
                     <div className={classes.leftSizeForm}>
 
                         <TextField className={classes.inputField}
@@ -288,7 +289,7 @@ export default function OrderForm({handleRealizeOrder}) {
                                 checked={newsletter}
                                 onChange={() => setNewSletter(prev => !prev)}
                                 />}
-                                label="Czy chcesz otrzymywać cotygodniowy Newsletter z informacjami o nowych albumach?"
+                                label="Newsletter z informacjami o nowych albumach?"
                         />
                         </div>
 
@@ -309,8 +310,7 @@ export default function OrderForm({handleRealizeOrder}) {
                         }}>
                             Akceptuje <Link>regulamin</Link> sklepu *
                         </Typography>
-                    </div>
-                    <Button
+                        <Button
                         className={classes.orderButton}
                         size='large'
                         variant='outlined'
@@ -319,9 +319,11 @@ export default function OrderForm({handleRealizeOrder}) {
                     >
                         Złóż zamówienie
                     </Button>
-                </Paper>
+                    </div>
+             
 
-            </Grid>
+                </Grid>
+            </Paper>
 
         </>
     )

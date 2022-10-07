@@ -955,7 +955,7 @@
       "id": 4
     },
     {
-      "albumId": "4",
+      "albumId": "1",
       "userId": 1,
       "amount": 1,
       "id": 5
@@ -1024,6 +1024,32 @@
       },
       "generatedOrderId": 120201,
       "id": 1
+    },
+    {
+      "albums": [
+        {
+          "albumId": 9,
+          "name": "The Miracle",
+          "band": "Queen",
+          "avatar": "Queen_TheMiracle.png",
+          "price": 69.99,
+          "amount": 3
+        }
+      ],
+      "sum": "209.97",
+      "userId": 1,
+      "orderState": "W trakcie realizacji",
+      "orderDetails": {
+        "nameAndSurrName": "Kornelia",
+        "address": "mAJA",
+        "zipCode": "10-233",
+        "town": "Olsztyn",
+        "email": "maja@maja.maja",
+        "phone": "323123123",
+        "comments": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolorum molestias quaerat inventore reiciendis non repudiandae provident veniam magni sapiente. Ex nesciunt nisi rerum dolor soluta nihil tempora dolorem harum."
+      },
+      "generatedOrderId": 199743,
+      "id": 2
     }
   ]
 }
