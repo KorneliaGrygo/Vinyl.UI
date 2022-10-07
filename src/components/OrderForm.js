@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => {
             width: "1375px",
             marginLeft: "120px",
             border: '1px solid lightgray',
-            height: '500px'
+            height: '600px',
         },
         title: {
             marginTop: '50px',
