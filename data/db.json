@@ -1000,96 +1000,56 @@
     {
       "albums": [
         {
-          "albumId": 4,
-          "name": "A Date with Elvis",
+          "albumId": 6,
+          "name": "Pot Luck",
           "band": "Elvis Presley",
-          "avatar": "EP_ADateWithElvis.jpg",
-          "price": 49.99,
-          "amount": 2
-        },
-        {
-          "albumId": 1,
-          "name": "Elvis Is Back!",
-          "band": "Elvis Presley",
-          "avatar": "EP_ElvisIsBack.jpg",
-          "price": 49.99,
-          "amount": 4
-        }
-      ],
-      "sum": "299.94",
-      "userId": 1,
-      "orderState": "W trakcie realizacji",
-      "orderDetails": {
-        "nameAndSurrName": "Damian",
-        "address": "Ulica fajna",
-        "zipCode": "10-300",
-        "town": "asjndasnd",
-        "email": "damian@dasda.com",
-        "phone": "123123123",
-        "comments": "asdasdasdasdas"
-      },
-      "generatedOrderId": 120201,
-      "id": 1
-    },
-    {
-      "albums": [
-        {
-          "albumId": 9,
-          "name": "The Miracle",
-          "band": "Queen",
-          "avatar": "Queen_TheMiracle.png",
-          "price": 69.99,
-          "amount": 3
-        }
-      ],
-      "sum": "209.97",
-      "userId": 1,
-      "orderState": "W trakcie realizacji",
-      "orderDetails": {
-        "nameAndSurrName": "Kornelia",
-        "address": "mAJA",
-        "zipCode": "10-233",
-        "town": "Olsztyn",
-        "email": "maja@maja.maja",
-        "phone": "323123123",
-        "comments": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolorum molestias quaerat inventore reiciendis non repudiandae provident veniam magni sapiente. Ex nesciunt nisi rerum dolor soluta nihil tempora dolorem harum."
-      },
-      "generatedOrderId": 199743,
-      "id": 2
-    },
-    {
-      "albums": [
-        {
-          "albumId": 5,
-          "name": "Something for Everybody",
-          "band": "Elvis Presley",
-          "avatar": "EP_SomethingForEverybody.jpg",
+          "avatar": "EP_Pot_Luck.jpg",
           "price": 49.99,
           "amount": 1
-        },
-        {
-          "albumId": 8,
-          "name": "Made in Heaven",
-          "band": "Queen",
-          "avatar": "Queen_MadeInHeaven.jpg",
-          "price": 69.99,
-          "amount": 1
         }
       ],
-      "sum": "119.98",
+      "sum": "49.99",
       "userId": 6,
       "orderState": "W trakcie realizacji",
       "orderDetails": {
-        "nameAndSurrName": "Ada Wiśniewska",
-        "address": "1 Maja 30",
-        "zipCode": "16-400",
-        "town": "Suwałki",
-        "email": "ada@email.com",
-        "phone": "567890123",
-        "comments": ""
+        "nameAndSurrName": "312312",
+        "address": "31231",
+        "zipCode": "11-111",
+        "town": "1231212",
+        "email": "asdas@asddas.com",
+        "phone": "123123123",
+        "comments": "312312312321312312312"
       },
-      "generatedOrderId": 164595,
-      "id": 3
+      "generatedOrderId": 231713,
+      "orderDate": "12.10.2022",
+      "id": 5
+    },
+    {
+      "albums": [
+        {
+          "albumId": 6,
+          "name": "Pot Luck",
+          "band": "Elvis Presley",
+          "avatar": "EP_Pot_Luck.jpg",
+          "price": 49.99,
+          "amount": 1
+        }
+      ],
+      "sum": "49.99",
+      "userId": 6,
+      "orderState": "W trakcie realizacji",
+      "orderDetails": {
+        "nameAndSurrName": "Damian",
+        "address": "Testowa2137",
+        "zipCode": "11-101",
+        "town": "Olsztyn",
+        "email": "amdas@dada.com",
+        "phone": "123123123",
+        "comments": "312312312312312312312"
+      },
+      "generatedOrderId": 229628,
+      "orderDate": "Środa 12.10.2022 18:15",
+      "id": 6
     }
   ]
 }

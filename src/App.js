@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import AlbumDetails from './components/AlbumDetails'
 import AddAlbums from './pages/AddAlbums'
 import ShoppingCart from './pages/ShoppingCart'
+import OrdersLists from './components/OrdersLists'
 
 const theme = createTheme({
   palette: {
@@ -82,6 +83,9 @@ function App() {
               {user &&
                 <ShoppingCart/>
               }
+            </Route>
+            <Route path="/orders">
+              <OrdersLists/>
             </Route>
           </Switch>
         </Layout>

@@ -7,6 +7,7 @@ import OrdersSummary from '../components/OrdersSummary'
 import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
 import { handleAddNewOrder, handleDeleteWhistListItemByUserId, handleGetOrders, handleGetShoppingAlbums } from '../hooks/useAxios'
+import {formatDate} from '../Utils/DateFormaters';
 
 export default function ShoppingCart() {
 
@@ -23,9 +24,11 @@ export default function ShoppingCart() {
     return Math.floor((Math.random() * (max - min + 1)) + min) ;
   }
 
+
+
   const handleRealizeOrder = async (orderDetails) => {
     
-
+      const date = new Date().toUTCString();
       const albums = orders;
       const amounts = whishList;
 
@@ -43,7 +46,8 @@ export default function ShoppingCart() {
         userId: user.id,
         orderState: "W trakcie realizacji",
         orderDetails:orderDetails,
-        generatedOrderId: generateRandomIdInRange(10000, 250000)
+        generatedOrderId: generateRandomIdInRange(10000, 250000),
+        orderDate: formatDate(date)
       }
 
       const responseObject = await handleAddNewOrder(dataToSave);

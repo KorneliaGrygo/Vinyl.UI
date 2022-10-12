@@ -18,7 +18,7 @@ import { useHistory } from "react-router-dom";
 import useAuthContext from "../hooks/useAuthContext";
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { useEffect } from "react";
+import ListAltIcon from '@material-ui/icons/ListAlt';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 const drawerWidth = 240
 
@@ -108,6 +108,11 @@ export default function Layout({ children }) {
             text: 'Koszyk',
             path: user?.id ? `/koszyk` : '/login', 
             icon: <ShoppingCartIcon/>
+        },
+        {
+            text: 'Zamówienia',
+            path: user?.id ? `/orders` : '/login', 
+            icon: <ListAltIcon/>
         }
 
     ]

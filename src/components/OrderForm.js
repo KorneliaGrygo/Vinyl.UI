@@ -79,7 +79,7 @@ export default function OrderForm({handleRealizeOrder}) {
 
 
     const handleAddOrder = async () =>{
-        debugger;
+        
         await handleRealizeOrder({
             nameAndSurrName,
             address,
