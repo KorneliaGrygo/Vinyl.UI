@@ -190,8 +190,8 @@ export const handleDeleteWhistListItemByUserId = async (whishList) =>{
 
     return await Promise.all(promises);
 }
-export const handleGetOrderList = async (userId ) => {
-    const response = await axiosInstance.get(`orders?userId=${userId}`);
+export const handleGetOrderList = async (userId, sortDir, sortBy) => {
+    const response = await axiosInstance.get(`orders?userId=${userId}&_sort=${sortBy}&_order=${sortDir}`);
     return response.data;
 }
 

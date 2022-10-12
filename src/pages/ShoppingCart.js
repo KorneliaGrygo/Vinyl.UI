@@ -42,7 +42,7 @@ export default function ShoppingCart() {
             price : album.price,
             amount: amounts.find(x => x.albumId == album.id)?.amount 
         })),
-        sum: sum,
+        sum: new Number(sum),
         userId: user.id,
         orderState: "W trakcie realizacji",
         orderDetails:orderDetails,
@@ -53,9 +53,7 @@ export default function ShoppingCart() {
       const responseObject = await handleAddNewOrder(dataToSave);
 
       if(responseObject.statusCode === 201){
-        debugger;
           await handleDeleteWhistListItemByUserId(amounts);
-
           history.push(`/orders`) // przygotować nowy komponent
       }else{
         setOrderError("Coś poszło nie tak podczas składania zamówienia, spróbuj ponownie później.")
