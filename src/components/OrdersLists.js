@@ -1,8 +1,9 @@
 import { Avatar, Button, Container, Divider, FormControl, Grid, InputLabel, makeStyles, MenuItem, Paper, Select, Typography } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import useAuthContext from '../hooks/useAuthContext'
-import { handleGetOrderList } from '../hooks/useAxios'
+import { handleGetOrderList } from '../hooks/RequestHandlers'
 
 
 const useStyles = makeStyles((e) => {
@@ -51,6 +52,7 @@ export default function OrdersLists() {
     const [orders, setOrders] = useState([])
     const [sortDir, setSortDir] = useState('asc')
     const [sortBy, setSortBy] = useState('id')
+    const history = useHistory();
 
     const handleGetOrders = async () => {
         if (user) {
@@ -126,7 +128,9 @@ export default function OrdersLists() {
                             <Typography>
                                 Do zapłacenia  {order.sum} zł
                             </Typography>
-                            <Button variant="outlined" color='secondary' size='small'>
+                            <Button 
+                                onClick = {() => history.push(`/order/details/${order.id}`)}
+                                variant="outlined" color='secondary' size='small'>
                                 {order.orderState}
                             </Button>
                         </div>

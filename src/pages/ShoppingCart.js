@@ -6,7 +6,7 @@ import OrderForm from '../components/OrderForm'
 import OrdersSummary from '../components/OrdersSummary'
 import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
-import { handleAddNewOrder, handleDeleteWhistListItemByUserId, handleGetOrders, handleGetShoppingAlbums } from '../hooks/useAxios'
+import { handleAddNewOrder, handleDeleteWhistListItemByUserId, handleGetOrders, handleGetShoppingAlbums } from '../hooks/RequestHandlers'
 import {formatDate} from '../Utils/DateFormaters';
 
 export default function ShoppingCart() {

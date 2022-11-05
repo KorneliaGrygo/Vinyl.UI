@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {handleGetUser} from '../hooks/useAxios';
+import {handleGetUser} from '../hooks/RequestHandlers';
 import useAuthContext from '../hooks/useAuthContext';
 
 const useStyles = makeStyles((theme) => {

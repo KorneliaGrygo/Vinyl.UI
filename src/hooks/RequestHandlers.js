@@ -195,6 +195,9 @@ export const handleGetOrderList = async (userId, sortDir, sortBy) => {
     return response.data;
 }
 
-export default function useAxios() {
-    return null;
+export const handleGetOrderDetailsByOrderIdAndUserId = async (orderId, userId) => {
+    const response = await axiosInstance.get(`orders?userId=${userId}&id=${orderId}`)
+    return response.data[0];
 }
+
+

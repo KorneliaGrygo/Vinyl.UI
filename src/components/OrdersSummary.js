@@ -1,7 +1,7 @@
 import { Avatar, Button, Divider, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
 import { useEffect } from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
-import { handleDeleteFromShopping, handleUpdateWishListAlbumAmount } from '../hooks/useAxios';
+import { handleDeleteFromShopping, handleUpdateWishListAlbumAmount } from '../hooks/RequestHandlers';
 import { Height } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 

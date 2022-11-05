@@ -7,7 +7,7 @@ import {
     handleGetUserById,
     handleGetFavoriteAlbums,
     handleUserProfileUpdate
-} from '../hooks/useAxios'
+} from '../hooks/RequestHandlers'
 import FavAlbums from '../components/FavAlbums'
 import ProfileReadOnly from '../components/ProfileReadOnly'
 
@@ -93,7 +93,6 @@ export default function Profile() {
         setUserLoggedInProfile(userLoggedIn?.id == userId);
 
     }, [userId, shouldRefresh])
-
 
     return (
         <div style={{

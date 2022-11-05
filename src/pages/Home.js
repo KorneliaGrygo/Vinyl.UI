@@ -49,7 +49,6 @@ export default function Home() {
             marginLeft: "100px"
           }}
           onClick={()=> history.push("/signup")}
-
           >
           Zarejestruj się
         </Button>

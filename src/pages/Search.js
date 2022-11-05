@@ -14,7 +14,7 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import { useHistory } from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
-import { handleSearchResults } from '../hooks/useAxios';
+import { handleSearchResults } from '../hooks/RequestHandlers';
 import Divider from '@material-ui/core/Divider'
 import SearchResult from '../components/SearchResult'
 import useAuthContext from './../hooks/useAuthContext'

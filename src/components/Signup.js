@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/styles';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { handleRegisterUser, handleGetEmail, handleGetNick } from '../hooks/useAxios'
+import { handleRegisterUser, handleGetEmail, handleGetNick } from '../hooks/RequestHandlers'
 import { validate } from 'react-email-validator';
 
 const useStyles = makeStyles((theme) => {

@@ -18,7 +18,7 @@ import {
     handleDeleteFromShopping,
     handleAddToShopping,
     handleCheckIfUserAddedAlbumToShopping
-} from '../hooks/useAxios';
+} from '../hooks/RequestHandlers';
 import { makeStyles } from "@material-ui/styles";
 import SongList from './SongList';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -260,7 +260,7 @@ export default function AlbumDetails() {
                                     <strong>O albumie: </strong> {album.desc}
                                 </Typography>
                                 <Typography style={{ fontSize: 20 }} className={classes.price}>
-                                    <strong> $ </strong>  {album.price}
+                                    <strong>    {album.price} zł </strong>
                                 </Typography>
                             </div>
                         </div>
