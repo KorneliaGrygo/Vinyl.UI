@@ -112,7 +112,6 @@ export default function OrderForm({handleRealizeOrder}) {
     }
 
     useEffect(() => {
-        debugger;
         if (nameAndSurrName &&
             address &&
             zipCode &&
@@ -129,7 +128,6 @@ export default function OrderForm({handleRealizeOrder}) {
     }, [nameAndSurrName, address, zipCode,town, email, phone, statute])
 
     const handleAddOrder = async () =>{
-        debugger;
         await handleRealizeOrder({
             nameAndSurrName,
             address,
