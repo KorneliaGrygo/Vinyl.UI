@@ -24,7 +24,7 @@ const useStyles = makeStyles((e) => {
             padding: '15px',
         },
         avatarContainer: {
-
+            marginLeft:'425px'
         },
         avatar: {
             width: '50px',
@@ -37,9 +37,9 @@ const useStyles = makeStyles((e) => {
             marginLeft: '40px',
         },
         formControl:{
-            marginLeft:'-230px',
-            marginTop:'10px',
-            marginBottom:'-30px',
+            marginLeft:'330px',
+            marginTop:'25px',
+            marginBottom:'-20px',
             display:'inline-block'
         }
 
@@ -87,8 +87,8 @@ export default function OrdersLists() {
                         <MenuItem value={"asc"}>Malejąco</MenuItem>
                 </Select>
                 
-                <InputLabel style={{marginLeft:'100px', width:'200px'}} size='small'>Po czym sortować:</InputLabel>
-                    <Select style={{marginLeft:'35px'}}
+                <InputLabel style={{marginLeft:'147px', width:'200px'}} size='small'>Po czym sortować:</InputLabel>
+                    <Select style={{marginLeft:'55px'}}
                         value={sortBy}
                         onChange={handleChangeSortBy}
                     >
@@ -101,7 +101,7 @@ export default function OrdersLists() {
                 {orders && orders.map(order => (
                     <Grid key={order.id} className={classes.orderWrapper}>
                         <div>
-                            <Typography variant="subtitle2">
+                            <Typography variant="subtitle1">
                                 Nr zamówienia: {order.generatedOrderId}
                             </Typography >
                             <Divider variant='fullWidth' style={{ marginTop: '5px', background: "lightgray" }} />
@@ -111,7 +111,9 @@ export default function OrdersLists() {
 
                         </div>
 
-                        <div className={classes.avatarContainer}>
+                        <div style={{
+                                marginLeft: order.albums.lenght < 2 ? "900px": "450px"
+                            }}>
                             {order.albums && order.albums.map(album => (
                                 <Avatar
                                     className={classes.avatar}

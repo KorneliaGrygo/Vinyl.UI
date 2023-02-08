@@ -55,7 +55,7 @@ const useStyles = makeStyles(() => {
 })
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-export default function OrderForm() {
+export default function OrderForm({handleRealizeOrder}) {
 
     const [nameAndSurrName, setNameAndSurrName] = useState('');
     const [address, setAddress] = useState('');
@@ -127,6 +127,19 @@ export default function OrderForm() {
         }
 
     }, [nameAndSurrName, address, zipCode,town, email, phone, statute])
+
+    const handleAddOrder = async () =>{
+        debugger;
+        await handleRealizeOrder({
+            nameAndSurrName,
+            address,
+            zipCode,
+            town,
+            email,
+            phone,
+            comments,
+        });
+    }
 
     const classes = useStyles();
     return (
@@ -282,6 +295,7 @@ export default function OrderForm() {
                         size='large'
                         variant='outlined'
                         disabled={disabled}
+                        onClick={handleAddOrder}
                     >
                         Złóż zamówienie
                     </Button>

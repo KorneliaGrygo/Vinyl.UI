@@ -958,24 +958,6 @@
       "userId": 5,
       "amount": 1,
       "id": 7
-    },
-    {
-      "albumId": "5",
-      "userId": 6,
-      "amount": 4,
-      "id": 8
-    },
-    {
-      "albumId": "1",
-      "userId": 6,
-      "amount": 5,
-      "id": 9
-    },
-    {
-      "albumId": "4",
-      "userId": 6,
-      "amount": 3,
-      "id": 10
     }
   ],
   "albumComments": [
@@ -1062,60 +1044,6 @@
     }
   ],
   "orders": [
-    {
-      "albums": [
-        {
-          "albumId": 6,
-          "name": "Pot Luck",
-          "band": "Elvis Presley",
-          "avatar": "EP_Pot_Luck.jpg",
-          "price": 49.99,
-          "amount": 1
-        }
-      ],
-      "sum": 49.99,
-      "userId": 6,
-      "orderState": "W trakcie realizacji",
-      "orderDetails": {
-        "nameAndSurrName": "312312",
-        "address": "31231",
-        "zipCode": "11-111",
-        "town": "1231212",
-        "email": "asdas@asddas.com",
-        "phone": "123123123",
-        "comments": "312312312321312312312"
-      },
-      "generatedOrderId": 231713,
-      "orderDate": "Wtorek 11.10.2022 15:15",
-      "id": 5
-    },
-    {
-      "albums": [
-        {
-          "albumId": 6,
-          "name": "Pot Luck",
-          "band": "Elvis Presley",
-          "avatar": "EP_Pot_Luck.jpg",
-          "price": 49.99,
-          "amount": 1
-        }
-      ],
-      "sum": 49.99,
-      "userId": 6,
-      "orderState": "W trakcie realizacji",
-      "orderDetails": {
-        "nameAndSurrName": "Damian",
-        "address": "Testowa2137",
-        "zipCode": "11-101",
-        "town": "Olsztyn",
-        "email": "amdas@dada.com",
-        "phone": "123123123",
-        "comments": "312312312312312312312"
-      },
-      "generatedOrderId": 229628,
-      "orderDate": "Środa 12.10.2022 18:15",
-      "id": 6
-    },
     {
       "albums": [
         {
@@ -1520,6 +1448,49 @@
       "generatedOrderId": 51500,
       "orderDate": "Sobota 05.11.2022 19:15",
       "id": 13
+    },
+    {
+      "albums": [
+        {
+          "albumId": 4,
+          "name": "A Date with Elvis",
+          "band": "Elvis Presley",
+          "avatar": "EP_ADateWithElvis.jpg",
+          "price": 49.99,
+          "amount": 3
+        },
+        {
+          "albumId": 1,
+          "name": "Elvis Is Back!",
+          "band": "Elvis Presley",
+          "avatar": "EP_ElvisIsBack.jpg",
+          "price": 49.99,
+          "amount": 5
+        },
+        {
+          "albumId": 5,
+          "name": "Something for Everybody",
+          "band": "Elvis Presley",
+          "avatar": "EP_SomethingForEverybody.jpg",
+          "price": 49.99,
+          "amount": 4
+        }
+      ],
+      "sum": 599.88,
+      "userId": 6,
+      "orderState": "W trakcie realizacji",
+      "orderDetails": {
+        "nameAndSurrName": "Kornelia",
+        "address": "Fajna23",
+        "zipCode": "11-123",
+        "town": "Olsztyn",
+        "email": "test@gmai.com",
+        "phone": "123123123",
+        "comments": "Tak"
+      },
+      "generatedOrderId": 131349,
+      "orderDate": "Środa 08.02.2023 23:06",
+      "id": 14
     }
   ]
 }
