@@ -7,6 +7,7 @@ import useAuthContext from '../hooks/useAuthContext';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import OrderItemList from './OrderItemList';
+const devliveryCost = 10.99;
 
 const useStyles = makeStyles((e) => {
     return {
@@ -69,13 +70,19 @@ const useStyles = makeStyles((e) => {
             height: '140px',
             padding: '25px'
         },
-        orderItemsDiv:{
-            width:"83%",
-            height:'400px',
+        orderItemsDiv: {
+            width: "83%",
+            maxHeight:'400px',
             overflow: "scroll",
-            overflowY:true,
+            overflowY: true,
+            padding: '10px',
+            marginBottom: '150px'
+        },
+        summary:{
+            marginLeft:'25px',
+            height:'100px', 
             padding:'10px',
-            marginBottom:'150px'
+            marginTop:'-130px'
         }
 
     }
@@ -196,26 +203,40 @@ export default function OrderDetails() {
                             {orderDetails.orderDetails.town} {orderDetails.orderDetails.zipCode}
                         </Typography>
                         <Button variant='outlined' size='medium' style={{
-                            marginTop:'5px'
+                            marginTop: '5px'
                         }}
-                            startIcon={<PictureAsPdfIcon/>}
+                            startIcon={<PictureAsPdfIcon />}
                         >
                             Pobierz fakture w formie PDF
                         </Button>
                     </Paper>
                     <Typography variant="h5" style={{
                         marginTop: '10px',
-                        marginBottom:"10px"
+                        marginBottom: "10px"
                     }}>
                         Zamówienie
                     </Typography>
                     <Paper className={classes.orderItemsDiv}>
-                        <OrderItemList items={orderDetails.albums} sum={orderDetails.sum}/>
+                        <OrderItemList items={orderDetails.albums} sum={orderDetails.sum} />
                     </Paper>
-                    <div>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum labore vero pariatur deserunt, possimus placeat voluptate cupiditate tempora aliquam sed sapiente doloremque culpa iusto nesciunt eligendi. Eum delectus eveniet maiores?
-                    </div>
-
+                    <Paper className={classes.summary}>
+                        <Typography variant='subtitle2' style={{
+                            fontSize: '18px'
+                        }}>
+                            Wartość zamówienia: {orderDetails.sum} zł.
+                        </Typography>
+                        <Typography variant='subtitle2' style={{
+                            fontSize: '18px'
+                        }}>
+                            Koszt dostawy: {devliveryCost} zł.
+                        </Typography>
+                        <Typography variant='subtitle1' style={{
+                            fontSize: '20px'
+                        }}>
+                            Do zapłaty: {(Number(orderDetails.sum) + devliveryCost).toFixed(2)} zł.
+                        </Typography>
+                    </Paper>
+                    <br></br>
                 </Container>
             }
         </>

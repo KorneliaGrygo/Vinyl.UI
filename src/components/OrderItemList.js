@@ -15,11 +15,6 @@ const useStyles = makeStyles((e) => {
             width: '50px',
             height: '50px'
         },
-        summary:{
-            marginLeft:'700px',
-            height:'100px', 
-            padding:'10px',
-        }
     }
 })
 export default function OrderItemList(props) {
@@ -71,24 +66,7 @@ export default function OrderItemList(props) {
                 </Paper>
             ))}
             <Divider/>
-            <Paper className={classes.summary}>
-                <Typography variant='subtitle2' style={{
-                    fontSize:'18px'
-                }}>
-                    Wartość zamówienia: {props.sum} zł.
-                </Typography>
-                <Typography variant='subtitle2'  style={{
-                    fontSize:'18px'
-                }}>
-                    Koszt dostawy: {devliveryCost} zł.
-                </Typography>
-                <Typography variant='subtitle1'  style={{
-                    fontSize:'20px'
-                }}>
-                    Do zapłaty: {(Number(props.sum) + devliveryCost).toFixed(2)} zł.
-                </Typography>
-                <Divider style={{background:'black'}}></Divider>
-            </Paper>
+
         </>
     )
 }
