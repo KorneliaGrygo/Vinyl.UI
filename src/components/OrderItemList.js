@@ -1,6 +1,6 @@
 import { Avatar, Button, Divider, makeStyles, Paper, Typography } from '@material-ui/core'
 import React from 'react'
-
+const devliveryCost = 10.99;
 const useStyles = makeStyles((e) => {
     return {
         container: {
@@ -80,12 +80,12 @@ export default function OrderItemList(props) {
                 <Typography variant='subtitle2'  style={{
                     fontSize:'18px'
                 }}>
-                    Koszt dostawy: {10.99} zł.
+                    Koszt dostawy: {devliveryCost} zł.
                 </Typography>
                 <Typography variant='subtitle1'  style={{
                     fontSize:'20px'
                 }}>
-                    Do zapłaty: {props.sum + 10.99} zł.
+                    Do zapłaty: {(Number(props.sum) + devliveryCost).toFixed(2)} zł.
                 </Typography>
                 <Divider style={{background:'black'}}></Divider>
             </Paper>
