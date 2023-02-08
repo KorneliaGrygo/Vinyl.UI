@@ -3,16 +3,15 @@ import { makeStyles } from '@material-ui/styles'
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { validate } from 'react-email-validator';
 
 const useStyles = makeStyles(() => {
     return {
         paper: {
             marginTop: "50px",
-            width: "Calc(100% - 480px)",
-            marginLeft: "120px",
+            width: "Calc(100% - 640px)",
+            marginLeft: "190px",
             border: '1px solid lightgray',
-            height: '600px',
+            height: '500px'
         },
         title: {
             marginTop: '50px',
@@ -36,17 +35,17 @@ const useStyles = makeStyles(() => {
         },
         rightSideForm: {
             marginLeft: "700px",
-            marginTop: "-440px"
+            marginTop: "-505px"
         },
         checkbox: {
             width: '750px'
         },
         orderButton: {
-            marginLeft: '50px',
-            marginTop: '70px',
-            height: '100px',
-            width: '350px',
-            fontSize: "25px",
+            marginLeft: '770px',
+            marginTop: '50px',
+            height: '150px',
+            width: '500px',
+            fontSize: "40px",
             fontWeight: '400'
         },
         errorText:{
@@ -56,7 +55,7 @@ const useStyles = makeStyles(() => {
 })
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-export default function OrderForm({handleRealizeOrder}) {
+export default function OrderForm() {
 
     const [nameAndSurrName, setNameAndSurrName] = useState('');
     const [address, setAddress] = useState('');
@@ -75,34 +74,6 @@ export default function OrderForm({handleRealizeOrder}) {
     const [zipCodeError, setZipCodeError] = useState('')
     const [townError, setTownError] = useState('')
     const [phoneError, setPhoneError] = useState('')
-    const [emailError, setEmailError] = useState('');
-
-
-    const handleAddOrder = async () =>{
-        
-        await handleRealizeOrder({
-            nameAndSurrName,
-            address,
-            zipCode,
-            town,
-            email,
-            phone,
-            comments,
-        });
-    }
-
-
-    const isThereAnyErrorLeft = ( ) =>{
-        return !(nameError || addressError || zipCodeError || townError || phoneError || emailError)
-    }
-
-    const validateEmail = async () => {
-        if (!validate(email)) {
-            setEmailError("Podany adres email jest nieprawidłowy!")
-        } else {
-            setEmailError("")
-        }
-    }
 
     const validateNameAndSurname = () => {
         if(nameAndSurrName.length < 3){
@@ -141,22 +112,21 @@ export default function OrderForm({handleRealizeOrder}) {
     }
 
     useEffect(() => {
+        debugger;
         if (nameAndSurrName &&
             address &&
             zipCode &&
             town &&
             email &&
             phone &&
-            statute && isThereAnyErrorLeft()) {
+            statute) {
 
             setDisabled(false)
         }else{
             setDisabled(true)
         }
 
-    }, [nameAndSurrName, address, zipCode,town, email, phone, statute,
-        nameError, addressError, zipCodeError, emailError, phoneError
-    ])
+    }, [nameAndSurrName, address, zipCode,town, email, phone, statute])
 
     const classes = useStyles();
     return (
@@ -167,9 +137,8 @@ export default function OrderForm({handleRealizeOrder}) {
             >
                 Dane zamawiającego
             </Typography>
-            <Paper className={classes.paper}>
-
             <Grid container={true} md={2} columnSpacing={2}>
+                <Paper className={classes.paper}>
                     <div className={classes.leftSizeForm}>
 
                         <TextField className={classes.inputField}
@@ -245,10 +214,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            onBlur={validateEmail}
-                            error={emailError}
                         />
-                        {emailError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {emailError}</Typography> </div>}
                     </div>
                     <Divider orientation="vertical" className={classes.divider} />
                     <div className={classes.rightSideForm}>
@@ -257,13 +223,13 @@ export default function OrderForm({handleRealizeOrder}) {
                             variant='outlined'
                             color="secondary"
                             label='Dodatkowe informacje'
-                            placeholder='Wprowadź dodatkowe informację dotyczące zamówienia'
+                            placeholder='Wprowadź jakieś dodatkowe informację dotyczące zamówienia'
                             multiline
                             value={comments}
                             onChange={(e) => setComments(e.target.value)}
                         />
                         <Tooltip
-                            title="Chwilowo dostępna jest jedynie płatność przy odbiorze."
+                            title="Chwilowo jest tylko dostępna płatność przy odbiorze"
                             arrow
                             placement='top-start'
                         >
@@ -272,12 +238,27 @@ export default function OrderForm({handleRealizeOrder}) {
                                 control={<Checkbox
                                     {...label}
                                     color="secondary"
-                                    checked={paymentMethod}
+                                    checked={!paymentMethod}
                                     disabled
                                 />}
-                                label="Płatność przy odbiorze *"
+                                label="Płatność z góry *"
                             />
                         </Tooltip>
+
+
+                        <div>
+                        <FormControlLabel
+                            className={classes.checkbox}
+                            control={<Checkbox
+                                {...label}
+                                color="secondary"
+                                checked={newsletter}
+                                onChange={() => setNewSletter(prev => !prev)}
+                                />}
+                                label="Czy chcesz otrzymywać cotygodniowy Newsletter z informacjami o nowych albumach?"
+                        />
+                        </div>
+
 
                         <FormControlLabel
                             className={classes.checkbox}
@@ -290,37 +271,24 @@ export default function OrderForm({handleRealizeOrder}) {
                         />
                         <Typography style={{
                             marginTop: "-35px",
-                            marginBottom: '10px',
                             marginLeft: '30px',
                             width: '500px'
                         }}>
                             Akceptuje <Link>regulamin</Link> sklepu *
                         </Typography>
-
-                        <div>
-                        <FormControlLabel
-                            className={classes.checkbox}
-                            control={<Checkbox
-                                {...label}
-                                color="secondary"
-                                checked={newsletter}
-                                onChange={() => setNewSletter(prev => !prev)}
-                                />}
-                                label="Chcę otrzymywać Newsletter"
-                        />
-                        </div>
-
-                        <Button
+                    </div>
+                    <Button
                         className={classes.orderButton}
-                        size="medium"
+                        size='large'
                         variant='outlined'
                         disabled={disabled}
-                        onClick={handleAddOrder}
-                    > Złóż zamówienie
+                    >
+                        Złóż zamówienie
                     </Button>
-                    </div>
-                </Grid>
-            </Paper>
+                </Paper>
+
+            </Grid>
+
         </>
     )
 }
