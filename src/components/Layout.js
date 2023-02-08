@@ -129,7 +129,7 @@ export default function Layout({ children }) {
                         <AlbumIcon 
                             className={classes.iconStyle}
                         />
-                         Vinyl.pl
+                         VinylHaven.pl 
                     </Typography>
                     {user && (
                         <>

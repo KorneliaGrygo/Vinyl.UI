@@ -27,7 +27,7 @@ export default function Home() {
           textAlign: "center",
           wordWrap: "break-word",
         }}>
-          Vinyl.pl jest to portal społecznościowy zrzeszający fanów płyt winylowych. <br />
+          VinylHaven.pl jest to portal społecznościowy zrzeszający fanów płyt winylowych. <br />
           <br />
           Możesz wyszukiwać interesujące Cię albumy oraz tworzyć własne kolekcje. <br />
           <br />
