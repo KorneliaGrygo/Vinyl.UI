@@ -10,6 +10,7 @@ import {
 } from '../hooks/RequestHandlers'
 import FavAlbums from '../components/FavAlbums'
 import ProfileReadOnly from '../components/ProfileReadOnly'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const useStyles = makeStyles({
     avatar: {
@@ -62,10 +63,17 @@ export default function Profile() {
     const [user, setUser] = useState(null);
     const [favAlbums, setFavAlbums] = useState([]);
     const { userId } = useParams();
+    const history = useHistory()
+    
+    if(userId === "undefined"){
+        history.push('/login')
+    }
+
     const [isEditMode, setIsEditMode] = useState(false);
     const [userLoggedInProfile, setUserLoggedInProfile] = useState(userLoggedIn?.id == userId)
     const [shouldRefresh, setShouldRefresh] = useState(false);
 
+    
     const handleUpdateUserProfileData = async (userData) => {
         const response = await handleUserProfileUpdate(userData, userId);
         if (response === 200) {
@@ -79,6 +87,8 @@ export default function Profile() {
         }
     }
     useEffect(() => {
+      
+
         const getData = async () => {
             let user = await handleGetUserById(userId);
             if (user) {

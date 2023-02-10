@@ -94,7 +94,6 @@ export default function OrderDetails() {
     const { user } = useAuthContext();
     const { orderId } = useParams();
     const [orderDetails, setOrderDetails] = useState();
-    debugger;
     const handleGetOrderDetails = async () => {
         const order = await handleGetOrderDetailsByOrderIdAndUserId(orderId, user?.id);
         if (order) {

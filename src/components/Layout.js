@@ -101,17 +101,17 @@ export default function Layout({ children }) {
         },
         {
             text: 'Profil',
-            path: user?.id ? `/profil/${user.id}` : '/login', 
+            path: `/profil/${user?.id}`, 
             icon: <PersonIcon/>
         },
         {
             text: 'Koszyk',
-            path: user?.id ? `/koszyk` : '/login', 
+            path: `/koszyk` , 
             icon: <ShoppingCartIcon/>
         },
         {
             text: 'Zamówienia',
-            path: user?.id ? `/orders` : '/login', 
+            path:  `/orders` , 
             icon: <ListAltIcon/>
         }
 
@@ -159,7 +159,7 @@ export default function Layout({ children }) {
                                 button
                                 key={item.text}
                                 onClick={() => history.push(item.path)}
-                                className={`${classes.menuButton} ${location.pathname == item.path ? classes.active : null}`}
+                                className={`${classes.menuButton} ${location.pathname === item.path ? classes.active : null}`}
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText

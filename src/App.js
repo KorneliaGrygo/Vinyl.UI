@@ -60,42 +60,48 @@ function App() {
             <Route path="/wyszukaj">
               <Search />
             </Route>
-            
+
             <Route path="/profil/:userId">
-              <Profile/>
+              <Profile />
             </Route>
             <Route path='/albums/details/:albumId'>
-              <AlbumDetails/>
+              <AlbumDetails />
             </Route>
             <Route path="/AddAlbums">
               {user?.role === "admin" &&
-                <AddAlbums/>
+                <AddAlbums />
               }
               {
-                user?.role !== "admin" && 
-                <Home/>
+                user?.role !== "admin" &&
+                <Home />
               }
 
             </Route>
             <Route path="/koszyk">
               {!user &&
-                <Login/>
+                <Login />
               }
               {user &&
-                <ShoppingCart/>
+                <ShoppingCart />
               }
             </Route>
 
             <Route path="/orders">
-              <OrdersLists/>
+              {!user &&
+                <Login />
+              }
+              {user &&
+                <OrdersLists />
+
+              }
             </Route>
 
             <Route path="/order/details/:orderId">
               {
-                !user && <Login/>  
+                !user && <Login />
               }
               {
-                user && <OrderDetails/>
+                user && <OrderDetails />
               }
             </Route>
 
