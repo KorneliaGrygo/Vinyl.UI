@@ -1,7 +1,6 @@
 import { createContext, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 
-
 let user = {
     id: null,
     email: null,
@@ -31,7 +30,7 @@ export const authReducer = (state, action) =>{
 export function AuthContextProvider({children}) {
     const [state, dispatch] = useReducer(authReducer, {
         user : user.id === null ? JSON.parse(localStorage.getItem("user")) : user,
-        userId : user?.id 
+        userId : user?.id
     })
   return (
     <AuthContext.Provider value={{...state, dispatch}}>

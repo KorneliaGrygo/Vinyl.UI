@@ -120,18 +120,16 @@ const useStyles = makeStyles(theme => {
 })
 
 export default function AlbumDetails() {
-
     const classes = useStyles();
     const { albumId } = useParams();
     const { user } = useAuthContext();
-
     const [album, setAlbum] = useState(null);
     const [bandsAlbums, setBandsAlbums] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
     const [isShopping, setIsShopping] = useState(false);
     const [comments, setComments] = useState(null);
     const [commentText, setCommentText] = useState('');
-    const [refresh, setRefhresh] = useState(false);
+    const [refresh, setRefresh] = useState(false);
     const [refreshFavorite, setRefreshFavorite] = useState(false);
     const [refreshShopping, setRefreshShopping] = useState(false);
     const [error, setError] = useState("");
@@ -143,10 +141,23 @@ export default function AlbumDetails() {
             const statusCode = await handleAddNewComentToAlbum(user.id, albumId, user.nick, commentText, user.avatar);
             if (statusCode === 201) {
                 setCommentText('');
-                setRefhresh(prev => !prev);
+                setRefresh(prev => !prev);
             }
         }
     }
+    useEffect(() => {
+        const controller = abortController.current;
+        const fetchComments = async () => {
+            let comments = await handleGetAlbumsCommentsSection(albumId);
+            setComments(comments);
+        }
+        fetchComments();
+        return () => {
+            controller.abort();
+        }
+    }, [refresh, albumId])
+
+
     const handleAddOrDeleteFromFavorites = async () => {
         if (isFavorite) {
             await handleDeleteFromFavorites(isFavorite.id);
@@ -156,6 +167,24 @@ export default function AlbumDetails() {
             setRefreshFavorite(prev => !prev)
         }
     }
+    useEffect(() => {
+        const controller = abortController.current;
+
+        const fetchIsFavorite = async () => {
+            let isFavorite = await handleCheckIfUserAddedAlbumToFavorites(user?.id ?? 0, albumId);
+            if(isFavorite){
+                setIsFavorite(isFavorite[0]);
+            }else{
+                setIsFavorite(false);
+            }
+        }
+        fetchIsFavorite();
+        
+        return () => {
+            controller.abort();
+        }
+    }, [refreshFavorite, albumId])
+
 
     const handleAddOrDeleteFromShopping = async () => {
         if (isShopping) {
@@ -166,6 +195,24 @@ export default function AlbumDetails() {
             setRefreshShopping(prev => !prev)
         }
     }
+    useEffect(() => {
+        const controller = abortController.current;
+
+        const fetchIsShopping = async () => {
+            let isShopping = await handleCheckIfUserAddedAlbumToShopping(user?.id ?? 0, albumId);
+            if(isShopping){
+                setIsShopping(isShopping[0]);
+            }else{
+                setIsShopping(false);
+            }
+        }
+        fetchIsShopping();
+
+        return () => {
+            controller.abort();
+        }
+    }, [refreshShopping, albumId])
+
 
     useEffect(() => {
         const controller = abortController.current;
@@ -185,55 +232,6 @@ export default function AlbumDetails() {
         }
     }, [albumId])
 
-    useEffect(() => {
-
-        const controller = abortController.current;
-        const fetchComments = async () => {
-            let comments = await handleGetAlbumsCommentsSection(albumId);
-            setComments(comments);
-        }
-        fetchComments();
-        return () => {
-            controller.abort();
-        }
-    }, [refresh, albumId])
-
-    useEffect(() => {
-        const controller = abortController.current;
-
-        const fetchIsFavorite = async () => {
-            let isFavorite = await handleCheckIfUserAddedAlbumToFavorites(user?.id ?? 0, albumId);
-            if(isFavorite){
-                setIsFavorite(isFavorite[0]);
-            }else{
-                setIsFavorite(false);
-            }
-        }
-        fetchIsFavorite();
-
-        return () => {
-            controller.abort();
-        }
-    }, [refreshFavorite, albumId])
-
-    useEffect(() => {
-      
-        const controller = abortController.current;
-
-        const fetchIsShopping = async () => {
-            let isShopping = await handleCheckIfUserAddedAlbumToShopping(user?.id ?? 0, albumId);
-            if(isShopping){
-                setIsShopping(isShopping[0]);
-            }else{
-                setIsShopping(false);
-            }
-        }
-        fetchIsShopping();
-
-        return () => {
-            controller.abort();
-        }
-    }, [refreshShopping, albumId])
     
     return (
 
@@ -295,7 +293,7 @@ export default function AlbumDetails() {
                         <div className={classes.commentSection} >
                             <CommentSection comments={comments}
                              handleDeleteInvalidComment = {handleDeleteInvalidComment}
-                             shouldRefresh = {setRefhresh}
+                             shouldRefresh = {setRefresh}
                              />
                         </div>
                         <RecommendedAlbums bandsAlbums={bandsAlbums?.filter(album => album.id != albumId)}/>

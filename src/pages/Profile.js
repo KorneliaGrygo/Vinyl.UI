@@ -59,21 +59,21 @@ const useStyles = makeStyles({
 
 export default function Profile() {
     const classes = useStyles();
-    const { user: userLoggedIn, dispatch } = useAuthContext();
+    
+    const { user : userLoggedIn, dispatch } = useAuthContext();
+
+
     const [user, setUser] = useState(null);
     const [favAlbums, setFavAlbums] = useState([]);
     const { userId } = useParams();
-    const history = useHistory()
-    
+    const history = useHistory();
     if(userId === "undefined"){
         history.push('/login')
     }
-
     const [isEditMode, setIsEditMode] = useState(false);
-    const [userLoggedInProfile, setUserLoggedInProfile] = useState(userLoggedIn?.id == userId)
+    const userLoggedInProfile = userLoggedIn?.id == userId;
     const [shouldRefresh, setShouldRefresh] = useState(false);
 
-    
     const handleUpdateUserProfileData = async (userData) => {
         const response = await handleUserProfileUpdate(userData, userId);
         if (response === 200) {
@@ -87,8 +87,6 @@ export default function Profile() {
         }
     }
     useEffect(() => {
-      
-
         const getData = async () => {
             let user = await handleGetUserById(userId);
             if (user) {
@@ -100,8 +98,6 @@ export default function Profile() {
             }
         }
         getData();
-        setUserLoggedInProfile(userLoggedIn?.id == userId);
-
     }, [userId, shouldRefresh])
 
     return (
@@ -133,7 +129,6 @@ export default function Profile() {
                 </>
             }
             {!user && <p>Profil o takim Id nie istnieje</p>}
-
         </div>
     )
 }

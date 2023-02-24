@@ -41,10 +41,10 @@ const useStyles = makeStyles(() => {
             width: '750px'
         },
         orderButton: {
-            marginLeft: '770px',
+            marginLeft: '700px',
             marginTop: '50px',
-            height: '150px',
-            width: '500px',
+            height: '100px',
+            width: '400px',
             fontSize: "40px",
             fontWeight: '400'
         },
@@ -74,6 +74,7 @@ export default function OrderForm({handleRealizeOrder}) {
     const [zipCodeError, setZipCodeError] = useState('')
     const [townError, setTownError] = useState('')
     const [phoneError, setPhoneError] = useState('')
+    const [emailError, setEmailError] = useState('')
 
     const validateNameAndSurname = () => {
         if(nameAndSurrName.length < 3){
@@ -108,6 +109,13 @@ export default function OrderForm({handleRealizeOrder}) {
             setPhoneError("Te pole nie może być puste.")
         }else{
             setPhoneError('')
+        }
+    }
+    const validateEmail = () => {
+        if(email.length === 0){
+            setEmailError("Te pole nie może być puste.")
+        }else{
+            setEmailError('')
         }
     }
 
@@ -225,7 +233,10 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            onBlur={() => validateEmail()}
+                            error={emailError}
                         />
+                        {emailError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {emailError}</Typography> </div>}
                     </div>
                     <Divider orientation="vertical" className={classes.divider} />
                     <div className={classes.rightSideForm}>
@@ -266,7 +277,7 @@ export default function OrderForm({handleRealizeOrder}) {
                                 checked={newsletter}
                                 onChange={() => setNewSletter(prev => !prev)}
                                 />}
-                                label="Czy chcesz otrzymywać cotygodniowy Newsletter z informacjami o nowych albumach?"
+                                label="Czy chcesz otrzymywać cotygodniowy Newsletter?"
                         />
                         </div>
 
@@ -290,7 +301,7 @@ export default function OrderForm({handleRealizeOrder}) {
                     </div>
                     <Button
                         className={classes.orderButton}
-                        size='large'
+                        size='small'
                         variant='outlined'
                         disabled={disabled}
                         onClick={handleAddOrder}

@@ -45,7 +45,6 @@ const Signup = () => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [nick, setNick] = useState("");
-    const [text, setText] = useState("");
     const [disabled, setDisabled] = useState(true);
     const [emailError, setEmailError] = useState("");
     const [nickError, setNickError] = useState("");
@@ -64,7 +63,6 @@ const Signup = () => {
             setEmailError("")
         }
     }
-
     const validateNick = async () => {
         if (await handleGetNick(nick)) {
             setNickError("Podana nazwa użytkownika jest już zajęta!")
@@ -72,7 +70,6 @@ const Signup = () => {
             setNickError("")
         }
     }
-
     const validatePhone = () => {
         if (isNaN(phone) || phone.length !== 9) {
             setPhoneError("Podany numer telefonu ma zły format!")
@@ -80,7 +77,6 @@ const Signup = () => {
             setPhoneError("")
         }
     }
-
     const validatePassword = () => {
         if (password.length < 6) {
             setPasswordError("Podane hasło jest za krótkie! Musi mieć minimum 6 znaków.")
@@ -101,17 +97,19 @@ const Signup = () => {
     }, [email, password, confirmPassword, nick, phone, isTerms,
         emailError, passwordError, nickError, phoneError])
 
-    const handleSingIn = async (e) => {
+    const handleSignUp = async (event) => {
         setRegisterError("");
-        e.preventDefault();
-        const statusCode = await handleRegisterUser({
+        event.preventDefault();
+
+        const user = {
             email,
             nick,
             gender: gender ?? "Nie podano",
             phone,
             password
-        });
-
+        }
+        const statusCode = await handleRegisterUser(user);
+        
         if (statusCode === 201) {
             history.push("/login")
         } else {
@@ -159,7 +157,7 @@ const Signup = () => {
                     />
                     <TextField fullWidth label='Powtórz hasło' placeholder="Powtórz hasło"
                         type='password' color="secondary" variant="outlined" required value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        onChange={(event) => setConfirmPassword(event.target.value)}
                         onBlur={validatePassword} error={passwordError} helperText={passwordError}
                     />
                     <FormControlLabel
@@ -171,7 +169,7 @@ const Signup = () => {
                     />
                     <Button type='submit' variant='outlined' color='secondary'
                         size='large' style={btnstyle} fullWidth disabled={disabled}
-                        onClick={handleSingIn}
+                        onClick={(event) => handleSignUp(event)}
                     >Zarejestruj się</Button>
                 </form>
                 <Button

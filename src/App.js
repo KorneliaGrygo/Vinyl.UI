@@ -30,7 +30,8 @@ const theme = createTheme({
   }
 })
 
-function App() {
+
+const App = () => {
   const { user } = useAuthContext();
 
   return (

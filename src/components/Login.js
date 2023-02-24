@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import {handleGetUser} from '../hooks/RequestHandlers';
 import useAuthContext from '../hooks/useAuthContext';
 
+const btnstyle = { margin: '8px 0' }
+
 const useStyles = makeStyles((theme) => {
     return {
         inputFields: {
@@ -31,7 +33,6 @@ const useStyles = makeStyles((theme) => {
 
 
 const Login = () => {
-    const btnstyle = { margin: '8px 0' }
     const classes = useStyles();
     const history = useHistory();
     const [email, setEmail] = useState("");
@@ -59,7 +60,7 @@ const Login = () => {
             setError("Podano zły email lub hasło")
         } else {
             dispatch({ type: "LOGIN", payload: user })
-            history.push("/")
+            history.push(`/profil/${user.id}`)
         }
     }
 
@@ -81,6 +82,8 @@ const Login = () => {
                         color="secondary"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        error={error}
+                        
                     />
                     <TextField
                         label='Hasło'
@@ -92,6 +95,7 @@ const Login = () => {
                         variant="outlined"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        error={error}
 
                     />
                     <div

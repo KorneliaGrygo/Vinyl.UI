@@ -45,15 +45,12 @@ export default function CommentSection(props) {
     const classes = useStyles();
     const history = useHistory();
     const { user } = useAuthContext()
-
     const handleDeleteCommentByAdmin = async (comment) => {
         const status =  await props.handleDeleteInvalidComment(comment);
         if(status === 200){
             props.shouldRefresh();
         }
     }
-
-
     return (
         <>
             {props.comments && props.comments.map(comment => (
@@ -80,9 +77,6 @@ export default function CommentSection(props) {
 
 
                                 />} </Typography>
-
-
-
                     </div>
                     <div className={classes.commentItSelf}>
                         {comment.comment}

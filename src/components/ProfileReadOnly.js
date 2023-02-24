@@ -16,7 +16,7 @@ export default function ProfileReadOnly({
     setIsEditMode,
     userLoggedInProfile,
     handleUpdateUserProfileData }) {
-
+        
     const [gender, setGender] = useState(user.gender);
     const [nationality, setNationality] = useState(user.nationality);
     const [phone, setPhone] = useState(user.phone);
@@ -35,7 +35,7 @@ export default function ProfileReadOnly({
     const toBase64 = (file) => new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result); // tu jest return
+        reader.onload = () => resolve(reader.result);
         reader.onerror = error => reject(error);
     });
 
@@ -73,7 +73,7 @@ export default function ProfileReadOnly({
                         }
                     </div>
                     <div className={classes.child}>
-                        {!isEditMode &&
+                        {!isEditMode && userLoggedInProfile &&
                             <Button
                                 variant="outlined"
                                 style={{
@@ -82,7 +82,6 @@ export default function ProfileReadOnly({
                                     right: '-1000px'
                                 }}
                                 onClick={() => setIsEditMode(prev => !prev)}
-                                disabled={!userLoggedInProfile}
                             >
                                 Edytuj profil
                             </Button>

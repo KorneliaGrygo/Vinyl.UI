@@ -24,8 +24,6 @@ export default function ShoppingCart() {
     return Math.floor((Math.random() * (max - min + 1)) + min) ;
   }
 
-
-
   const handleRealizeOrder = async (orderDetails) => {
     
       const date = new Date().toUTCString();
@@ -35,7 +33,7 @@ export default function ShoppingCart() {
       const dataToSave = {
 
         albums: albums.map(album => ({
-            albumId : album.id,
+            albumId: album.id,
             name: album.name,
             band: album.band,
             avatar: album.avatarUrl,
@@ -54,7 +52,7 @@ export default function ShoppingCart() {
 
       if(responseObject.statusCode === 201){
           await handleDeleteWhistListItemByUserId(amounts);
-          history.push(`/orders`) // przygotować nowy komponent
+          history.push(`/orders`)
       }else{
         setOrderError("Coś poszło nie tak podczas składania zamówienia, spróbuj ponownie później.")
       }
@@ -99,14 +97,12 @@ export default function ShoppingCart() {
           />
           <ShoppingSummary sum={sum} setShowform={setShowform} />
 
-
           {showForm &&
             <OrderForm
             handleRealizeOrder={handleRealizeOrder}
   
             />}
         </>
-
 
       }
       {!whishList.some(w => w.albumId == orders[0]?.id) &&

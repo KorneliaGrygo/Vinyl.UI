@@ -88,6 +88,8 @@ export default function Layout({ children }) {
     const history = useHistory()
     const location = useLocation()
     const { user, dispatch } = useAuthContext()
+
+    
     const menuItems = [
         {
             text: 'Strona Główna',

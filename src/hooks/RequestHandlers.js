@@ -1,21 +1,28 @@
 import axios from "axios";
-
 const baseURL = "http://localhost:8000/"
-
 const axiosInstance = axios.create({
     baseURL
 });
 
 export const handleRegisterUser = async (user) => {
-    const response = await axiosInstance.post("users", {
-        email: user.email,
-        nick: user.nick,
-        gender: user.gender,
-        phone: user.phone,
-        password: user.password,
-        description: "",
-    })
-    return response.status; //201 to jest gitówka mordo, stworzylo sie
+
+    try {
+        const response = await axiosInstance.post("users",
+            {
+                email: user.email,
+                nick: user.nick,
+                gender: user.gender,
+                phone: user.phone,
+                password: user.password,
+                description: "",
+            })
+        return response.status;
+    } catch (error) {
+        debugger;
+        console.log(error);
+        return 500;
+    }
+
 }
 
 export const handleGetEmail = async (email) => {
@@ -93,7 +100,7 @@ export const handleAddToShopping = async (albumId, userId) => {
     const response = await axiosInstance.post("shoppingAlbums", {
         albumId,
         userId,
-        amount:1
+        amount: 1
     })
     return response.status;
 }
@@ -135,7 +142,7 @@ const getidsOnly = (albumsIdsoObjects) => {
 }
 export const handleGetFavoriteAlbums = async (userId) => {
     const responseAlbums = await axiosInstance.get(`usersAlbums?userId=${userId}`)
-    if(!responseAlbums.data.length){
+    if (!responseAlbums.data.length) {
         return null;
     }
     const albumsIds = responseAlbums.data?.map(x => x.albumId);
@@ -144,7 +151,7 @@ export const handleGetFavoriteAlbums = async (userId) => {
 }
 export const handleGetShoppingAlbums = async (userId) => {
     const responseAlbums = await axiosInstance.get(`shoppingAlbums?userId=${userId}`)
-    if(!responseAlbums.data){
+    if (!responseAlbums.data) {
         return null;
     }
     const albumsIds = responseAlbums.data?.map(x => x.albumId);
@@ -152,8 +159,8 @@ export const handleGetShoppingAlbums = async (userId) => {
     return responseMatchedAlbums.data;
 }
 
-export const handleUserProfileUpdate = async(user, userId) => {
-    const response = await axiosInstance.patch(`users/${userId}`,{
+export const handleUserProfileUpdate = async (user, userId) => {
+    const response = await axiosInstance.patch(`users/${userId}`, {
         gender: user.gender,
         nationality: user.nationality,
         phone: user.phone,
@@ -169,24 +176,24 @@ export const handleGetOrders = async (userId) => {
     return response.data;
 }
 export const handleUpdateWishListAlbumAmount = async (id, amount) => {
-    const response = await axiosInstance.patch(`shoppingAlbums/${id}`,{
+    const response = await axiosInstance.patch(`shoppingAlbums/${id}`, {
         amount: Number(amount <= 0 ? 1 : amount)
     })
     return response.data;
 }
 
 export const handleAddNewOrder = async (data) => {
-    const response = await axiosInstance.post("orders",data);
+    const response = await axiosInstance.post("orders", data);
     return {
         statusCode: response.status,
         data: response.data
     };
 }
-export const handleDeleteWhistListItemByUserId = async (whishList) =>{
+export const handleDeleteWhistListItemByUserId = async (whishList) => {
 
     const promises = whishList.map(w => {
         return axiosInstance.delete(`shoppingAlbums/${w.id}`)
-    }) 
+    })
 
     return await Promise.all(promises);
 }
