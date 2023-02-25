@@ -7,8 +7,8 @@ import useAuthContext from '../hooks/useAuthContext';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import OrderItemList from './OrderItemList';
+import { Link } from 'react-router-dom';
 const devliveryCost = 10.99;
-
 const useStyles = makeStyles((e) => {
     return {
         paperBoard: {
@@ -72,17 +72,17 @@ const useStyles = makeStyles((e) => {
         },
         orderItemsDiv: {
             width: "83%",
-            maxHeight:'400px',
+            maxHeight: '400px',
             overflow: "scroll",
             overflowY: true,
             padding: '10px',
             marginBottom: '150px'
         },
-        summary:{
-            marginLeft:'25px',
-            height:'100px', 
-            padding:'10px',
-            marginTop:'-130px'
+        summary: {
+            marginLeft: '25px',
+            height: '100px',
+            padding: '10px',
+            marginTop: '-130px'
         }
 
     }
@@ -103,7 +103,6 @@ export default function OrderDetails() {
     useEffect(() => {
         handleGetOrderDetails();
     }, [orderId, user])
-
     return (
         <>
             {orderDetails &&
@@ -115,7 +114,7 @@ export default function OrderDetails() {
                         Nr zamówienia: {orderDetails.generatedOrderId}
                     </Typography>
                     <Typography variant='subtitle1' >
-                        złożone  {orderDetails.orderDate}
+                        Złożone  {orderDetails.orderDate}
                     </Typography>
                     <Divider className={classes.divider} />
                     <Typography variant="h5" style={{
@@ -131,10 +130,9 @@ export default function OrderDetails() {
                             }} />  Kurier (płatne przy odbiorze)
                         </Typography>
                     </Paper>
-
                     <div className={classes.titleOfDetails}>
                         <Typography variant='h6'>
-                            Adres Odbioru
+                            Adres Dostawy
                         </Typography>
                         <Typography variant='h6' style={{
                             marginLeft: '480px'
@@ -143,9 +141,7 @@ export default function OrderDetails() {
                         </Typography>
 
                     </div>
-
                     <div className={classes.containerForOrderDetails}>
-
                         <Paper className={classes.chilfOfOrderDetails}>
                             <Typography variant='subtitle2' className={classes.fontForAddressDetails}>
                                 {orderDetails.orderDetails.address}
@@ -238,6 +234,19 @@ export default function OrderDetails() {
                     <br></br>
                 </Container>
             }
+            {!orderDetails &&
+                <Typography style={{ marginLeft: '55px', marginTop: "25px" }} variant="h5">
+                    Zamówienie o id: {orderId} nie istnieje. Przez do strony z listą zamówień.  <Link to={"/orders"}>
+                        Kliknij tutaj.</Link>
+                </Typography>
+            }
         </>
     )
 }
+
+
+
+
+
+
+

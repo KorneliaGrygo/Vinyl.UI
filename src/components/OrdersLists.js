@@ -24,7 +24,7 @@ const useStyles = makeStyles((e) => {
             padding: '15px',
         },
         avatarContainer: {
-            marginLeft:'425px'
+            marginLeft: '425px'
         },
         avatar: {
             width: '50px',
@@ -36,11 +36,11 @@ const useStyles = makeStyles((e) => {
             display: 'inline-block',
             marginLeft: '40px',
         },
-        formControl:{
-            marginLeft:'330px',
-            marginTop:'25px',
-            marginBottom:'-20px',
-            display:'inline-block'
+        formControl: {
+            marginLeft: '330px',
+            marginTop: '25px',
+            marginBottom: '-20px',
+            display: 'inline-block'
         }
 
     }
@@ -56,7 +56,7 @@ export default function OrdersLists() {
 
     const handleGetOrders = async () => {
         if (user) {
-            const data = await handleGetOrderList(user?.id, sortDir, sortBy );
+            const data = await handleGetOrderList(user?.id, sortDir, sortBy);
             if (data) {
                 setOrders(data);
             }
@@ -79,21 +79,21 @@ export default function OrdersLists() {
         <Container>
             <FormControl size='small' className={classes.formControl}>
                 <InputLabel size='small'>Sortuj:</InputLabel>
-                    <Select
-                        value={sortDir}
-                        onChange={handleChangeSortDir}
-                    >
-                        <MenuItem value={"desc"}>Rosnąco</MenuItem>
-                        <MenuItem value={"asc"}>Malejąco</MenuItem>
+                <Select
+                    value={sortDir}
+                    onChange={(event) => handleChangeSortDir(event)}
+                >
+                    <MenuItem value={"desc"}>Rosnąco</MenuItem>
+                    <MenuItem value={"asc"}>Malejąco</MenuItem>
                 </Select>
-                
-                <InputLabel style={{marginLeft:'147px', width:'200px'}} size='small'>Po czym sortować:</InputLabel>
-                    <Select style={{marginLeft:'55px'}}
-                        value={sortBy}
-                        onChange={handleChangeSortBy}
-                    >
-                        <MenuItem value={"id"}>Data</MenuItem>
-                        <MenuItem value={"sum"}>Cena</MenuItem>
+
+                <InputLabel style={{ marginLeft: '147px', width: '200px' }} size='small'>Po czym sortować:</InputLabel>
+                <Select style={{ marginLeft: '55px' }}
+                    value={sortBy}
+                    onChange={handleChangeSortBy}
+                >
+                    <MenuItem value={"id"}>Data</MenuItem>
+                    <MenuItem value={"sum"}>Cena</MenuItem>
                 </Select>
             </FormControl>
 
@@ -112,8 +112,8 @@ export default function OrdersLists() {
                         </div>
 
                         <div style={{
-                                marginLeft: order.albums.lenght < 2 ? "900px": "450px"
-                            }}>
+                            marginLeft: order.albums.lenght < 2 ? "900px" : "450px"
+                        }}>
                             {order.albums && order.albums.map(album => (
                                 <Avatar
                                     className={classes.avatar}
@@ -130,8 +130,8 @@ export default function OrdersLists() {
                             <Typography>
                                 Do zapłacenia  {order.sum} zł
                             </Typography>
-                            <Button 
-                                onClick = {() => history.push(`/order/details/${order.id}`)}
+                            <Button
+                                onClick={() => history.push(`/order/details/${order.id}`)}
                                 variant="outlined" color='secondary' size='small'>
                                 {order.orderState}
                             </Button>

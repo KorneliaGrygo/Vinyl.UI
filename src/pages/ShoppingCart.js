@@ -8,9 +8,10 @@ import ShoppingSummary from '../components/ShoppingSummary'
 import useAuthContext from '../hooks/useAuthContext'
 import { handleAddNewOrder, handleDeleteWhistListItemByUserId, handleGetOrders, handleGetShoppingAlbums } from '../hooks/RequestHandlers'
 import {formatDate} from '../Utils/DateFormaters';
-
+const generateRandomIdInRange = (min, max) => {
+  return Math.floor((Math.random() * (max - min + 1)) + min) ;
+}
 export default function ShoppingCart() {
-
   const [orders, setOrders] = useState([]);
   const { user } = useAuthContext();
   const [sum, setSum] = useState(0.0);
@@ -19,19 +20,12 @@ export default function ShoppingCart() {
   const [showForm, setShowform] = useState(false);
   const [orderError, setOrderError] = useState('');
   const history = useHistory();
-
-  const generateRandomIdInRange = (min, max) => {
-    return Math.floor((Math.random() * (max - min + 1)) + min) ;
-  }
-
+  
   const handleRealizeOrder = async (orderDetails) => {
-    
       const date = new Date().toUTCString();
       const albums = orders;
       const amounts = whishList;
-
       const dataToSave = {
-
         albums: albums.map(album => ({
             albumId: album.id,
             name: album.name,
@@ -47,26 +41,22 @@ export default function ShoppingCart() {
         generatedOrderId: generateRandomIdInRange(10000, 250000),
         orderDate: formatDate(date)
       }
-
       const responseObject = await handleAddNewOrder(dataToSave);
-
       if(responseObject.statusCode === 201){
           await handleDeleteWhistListItemByUserId(amounts);
-          history.push(`/orders`)
+            history.push(`/orders`)
       }else{
         setOrderError("Coś poszło nie tak podczas składania zamówienia, spróbuj ponownie później.")
       }
-
   }
-  
   useEffect(() => {
+
     if (user.id) {
       handleGetOrders(user.id).then(data => {
         if (data) {
           setWhishList(data)
         }
       }).catch(x => console.log(x.message))
-
       handleGetShoppingAlbums(user.id).then(data => {
         if (data) {
           setOrders(data)
@@ -74,9 +64,7 @@ export default function ShoppingCart() {
       }).catch(x => console.log(x.message))
     }
   }, [user.id, refresh])
-
   return (
-
     <>
       <Typography
         variant='h4'
@@ -100,7 +88,6 @@ export default function ShoppingCart() {
           {showForm &&
             <OrderForm
             handleRealizeOrder={handleRealizeOrder}
-  
             />}
         </>
 

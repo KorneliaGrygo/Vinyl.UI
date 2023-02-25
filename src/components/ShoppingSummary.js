@@ -56,7 +56,7 @@ export default function ShoppingSummary({ sum, setShowform }) {
             marginTop: '30px',
             marginBottom: '30px'
           }}
-          onClick={()=>setShowform(true)}
+          onClick={()=> setShowform(true)}
         > Wprowadź dane do zamówienia </Button>
       </Paper>
     </div>

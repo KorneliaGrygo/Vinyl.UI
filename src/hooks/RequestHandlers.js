@@ -177,7 +177,7 @@ export const handleGetOrders = async (userId) => {
 }
 export const handleUpdateWishListAlbumAmount = async (id, amount) => {
     const response = await axiosInstance.patch(`shoppingAlbums/${id}`, {
-        amount: Number(amount <= 0 ? 1 : amount)
+        amount: Number(amount)
     })
     return response.data;
 }

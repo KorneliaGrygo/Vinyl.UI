@@ -47,50 +47,47 @@ const useStyles = makeStyles(theme => {
 
 export default function OrdersSummary({ orders, whishList, setRefresh, setSum, setWhishList }) {
   const classes = useStyles()
-  const history = useHistory();
-
+  const history = useHistory()
   
-  const sumPrizes = (prizes) => {
+  const sumPrices = (prices) => {
     let sum = 0;
-    prizes.forEach(element => {
-      sum += element.prize
+    prices.forEach(element => {
+      sum += element.worth
     });
     setSum(sum.toFixed(2))
   }
-
   const countSumOfOrder = (ordersPrizes, whishList) => {
-    const prizes = ordersPrizes.map(album => ({
-      prize: album.price * whishList?.find(w => w.albumId == album.id)?.amount
+    const prices = ordersPrizes.map(album => ({
+      worth: album.price * whishList?.find(w => w.albumId == album.id)?.amount
     }))
-    sumPrizes(prizes);
+    sumPrices(prices);
   }
 
   useEffect(() => {
     countSumOfOrder(orders, whishList);
-  }, [orders, whishList])
+  }, [whishList])
 
   const handleUpdateValue = (index, value, list) => {
-    
     if (value && Number(value) > 0) {
-      const newWhislist = [...list]
-      newWhislist.find(w => w.albumId == index).amount = Number(value < 1 ? 1 : value)
+      const newWhislist = [...list] 
+      newWhislist.find(w => w.albumId == index).amount = Number(value) 
+      debugger;
       setWhishList(newWhislist);
       handleUpdateWishListAlbumAmount(whishList.find(w => w.albumId == index).id, value)
         .catch(x => console.log(x.message))
     }
   }
+  
   const handleDeleteFromShoppingList = (id) => {
     handleDeleteFromShopping(id)
     setRefresh(prev => !prev)
   }
-
   return (
     <div style={{
       width: "Calc(100% - 480px)",
       marginTop:'25px',
       marginLeft:'125px'
     }}>
- 
       <Paper>
         {orders && orders.map(album => (
           
@@ -113,6 +110,9 @@ export default function OrdersSummary({ orders, whishList, setRefresh, setSum, s
                   size='small'
                   style={{
                     width: Number(whishList?.find(w => w.albumId == album.id)?.amount) > 9 ?  80 : 70,
+                  }}
+                  InputProps={{
+                    max: 10, min: 1 
                   }}
                   onChange={(e) => handleUpdateValue(album.id, e.target.value, whishList)}
                 />

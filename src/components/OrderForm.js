@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { validate } from 'react-email-validator';
 const useStyles = makeStyles(() => {
     return {
         paper: {
@@ -53,10 +53,8 @@ const useStyles = makeStyles(() => {
         }
     }
 })
-
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function OrderForm({handleRealizeOrder}) {
-
     const [nameAndSurrName, setNameAndSurrName] = useState('');
     const [address, setAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
@@ -68,7 +66,6 @@ export default function OrderForm({handleRealizeOrder}) {
     const [statute, setStatute] = useState(false);
     const [newsletter, setNewSletter] = useState(false);
     const [disabled, setDisabled] = useState(true);
-
     const [nameError, setNameError] = useState('')
     const [addressError, setAddressError] = useState('')
     const [zipCodeError, setZipCodeError] = useState('')
@@ -114,11 +111,12 @@ export default function OrderForm({handleRealizeOrder}) {
     const validateEmail = () => {
         if(email.length === 0){
             setEmailError("Te pole nie może być puste.")
+        }else if(!validate(email)){
+            setEmailError('Podany adres email jest nieprawidłowy!')
         }else{
             setEmailError('')
         }
     }
-
     useEffect(() => {
         if (nameAndSurrName &&
             address &&
@@ -127,14 +125,11 @@ export default function OrderForm({handleRealizeOrder}) {
             email &&
             phone &&
             statute) {
-
             setDisabled(false)
         }else{
             setDisabled(true)
         }
-
     }, [nameAndSurrName, address, zipCode,town, email, phone, statute])
-
     const handleAddOrder = async () =>{
         await handleRealizeOrder({
             nameAndSurrName,
@@ -168,7 +163,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={nameAndSurrName}
                             onChange={(e) => setNameAndSurrName(e.target.value)}
-                            onBlur={() => validateNameAndSurname()}
+                            onBlur={validateNameAndSurname}
                             error={nameError}
                         />
                         {nameError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {nameError}</Typography> </div>}
@@ -181,7 +176,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             value={address}
                             required
                             onChange={(e) => setAddress(e.target.value)}
-                            onBlur={() => validateAddress()}
+                            onBlur={validateAddress}
                             error={addressError}
                         />
                         {addressError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {addressError}</Typography> </div>}
@@ -194,7 +189,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             value={zipCode}
                             required
                             onChange={(e) => setZipCode(e.target.value)}
-                            onBlur={() => validateZipCode()}
+                            onBlur={validateZipCode}
                             error={zipCodeError}
                         />
                         {zipCodeError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {zipCodeError}</Typography> </div>}
@@ -207,7 +202,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={town}
                             onChange={(e) => setTown(e.target.value)}
-                            onBlur={() => validateTown()}
+                            onBlur={validateTown}
                             error={townError}
                         />
                         {townError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {townError}</Typography> </div>}
@@ -220,7 +215,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
-                            onBlur={() => validatePhone()}
+                            onBlur={validatePhone}
                             error={phoneError}
                         />
                         {phoneError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {phoneError}</Typography> </div>}
@@ -233,7 +228,7 @@ export default function OrderForm({handleRealizeOrder}) {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            onBlur={() => validateEmail()}
+                            onBlur={validateEmail}
                             error={emailError}
                         />
                         {emailError && <div className={classes.errorText}> <Typography  variant='p1' color="error"> {emailError}</Typography> </div>}
@@ -266,8 +261,6 @@ export default function OrderForm({handleRealizeOrder}) {
                                 label="Płatność z góry *"
                             />
                         </Tooltip>
-
-
                         <div>
                         <FormControlLabel
                             className={classes.checkbox}
@@ -280,8 +273,6 @@ export default function OrderForm({handleRealizeOrder}) {
                                 label="Czy chcesz otrzymywać cotygodniowy Newsletter?"
                         />
                         </div>
-
-
                         <FormControlLabel
                             className={classes.checkbox}
                             control={<Checkbox

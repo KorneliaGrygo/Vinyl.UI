@@ -1335,20 +1335,14 @@
     {
       "albumId": "18",
       "userId": 6,
-      "amount": 1,
+      "amount": 2,
       "id": 8
     },
     {
       "albumId": "17",
       "userId": 6,
-      "amount": 1,
+      "amount": 8,
       "id": 9
-    },
-    {
-      "albumId": "15",
-      "userId": 6,
-      "amount": 2,
-      "id": 10
     }
   ],
   "albumComments": [
